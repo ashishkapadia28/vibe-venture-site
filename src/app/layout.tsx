@@ -4,6 +4,8 @@ import "./globals.css";
 import { GridOverlay } from "@/components/GridOverlay";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SmoothScrolling } from "@/components/SmoothScrolling";
+import { CookieConsent } from "@/components/CookieConsent";
+import { Analytics } from "@/components/Analytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,14 +49,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable} h-full antialiased`}
+      className={`${inter.variable} ${outfit.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
+      <body className="min-h-screen flex flex-col font-sans text-foreground bg-background">
         <SmoothScrolling>
           <GridOverlay />
           {children}
           <WhatsAppButton />
+          <CookieConsent />
         </SmoothScrolling>
+        <Analytics />
       </body>
     </html>
   );

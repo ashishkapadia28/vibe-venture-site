@@ -15,6 +15,7 @@ interface CaseStudy {
   gradient: string;
   accentColor: string;
   image: string;
+  slug?: string;
 }
 
 export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
@@ -25,7 +26,8 @@ export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
   useEffect(() => {
     const fetchCaseStudies = async () => {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || "http://localhost:3001";
+        const baseUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || "http://localhost:3001";
+        const apiUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
         const res = await fetch(`${apiUrl}/api/case-studies?is_published=true`, {
           cache: 'no-store'
         });
@@ -84,59 +86,53 @@ export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
 
         {/* Case Study Cards using Blueprint Dashed Grid */}
         <div className="grid grid-cols-1 gap-8 mt-16">
-          {caseStudies.map((study, index) => (
+          {caseStudies.map((study, index) => {
+            const themeBase = study.accentColor ? study.accentColor.replace('text-', '') : 'primary';
+            return (
             <AnimatedSection key={study.id} delay={index * 0.1} className="border border-dashed border-border/60">
-              <div
+              <Link
+                href={`/case-studies/${study.slug || study.id}`}
                 onMouseEnter={() => setHoveredId(study.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className="group relative overflow-hidden bg-background transition-all duration-500 hover:bg-primary/5"
+                className="group block relative overflow-hidden bg-background transition-all duration-500 hover:bg-primary/5 lg:h-[360px]"
               >
                 {/* Gradient BG on hover */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${study.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
                 />
 
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-0">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-0 h-full">
                   {/* Left Content: 3/5 */}
-                  <div className="lg:col-span-3 p-6 md:p-8 flex flex-col justify-between gap-6 border-r border-dashed border-border/60">
+                  <div className="lg:col-span-3 p-6 md:p-8 flex flex-col gap-6 border-r border-dashed border-border/60">
                     <div>
                       {/* Tag + Arrow */}
                       <div className="flex items-center justify-between mb-6">
-                        <span className={`text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm bg-primary/5 border border-primary/20 ${study.accentColor}`}>
+                        <span className={`text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm bg-${themeBase}/5 border border-${themeBase}/20 ${study.accentColor}`}>
                           {study.tag}
                         </span>
-                        <div className="w-10 h-10 rounded-sm border border-border/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground -translate-x-4 group-hover:translate-x-0">
+                        <div className={`w-10 h-10 rounded-sm border border-border/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-${themeBase} group-hover:bg-${themeBase} group-hover:text-primary-foreground -translate-x-4 group-hover:translate-x-0`}>
                           <ArrowUpRight size={18} />
                         </div>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl md:text-2xl font-heading font-bold mb-2 leading-tight tracking-tight group-hover:text-primary transition-colors duration-300">
+                      <h3 className={`text-xl md:text-2xl font-heading font-bold mb-2 leading-tight tracking-tight group-hover:text-${themeBase} transition-colors duration-300`}>
                         {study.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {study.description}
-                      </p>
-                    </div>
-
-                    {/* Metrics */}
-                    <div className="grid grid-cols-3 gap-4 pt-5 border-t border-dashed border-border/60">
-                      {study.metrics.map((metric) => (
-                        <div key={metric.label} className="flex flex-col gap-1">
-                          <span className={`text-xl md:text-2xl font-heading font-black tracking-tighter ${study.accentColor}`}>
-                            {metric.value}
-                          </span>
-                          <span className="text-[10px] text-muted-foreground font-bold tracking-widest uppercase">
-                            {metric.label}
-                          </span>
-                        </div>
-                      ))}
+                      <div>
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                          {study.description}
+                        </p>
+                        <span className={`inline-flex items-center gap-1 mt-3 text-sm font-semibold text-${themeBase} group-hover:underline underline-offset-4`}>
+                          Read more <ArrowRight size={14} />
+                        </span>
+                      </div>
                     </div>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 pt-1">
+                    <div className="flex flex-wrap gap-2 pt-5 border-t border-dashed border-border/60">
                       {study.tech.map((t) => (
                         <span
                           key={t}
@@ -149,7 +145,7 @@ export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
                   </div>
 
                   {/* Right Image: 2/5 */}
-                  <div className="lg:col-span-2 relative overflow-hidden min-h-[300px] lg:min-h-0 bg-secondary/10">
+                  <div className="lg:col-span-2 relative overflow-hidden min-h-[300px] lg:min-h-0 bg-secondary/10 h-full">
                     <img
                       src={study.image}
                       alt={study.title}
@@ -157,9 +153,9 @@ export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
                     />
                   </div>
                 </div>
-              </div>
+              </Link>
             </AnimatedSection>
-          ))}
+          )})}
         </div>
 
         {/* Bottom CTA strip */}

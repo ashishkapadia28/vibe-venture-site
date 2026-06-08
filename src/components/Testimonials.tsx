@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { AnimatedSection } from "./AnimatedSection";
 import { Star, Quote } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -119,14 +120,14 @@ const testimonialsData: Testimonial[] = [
   }
 ];
 
-const categories = ["All", "Fintech & Web3", "SaaS & AI", "Enterprise Cloud"];
+
 
 export function Testimonials() {
   // We manage the order of the deck using a state array
   const [cards, setCards] = useState<Testimonial[]>(testimonialsData);
 
   // When a card is dragged out and dropped, we move it to the back of the deck
-  const handleDragEnd = (event: any, info: any, index: number) => {
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     // If the card is dragged far enough horizontally or vertically
     if (Math.abs(info.offset.x) > 100 || Math.abs(info.offset.y) > 100) {
       setCards((prevCards) => {
@@ -179,89 +180,89 @@ export function Testimonials() {
             
             {/* Column 1 */}
             <div className="hidden lg:flex flex-col gap-4 relative h-full justify-center translate-y-16">
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[0].avatar} alt={testimonialsData[0].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[0].avatar} alt={testimonialsData[0].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
             </div>
 
             {/* Column 2 */}
             <div className="hidden lg:flex flex-col gap-4 relative h-full justify-center translate-y-8">
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[1].avatar} alt={testimonialsData[1].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[1].avatar} alt={testimonialsData[1].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[2].avatar} alt={testimonialsData[2].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[2].avatar} alt={testimonialsData[2].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
             </div>
 
             {/* Column 3 */}
             <div className="hidden md:flex flex-col gap-4 relative h-full justify-center translate-y-2">
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[3].avatar} alt={testimonialsData[3].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[3].avatar} alt={testimonialsData[3].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
             </div>
 
             {/* Column 4 */}
             <div className="flex flex-col gap-4 relative h-full justify-center -translate-y-4">
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border-2 border-primary scale-105">
-                <img src={testimonialsData[4].avatar} alt={testimonialsData[4].author} className="w-full h-full object-cover rounded-2xl grayscale-0 transition-all duration-300" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border-2 border-primary scale-105">
+                <Image src={testimonialsData[4].avatar} alt={testimonialsData[4].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
             </div>
 
             {/* Column 5 - Center */}
             <div className="flex flex-col gap-4 relative h-full justify-center -translate-y-10">
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[5].avatar} alt={testimonialsData[5].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[5].avatar} alt={testimonialsData[5].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
             </div>
 
             {/* Column 6 */}
             <div className="flex flex-col gap-4 relative h-full justify-center -translate-y-4">
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[6].avatar} alt={testimonialsData[6].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[6].avatar} alt={testimonialsData[6].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
             </div>
 
             {/* Column 7 */}
             <div className="hidden md:flex flex-col gap-4 relative h-full justify-center translate-y-2">
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[7].avatar} alt={testimonialsData[7].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[7].avatar} alt={testimonialsData[7].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
             </div>
 
             {/* Column 8 */}
             <div className="hidden lg:flex flex-col gap-4 relative h-full justify-center translate-y-8">
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src={testimonialsData[8].avatar} alt={testimonialsData[8].author} className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src={testimonialsData[8].avatar} alt={testimonialsData[8].author} fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
             </div>
 
             {/* Column 9 */}
             <div className="hidden lg:flex flex-col gap-4 relative h-full justify-center translate-y-16">
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=256&q=80" alt="Client" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300">
+                <Image src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=256&q=80" alt="Client" fill sizes="(max-width: 768px) 100vw, 20vw" className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-300" />
               </div>
-              <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
+              <div className="w-full aspect-4/5 rounded-2xl bg-linear-to-br from-secondary/30 via-secondary/10 to-transparent border border-border/10 backdrop-blur-sm" />
             </div>
 
           </div>
 
           {/* Fade overlays on top and bottom of the arch container */}
-          <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-20" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none z-20" />
+          <div className="absolute inset-x-0 top-0 h-12 bg-linear-to-b from-background to-transparent pointer-events-none z-20" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-background via-background/90 to-transparent pointer-events-none z-20" />
         </div>
 
         {/* Playable 3D Card Stack Container (Framer Motion Swipable) */}
@@ -290,7 +291,7 @@ export function Testimonials() {
                       drag={isTop ? true : false}
                       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
                       dragElastic={0.8}
-                      onDragEnd={(e, info) => handleDragEnd(e, info, index)}
+                      onDragEnd={(e, info) => handleDragEnd(e, info)}
                       initial={{ 
                         opacity: 0, 
                         y: 100, 

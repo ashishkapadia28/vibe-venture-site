@@ -10,7 +10,6 @@ async function getJobs() {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || "http://localhost:3001";
     const res = await fetch(`${apiUrl}/api/jobs?is_active=true`, {
-      // Do not cache the response to see live updates immediately
       cache: 'no-store',
     });
     
