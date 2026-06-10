@@ -78,7 +78,12 @@ export function ContactForm() {
       const country = (form.elements.namedItem('country') as HTMLInputElement).value;
       const project_info = (form.elements.namedItem('project_info') as HTMLTextAreaElement).value;
 
-      const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL || 'http://localhost:3001';
+      // Handle trailing slashes from the environment variable just in case
+      let adminUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || process.env.NEXT_PUBLIC_ADMIN_URL || 'http://localhost:3001';
+      if (adminUrl.endsWith('/')) {
+        adminUrl = adminUrl.slice(0, -1);
+      }
+      
       const res = await fetch(`${adminUrl}/api/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
