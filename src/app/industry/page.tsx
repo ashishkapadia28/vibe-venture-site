@@ -20,9 +20,11 @@ const stats = [
   { icon: Users, value: "50+", label: "Enterprise Partners" },
 ];
 
+export const dynamic = 'force-dynamic';
+
 export default async function IndustryPage() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://dummy.supabase.co";
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || "dummy";
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   const { data: dbIndustries } = await supabase

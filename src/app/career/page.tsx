@@ -6,9 +6,11 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { OpenPositions } from "@/components/OpenPositions";
 
+export const dynamic = 'force-dynamic';
+
 async function getJobs() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || "http://localhost:3001";
+    const apiUrl = process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:3001";
     const res = await fetch(`${apiUrl}/api/jobs?is_active=true`, {
       cache: 'no-store',
     });
