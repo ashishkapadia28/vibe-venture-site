@@ -6,6 +6,7 @@ import { Building2, Shield, TrendingUp, ArrowRight, Users } from "lucide-react";
 import type { Metadata } from "next";
 import { IndustryShowcase } from "@/components/IndustryShowcase";
 import Link from "next/link";
+import { createClient } from "@supabase/supabase-js";
 
 export const metadata: Metadata = {
   title: "Industries | Vibe Venture",
@@ -19,7 +20,16 @@ const stats = [
   { icon: Users, value: "50+", label: "Enterprise Partners" },
 ];
 
-export default function IndustryPage() {
+export default async function IndustryPage() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  const { data: dbIndustries } = await supabase
+    .from('industries')
+    .select('*')
+    .order('created_at', { ascending: true });
+
   return (
     <>
       <Navbar />
@@ -110,7 +120,7 @@ export default function IndustryPage() {
         </section>
 
         {/* ─── INDUSTRIES SHOWCASE ─── */}
-        <IndustryShowcase />
+        <IndustryShowcase dbIndustries={dbIndustries || []} />
 
         {/* ─── WHY US SECTION ─── */}
         <section className="py-24 bg-background relative overflow-hidden">

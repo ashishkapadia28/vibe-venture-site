@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 function CustomSelect({ id, label, options, value, onChange, placeholder }: any) {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,6 +59,8 @@ function CustomSelect({ id, label, options, value, onChange, placeholder }: any)
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   
   // State for custom selects
   const [industry, setIndustry] = useState("");
@@ -66,12 +69,41 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMsg("");
     
-    // Simulate an API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    try {
+      const form = e.currentTarget;
+      const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+      const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+      const country = (form.elements.namedItem('country') as HTMLInputElement).value;
+      const project_info = (form.elements.namedItem('project_info') as HTMLTextAreaElement).value;
+
+      const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL || 'http://localhost:3001';
+      const res = await fetch(`${adminUrl}/api/inquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          country: country || null,
+          industry: industry || null,
+          service: service || null,
+          project_info,
+          cf_turnstile_response: turnstileToken
+        })
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Failed to submit inquiry");
+      }
+
+      setIsSuccess(true);
+    } catch (err: any) {
+      setErrorMsg(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSuccess) {
@@ -163,10 +195,25 @@ export function ContactForm() {
         <textarea id="project_info" required rows={4} className="w-full bg-background border border-dashed border-border/80 rounded-md px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-sm resize-none placeholder:text-muted-foreground/50" placeholder="Tell us about your project goals, timeline, and budget..."></textarea>
       </div>
 
+      {/* Error Message */}
+      {errorMsg && (
+        <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md">
+          {errorMsg}
+        </div>
+      )}
+
+      {/* Turnstile Widget */}
+      <div className="flex justify-center">
+        <Turnstile 
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""} 
+          onSuccess={(token) => setTurnstileToken(token)} 
+        />
+      </div>
+
       {/* Submit Button */}
       <button 
         type="submit" 
-        disabled={isSubmitting}
+        disabled={isSubmitting || !turnstileToken}
         className="w-full bg-primary text-primary-foreground py-4 rounded-md font-semibold transition-all duration-300 hover:bg-primary/90 mt-4 text-base border border-primary hover:shadow-[0_0_20px_rgba(4,173,127,0.3)] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {isSubmitting ? (

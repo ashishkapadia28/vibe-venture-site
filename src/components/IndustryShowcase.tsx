@@ -3,16 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Building2, HeartPulse, ShoppingCart, Truck, GraduationCap, Briefcase } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import * as LucideIcons from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
 import { cn } from "@/lib/utils";
 
-const industries = [
+const fallbackIndustries = [
   {
     id: "finance",
     title: "FinTech & Banking",
     description: "Secure, scalable, and compliant financial technology solutions that drive digital transformation and enhance customer experiences.",
-    icon: Building2,
+    icon: LucideIcons.Building2,
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
     stats: ["Bank-grade Security", "Real-time Processing", "Regulatory Compliance"]
   },
@@ -20,46 +21,25 @@ const industries = [
     id: "healthcare",
     title: "Healthcare & MedTech",
     description: "HIPAA-compliant platforms, telemedicine apps, and health data management systems designed for modern patient care.",
-    icon: HeartPulse,
+    icon: LucideIcons.HeartPulse,
     image: "https://images.unsplash.com/photo-1538108149393-cebb47cbd241?auto=format&fit=crop&q=80&w=1200",
     stats: ["HIPAA Compliant", "Telehealth Solutions", "EHR Integration"]
-  },
-  {
-    id: "ecommerce",
-    title: "E-Commerce & Retail",
-    description: "High-conversion storefronts, headless commerce architectures, and seamless payment integrations for exponential growth.",
-    icon: ShoppingCart,
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200",
-    stats: ["Headless Architecture", "Conversion Optimized", "Global Payments"]
-  },
-  {
-    id: "logistics",
-    title: "Logistics & Supply Chain",
-    description: "Intelligent tracking systems, fleet management, and operational dashboards that bring visibility to complex supply chains.",
-    icon: Truck,
-    image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c1590f?auto=format&fit=crop&q=80&w=1200",
-    stats: ["Real-time Tracking", "Route Optimization", "Inventory Management"]
-  },
-  {
-    id: "education",
-    title: "EdTech & E-Learning",
-    description: "Interactive learning management systems (LMS), virtual classrooms, and scalable platforms for global education providers.",
-    icon: GraduationCap,
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200",
-    stats: ["Custom LMS", "Video Streaming", "Interactive Assessments"]
-  },
-  {
-    id: "enterprise",
-    title: "Enterprise SaaS",
-    description: "Custom B2B software, internal tooling, and cloud-native applications designed to automate workflows and boost productivity.",
-    icon: Briefcase,
-    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200",
-    stats: ["Cloud Native", "Microservices", "API Integrations"]
   }
 ];
 
-export function IndustryShowcase() {
+export function IndustryShowcase({ dbIndustries }: { dbIndustries?: any[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  // Transform DB industries or use fallback
+  const industries = dbIndustries && dbIndustries.length > 0 ? dbIndustries.map(ind => ({
+    id: ind.id,
+    title: ind.name,
+    description: ind.description || "Transforming businesses with custom digital solutions.",
+    icon: (LucideIcons as any)[ind.icon_name || "Building2"] || LucideIcons.Building2,
+    image: ind.image_url || "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
+    stats: ind.stats?.length > 0 ? ind.stats : ["Domain Expertise", "Secure Architecture", "Scalable Growth"]
+  })) : fallbackIndustries;
+
   const activeIndustry = industries[activeIndex];
   const ActiveIcon = activeIndustry.icon;
 
@@ -163,7 +143,7 @@ export function IndustryShowcase() {
                   </p>
 
                   <div className="flex flex-col gap-4 mb-10">
-                    {activeIndustry.stats.map((stat, i) => (
+                    {activeIndustry.stats.map((stat: string, i: number) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                           <div className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -175,7 +155,7 @@ export function IndustryShowcase() {
 
                   <div className="mt-auto pt-6 border-t border-dashed border-border/60">
                     <Link
-                      href={`/contact?industry=${activeIndustry.id}`}
+                      href={`/contact?industry=${activeIndustry.title}`}
                       className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors group/link"
                     >
                       <span>Discuss {activeIndustry.title} Solutions</span>
