@@ -83,7 +83,6 @@ export function FAQ() {
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 max-w-none relative z-10">
         <div className="relative">
           {/* Top dashed border */}
-          <div className="absolute -top-12 -left-8 -right-8 h-[1.5px] dashed-x" />
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 border-l border-t border-dashed border-border/60">
             {/* Left: Sticky header */}
@@ -162,7 +161,6 @@ export function FAQ() {
           </div>
 
           {/* Bottom dashed border */}
-          <div className="absolute -bottom-12 -left-8 -right-8 h-[1.5px] dashed-x" />
         </div>
       </div>
     </section>

@@ -127,7 +127,7 @@ export function CookieConsent() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-8"
           >
-            <div className="mx-auto max-w-5xl bg-white dashed-box p-6 md:px-10 md:py-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden">
+            <div className="mx-auto max-w-5xl bg-white p-6 md:px-10 md:py-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden">
               <div className="flex items-start gap-5 relative z-10">
                 <div className="bg-primary/10 p-3.5 rounded shrink-0">
                   <Cookie className="w-7 h-7 text-primary" />
@@ -169,7 +169,7 @@ export function CookieConsent() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full max-w-2xl bg-white dashed-box rounded shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              className="w-full max-w-2xl bg-white rounded shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             >
               <div className="p-6 md:p-8 border-b border-border/50 overflow-y-auto" data-lenis-prevent="true">
                 <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Preference Center</h2>

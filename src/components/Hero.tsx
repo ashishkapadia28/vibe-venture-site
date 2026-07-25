@@ -76,7 +76,7 @@ export function Hero() {
       </div>
 
       {/* Trusted Brands Footer Strip */}
-      <div className="dashed-x w-full relative z-10">
+      <div className=" w-full relative z-10">
         <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
           <div className="text-center py-6">
             <p className="text-muted-foreground font-semibold tracking-widest text-sm uppercase">
@@ -86,26 +86,21 @@ export function Hero() {
           
           {/* Explicit horizontal line element forced onto integer pixel grid */}
           <div className="relative h-[2px] w-full">
-            <div className="absolute top-0 bottom-0 -left-4 md:-left-8 -right-4 md:-right-8 dashed-x" />
           </div>
 
           <div className="flex items-center justify-between overflow-hidden">
             <div className="py-8 flex-1 flex justify-center relative group cursor-pointer">
               <span className="font-heading font-medium text-2xl tracking-widest opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">AMORE</span>
               {/* Vertical divider */}
-              <div className="absolute right-0 top-0 bottom-0 w-[2px] dashed-y" />
             </div>
             <div className="py-8 flex-1 flex justify-center relative group cursor-pointer">
               <span className="font-heading font-medium text-2xl tracking-widest opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">TRISHIA</span>
-              <div className="absolute right-0 top-0 bottom-0 w-[2px] dashed-y" />
             </div>
             <div className="py-8 flex-1 justify-center relative group cursor-pointer hidden sm:flex">
               <span className="font-heading font-medium text-2xl tracking-widest text-center opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">KRISHNA CLINIC</span>
-              <div className="absolute right-0 top-0 bottom-0 w-[2px] dashed-y" />
             </div>
             <div className="py-8 flex-1 justify-center relative group cursor-pointer hidden md:flex">
               <span className="font-heading font-medium text-2xl tracking-widest opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">ORCHIES</span>
-              <div className="absolute right-0 top-0 bottom-0 w-[2px] dashed-y" />
             </div>
             <div className="py-8 flex-1 justify-center group cursor-pointer hidden lg:flex">
               <span className="font-heading font-medium text-2xl tracking-widest opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">ARMONIA</span>

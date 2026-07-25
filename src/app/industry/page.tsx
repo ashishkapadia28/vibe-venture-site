@@ -88,7 +88,6 @@ export default async function IndustryPage() {
 
           {/* Stats strip — dashed borders top & bottom */}
           <div className="relative">
-            <div className="dashed-x w-full" />
             <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
               <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-dashed border-border/60">
                 {stats.map((stat, index) => {
@@ -117,7 +116,6 @@ export default async function IndustryPage() {
                 })}
               </div>
             </div>
-            <div className="dashed-x w-full" />
           </div>
         </section>
 

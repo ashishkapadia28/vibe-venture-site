@@ -49,7 +49,6 @@ export function ServicesWhy() {
 
         {/* Header */}
         <div className="relative mb-16">
-          <div className="absolute -top-8 -left-8 -right-8 h-[1.5px] dashed-x" />
           <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-8">
             <div className="max-w-xl">
               <p className="text-primary font-bold tracking-widest text-sm uppercase mb-4">
@@ -66,7 +65,6 @@ export function ServicesWhy() {
               </p>
             </div>
           </AnimatedSection>
-          <div className="absolute -bottom-8 -left-8 -right-8 h-[1.5px] dashed-x" />
         </div>
 
         {/* Two-column layout: reasons grid + differentiators list */}
@@ -128,7 +126,6 @@ export function ServicesWhy() {
 
         {/* Bottom border spacer */}
         <div className="relative mt-0">
-          <div className="absolute top-0 -left-8 -right-8 h-[1.5px] dashed-x" />
         </div>
 
       </div>

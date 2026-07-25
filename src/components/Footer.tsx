@@ -98,7 +98,7 @@ export function Footer() {
 
             {/* Company Column */}
             <div>
-              <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Company</h4>
+              <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Legal</h4>
               <ul className="space-y-[14px]">
                 <li><Link href="/career" className="text-[13px] hover:text-white transition-colors">Career</Link></li>
                 <li><Link href="/privacy" className="text-[13px] hover:text-white transition-colors">Privacy policy</Link></li>

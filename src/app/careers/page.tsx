@@ -122,8 +122,6 @@ export default function CareersPage() {
             </AnimatedSection>
 
             <div className="relative">
-              <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top z-20 pointer-events-none" />
-              <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left z-20 pointer-events-none" />
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative z-10">
                 {coreValues.map((value, index) => (
@@ -132,8 +130,6 @@ export default function CareersPage() {
                     delay={index * 0.1}
                     className="p-10 md:p-14 group bg-background relative overflow-hidden flex flex-col justify-center"
                   >
-                    <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 pointer-events-none" />
-                    <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y z-20 pointer-events-none" />
 
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
 
@@ -157,8 +153,6 @@ export default function CareersPage() {
 
         {/* ─── PERKS & BENEFITS ─── */}
         <section className="py-24 relative z-10 bg-secondary/30">
-          <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top z-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 pointer-events-none" />
           
           <div className="container mx-auto px-4 md:px-8 max-w-7xl">
             <AnimatedSection>
@@ -220,8 +214,6 @@ export default function CareersPage() {
             </AnimatedSection>
 
             <div className="relative">
-              <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top z-20 pointer-events-none" />
-              <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left z-20 pointer-events-none" />
               
               <div className="flex flex-col relative z-10">
                 {openRoles.map((role, index) => (
@@ -230,8 +222,6 @@ export default function CareersPage() {
                     delay={index * 0.1}
                     className="p-6 md:p-8 group bg-background relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6"
                   >
-                    <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 pointer-events-none" />
-                    <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y z-20 pointer-events-none" />
                     
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
 

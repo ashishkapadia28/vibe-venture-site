@@ -84,7 +84,6 @@ export function Metrics() {
         {/* Section Header matched with Features.tsx */}
         <div className="relative mb-16">
           {/* Top dashed border */}
-          <div className="absolute -top-8 -left-8 -right-8 h-[1.5px] dashed-x" />
 
           <AnimatedSection className="pt-8 pb-2">
             <h2 className="text-3xl md:text-4xl font-heading font-bold tracking-tight text-foreground mb-3">
@@ -96,7 +95,6 @@ export function Metrics() {
           </AnimatedSection>
 
           {/* Bottom dashed border */}
-          <div className="absolute -bottom-8 -left-8 -right-8 h-[1.5px] dashed-x" />
         </div>
 
         {/* Clean Grid Layout exactly matching Features.tsx blueprint grid */}

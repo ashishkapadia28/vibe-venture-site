@@ -43,8 +43,6 @@ export default function ContactPage() {
 
           {/* Quick Contact Info Row */}
           <div className="relative mb-16">
-            <div className="absolute -top-6 -left-12 -right-12 h-[1.5px] dashed-x opacity-50 hidden md:block" />
-            <div className="absolute -bottom-6 -left-12 -right-12 h-[1.5px] dashed-x opacity-50 hidden md:block" />
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-dashed border-border/80 md:border-none">
               
@@ -86,7 +84,6 @@ export default function ContactPage() {
           {/* Main Interaction Area: Centered Form */}
           <div className="relative max-w-4xl mx-auto">
             {/* Top Structural Line */}
-            <div className="absolute top-0 -left-12 -right-12 h-[1.5px] dashed-x opacity-50 hidden md:block" />
             
             <div className="border border-dashed border-border/80 bg-secondary/10 relative overflow-hidden">
               
@@ -108,7 +105,6 @@ export default function ContactPage() {
             </div>
             
             {/* Bottom Structural Line */}
-            <div className="absolute bottom-0 -left-12 -right-12 h-[1.5px] dashed-x opacity-50 hidden md:block" />
           </div>
           
         </div>

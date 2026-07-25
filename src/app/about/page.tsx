@@ -140,7 +140,6 @@ export default function AboutPage() {
 
           {/* Stats strip */}
           <div className="relative">
-            <div className="dashed-x w-full" />
             <div className="container mx-auto px-4 md:px-8 max-w-7xl">
               <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-dashed border-border/60">
                 {stats.map((stat, i) => {
@@ -169,7 +168,6 @@ export default function AboutPage() {
                 })}
               </div>
             </div>
-            <div className="dashed-x w-full" />
           </div>
         </section>
 
@@ -233,8 +231,6 @@ export default function AboutPage() {
 
         {/* ─── CORE VALUES ─── */}
         <section className="py-24 bg-background relative">
-          <div className="dashed-x w-full absolute top-0" />
-          <div className="dashed-x w-full absolute bottom-0" />
 
           <div className="container mx-auto px-4 md:px-8 max-w-7xl">
             <AnimatedSection>

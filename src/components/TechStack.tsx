@@ -68,7 +68,6 @@ function MarqueeRow({
 export function TechStack() {
   return (
     <section className="py-0 bg-background relative overflow-hidden">
-      <div className="dashed-x w-full" />
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="border border-dashed border-border/80 overflow-hidden">
@@ -129,7 +128,6 @@ export function TechStack() {
         </div>
       </div>
 
-      <div className="dashed-x w-full" />
     </section>
   );
 }

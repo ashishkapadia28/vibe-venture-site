@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import { GridOverlay } from "@/components/GridOverlay";
+import { AuroraBackground } from "@/components/AuroraBackground";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SmoothScrolling } from "@/components/SmoothScrolling";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -51,9 +51,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${outfit.variable} antialiased`}
     >
-      <body className="min-h-screen flex flex-col font-sans text-foreground bg-background">
+      <body className="min-h-screen flex flex-col font-sans text-foreground bg-transparent relative">
+        <AuroraBackground />
         <SmoothScrolling>
-          <GridOverlay />
           {children}
           <WhatsAppButton />
           <CookieConsent />

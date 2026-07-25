@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
-import { Turnstile } from '@marsidev/react-turnstile';
 
 function CustomSelect({ id, label, options, value, onChange, placeholder }: any) {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +59,6 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const [turnstileToken, setTurnstileToken] = useState("");
   
   // State for custom selects
   const [industry, setIndustry] = useState("");
@@ -93,8 +91,7 @@ export function ContactForm() {
           country: country || null,
           industry: industry || null,
           service: service || null,
-          project_info,
-          cf_turnstile_response: turnstileToken
+          project_info
         })
       });
 
@@ -207,18 +204,10 @@ export function ContactForm() {
         </div>
       )}
 
-      {/* Turnstile Widget */}
-      <div className="flex justify-center">
-        <Turnstile 
-          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""} 
-          onSuccess={(token) => setTurnstileToken(token)} 
-        />
-      </div>
-
       {/* Submit Button */}
       <button 
         type="submit" 
-        disabled={isSubmitting || !turnstileToken}
+        disabled={isSubmitting}
         className="w-full bg-primary text-primary-foreground py-4 rounded-md font-semibold transition-all duration-300 hover:bg-primary/90 mt-4 text-base border border-primary hover:shadow-[0_0_20px_rgba(4,173,127,0.3)] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {isSubmitting ? (

@@ -63,7 +63,6 @@ export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
         
         {/* Header matched with Features.tsx */}
         <div className="relative mb-16">
-          <div className="absolute -top-8 -left-8 -right-8 h-[1.5px] dashed-x" />
           
           <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-8 pb-2">
             <div>
@@ -81,7 +80,6 @@ export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
             </p>
           </AnimatedSection>
 
-          <div className="absolute -bottom-8 -left-8 -right-8 h-[1.5px] dashed-x" />
         </div>
 
         {/* Case Study Cards using Blueprint Dashed Grid */}
@@ -161,7 +159,6 @@ export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
         {/* Bottom CTA strip */}
         {!hideFooter && (
           <div className="relative mt-16">
-            <div className="absolute top-0 -left-8 -right-8 h-[1.5px] dashed-x" />
             <AnimatedSection className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 pb-2">
               <p className="text-muted-foreground text-sm">
                 Want to see more of our work?{" "}

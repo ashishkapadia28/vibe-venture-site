@@ -135,8 +135,6 @@ export default function CaseStudiesPage() {
             {/* The Zero-Gap Blueprint Grid */}
             <div className="relative mt-8">
               {/* Outer grid borders (Top and Left) */}
-              <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top z-20 pointer-events-none" />
-              <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left z-20 pointer-events-none" />
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 relative z-10">
                 {allCaseStudies.map((study, index) => {
@@ -152,8 +150,6 @@ export default function CaseStudiesPage() {
                       className={`${spanClass} group bg-background relative overflow-hidden flex flex-col`}
                     >
                       {/* Grid Item Outer Borders (Bottom and Right) */}
-                      <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 pointer-events-none" />
-                      <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y z-20 pointer-events-none" />
 
                       <Link href={study.slug} className="flex flex-col h-full relative z-10">
                         
@@ -163,7 +159,6 @@ export default function CaseStudiesPage() {
                         {/* Header / Meta */}
                         <div className="p-6 md:p-8 flex items-center justify-between relative z-10">
                           {/* Inner border bottom */}
-                          <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 opacity-40 pointer-events-none" />
                           
                           <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm bg-secondary/50 text-foreground border border-border/50 group-hover:border-primary/30 group-hover:text-primary transition-colors">
                             {study.category}
@@ -180,9 +175,8 @@ export default function CaseStudiesPage() {
                           <div className={`relative overflow-hidden ${index === 0 || index === 5 ? 'w-full md:w-1/2' : 'w-full h-48 md:h-56'}`}>
                             {/* Inner borders for image section */}
                             {index === 0 || index === 5 ? (
-                              <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y z-20 opacity-40 pointer-events-none hidden md:block" />
                             ) : null}
-                            <div className={`absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 opacity-40 pointer-events-none ${index === 0 || index === 5 ? 'md:hidden' : ''}`} />
+                            <div className={`absolute bottom-0 left-0 right-0 h-[1.5px]  z-20 opacity-40 pointer-events-none ${index === 0 || index === 5 ? 'md:hidden' : ''}`} />
                             
                             <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                             <img 
@@ -209,7 +203,6 @@ export default function CaseStudiesPage() {
                             {/* Metrics */}
                             <div className="relative pt-6 mt-auto">
                               {/* Inner border top for metrics */}
-                              <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top z-20 opacity-40 pointer-events-none" />
                               
                               <div className="flex items-center gap-6">
                                 {study.metrics.map((metric, i) => (

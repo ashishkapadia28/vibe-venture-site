@@ -76,7 +76,6 @@ export function Features() {
         {/* Section Header */}
         <div className="relative mb-16">
           {/* Top dashed border */}
-          <div className="absolute -top-8 -left-8 -right-8 h-[1.5px] dashed-x" />
 
           <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-8">
             <div className="max-w-xl">
@@ -96,7 +95,6 @@ export function Features() {
           </AnimatedSection>
 
           {/* Bottom dashed border */}
-          <div className="absolute -bottom-8 -left-8 -right-8 h-[1.5px] dashed-x" />
         </div>
 
         {/* Services Grid — border-based grid lines (always aligns with row/col bounds) */}
@@ -146,7 +144,6 @@ export function Features() {
 
         {/* Bottom border + CTA strip */}
         <div className="relative mt-0">
-          <div className="absolute top-0 -left-8 -right-8 h-[1.5px] dashed-x" />
           <AnimatedSection className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 pb-2">
             <p className="text-muted-foreground text-sm">
               Don't see what you need?{" "}

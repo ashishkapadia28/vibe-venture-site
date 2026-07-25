@@ -78,7 +78,7 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 dashed-x bg-background/80 backdrop-blur-md py-6"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/80 backdrop-blur-md py-6"
     >
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-90 transition-opacity relative z-50">
@@ -102,8 +102,6 @@ export function Navbar() {
                     onMouseLeave={() => setHoveredMenuItemName(null)}
                     >
                       {/* ALWAYS ON TOP BORDERS */}
-                      <div className="absolute inset-0 dashed-box pointer-events-none z-60" />
-                      <div className="absolute inset-y-0 left-[280px] w-[1.5px] dashed-y pointer-events-none z-60" />
                       
                       <div className="flex w-full relative z-10">
                         {/* Left Panel */}
@@ -178,10 +176,6 @@ export function Navbar() {
                                 </div>
                                 <ArrowRight size={16} className="text-primary opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all self-center mr-2" />
                               </Link>
-                              {/* Horizontal Item Divider Always on Top */}
-                              {idx !== item.megaMenu.items.length - 1 && (
-                                <div className="absolute -bottom-0.5 left-16 right-4 h-[1.5px] dashed-x pointer-events-none z-60" />
-                              )}
                             </div>
                           ))}
                         </div>

@@ -86,39 +86,29 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <section className="relative z-20 -mt-16 mb-24">
           <div className="container mx-auto px-4 md:px-8 max-w-7xl">
             <AnimatedSection delay={0.3} className="bg-background relative">
-              <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top pointer-events-none z-20" />
-              <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left pointer-events-none z-20" />
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10">
                 
                 {/* Role */}
                 <div className="p-8 relative">
-                  <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x pointer-events-none" />
-                  <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y pointer-events-none" />
                   <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-2">Scope of Work</p>
                   <p className="font-medium text-foreground">{study.role}</p>
                 </div>
 
                 {/* Industry */}
                 <div className="p-8 relative">
-                  <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x pointer-events-none" />
-                  <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y pointer-events-none" />
                   <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-2">Industry</p>
                   <p className="font-medium text-foreground">{study.industry}</p>
                 </div>
 
                 {/* Timeline */}
                 <div className="p-8 relative">
-                  <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x pointer-events-none" />
-                  <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y pointer-events-none" />
                   <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-2">Timeline</p>
                   <p className="font-medium text-foreground">{study.timeline ? `${study.timeline} Months` : 'N/A'}</p>
                 </div>
 
                 {/* Tech Stack */}
                 <div className="p-8 relative">
-                  <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x pointer-events-none" />
-                  <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y pointer-events-none" />
                   <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">Tech Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {study.tech?.map((tech: string) => (
@@ -181,14 +171,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               {/* Big Metrics Block */}
               <div className="pl-16">
                 <div className="relative">
-                  <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top pointer-events-none z-20" />
-                  <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left pointer-events-none z-20" />
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-10">
                     {study.metrics?.map((metric: any, i: number) => (
                       <div key={i} className="p-8 flex flex-col justify-center items-center text-center relative bg-primary/5">
-                        <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x pointer-events-none" />
-                        <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y pointer-events-none" />
                         
                         <span className="text-4xl md:text-5xl font-heading font-black tracking-tighter text-primary mb-2">
                           {metric.value}
@@ -209,7 +195,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         {/* ─── NEXT PROJECT CTA ─── */}
         {nextProject && (
           <section className="py-24 relative bg-secondary/20">
-            <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top pointer-events-none" />
             
             <div className="container mx-auto px-4 md:px-8 max-w-7xl text-center">
               <AnimatedSection>

@@ -152,7 +152,6 @@ export function Testimonials() {
         
         {/* Header matched with Features.tsx */}
         <div className="relative mb-16 z-30">
-          <div className="absolute -top-8 -left-8 -right-8 h-[1.5px] dashed-x" />
           
           <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-8 pb-2">
             <div className="text-left">
@@ -170,7 +169,6 @@ export function Testimonials() {
             </p>
           </AnimatedSection>
 
-          <div className="absolute -bottom-8 -left-8 -right-8 h-[1.5px] dashed-x" />
         </div>
 
         {/* Avatars Arch Grid Container */}

@@ -200,7 +200,6 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
 
         <div className="relative">
           {/* Top border of the list */}
-          <div className="absolute top-0 left-0 right-0 h-[1.5px] dashed-x-top z-20 pointer-events-none" />
           
           <div className="flex flex-col relative z-10 min-h-[300px]">
             {paginatedRoles.length > 0 ? (
@@ -211,11 +210,8 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
                   className="p-8 group bg-background relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6"
                 >
                   {/* Bottom dashed border for each row */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 pointer-events-none" />
                   
                   {/* Left and Right boundaries for the whole container */}
-                  <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left z-20 pointer-events-none opacity-0 md:opacity-100" />
-                  <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y z-20 pointer-events-none opacity-0 md:opacity-100" />
 
                   {/* Subtle Hover Gradient */}
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
@@ -260,9 +256,6 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
               ))
             ) : openRoles.length === 0 ? (
               <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-[300px]">
-                <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 pointer-events-none" />
-                <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left z-20 pointer-events-none opacity-0 md:opacity-100" />
-                <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y z-20 pointer-events-none opacity-0 md:opacity-100" />
                 
                 <p className="text-xl font-heading font-bold mb-2">No Open Roles</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
@@ -271,9 +264,6 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
               </div>
             ) : (
               <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-[300px]">
-                <div className="absolute bottom-0 left-0 right-0 h-[1.5px] dashed-x z-20 pointer-events-none" />
-                <div className="absolute top-0 bottom-0 left-0 w-[1.5px] dashed-y-left z-20 pointer-events-none opacity-0 md:opacity-100" />
-                <div className="absolute top-0 bottom-0 right-0 w-[1.5px] dashed-y z-20 pointer-events-none opacity-0 md:opacity-100" />
                 
                 <p className="text-xl font-heading font-bold mb-2">No Matches Found</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
