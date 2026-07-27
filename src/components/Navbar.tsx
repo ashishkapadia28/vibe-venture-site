@@ -78,7 +78,7 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/80 backdrop-blur-md py-6"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/90 backdrop-blur-md py-6 border-b border-border/50"
     >
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-90 transition-opacity relative z-50">
@@ -90,14 +90,15 @@ export function Navbar() {
           {navItems.map((item) => (
             <div key={item.name} className="relative group">
               {item.megaMenu ? (
-                <div className={cn("flex items-center gap-1 cursor-pointer text-[15px] font-medium transition-colors py-2", isActive(item.href) ? "text-primary" : "text-foreground hover:text-primary")}>
+                <div className={cn("flex items-center gap-1 cursor-pointer text-[15px] font-semibold transition-colors py-2", isActive(item.href) ? "text-primary" : "text-foreground hover:text-primary")}>
                   <Link href={item.href}>{item.name}</Link>
-                  <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200" />
+                  <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200 opacity-50" />
                   
                   {/* Desktop Dropdown Wrapper to bridge hover gap */}
                   <div className="absolute top-[calc(100%-16px)] pt-[24px] left-[-200px] w-[760px] pointer-events-none group-hover:pointer-events-auto z-50">
                     <div className={cn(
-                      "w-full bg-background rounded-sm shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-200 transform origin-top-left translate-y-2 group-hover:translate-y-0 flex overflow-hidden relative"
+                      "w-full bg-background rounded-3xl border border-border/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-200 transform origin-top-left translate-y-2 group-hover:translate-y-0 flex overflow-hidden relative"
+
                     )}
                     onMouseLeave={() => setHoveredMenuItemName(null)}
                     >
@@ -200,7 +201,7 @@ export function Navbar() {
             href="/contact"
             className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20 ml-4 flex items-center gap-1.5 group"
           >
-            Get Free Quote
+            Book a Call
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </nav>
@@ -264,7 +265,7 @@ export function Navbar() {
             className="mt-6 px-6 py-4 rounded-full bg-primary text-primary-foreground font-medium flex items-center justify-center gap-2 group"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Get Free Quote
+            Book a Call
             <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

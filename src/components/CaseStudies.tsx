@@ -1,181 +1,102 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
 import { AnimatedSection } from "./AnimatedSection";
-import { ArrowUpRight, ExternalLink, ArrowRight } from "lucide-react";
+import { SectionHeader } from "./ui/SectionHeader";
+import { BentoWidget } from "./ui/BentoWidget";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
-interface CaseStudy {
-  id: number;
-  tag: string;
-  title: string;
-  description: string;
-  metrics: { label: string; value: string }[];
-  tech: string[];
-  gradient: string;
-  accentColor: string;
-  image: string;
-  slug?: string;
-}
-
-export function CaseStudies({ hideFooter = false }: { hideFooter?: boolean }) {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
-  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchCaseStudies = async () => {
-      try {
-        const baseUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || "http://localhost:3001";
-        const apiUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
-        const res = await fetch(`${apiUrl}/api/case-studies?is_published=true`, {
-          cache: 'no-store'
-        });
-        if (res.ok) {
-          const data = await res.json();
-          setCaseStudies(data);
-        }
-      } catch (error) {
-        console.error("Failed to fetch case studies:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCaseStudies();
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="py-24 bg-background relative flex items-center justify-center min-h-[50vh]">
-        <p className="text-muted-foreground text-sm font-medium animate-pulse">Loading case studies...</p>
-      </section>
-    );
+const portfolioItems = [
+  {
+    id: 1,
+    title: "Arpanex",
+    category: "End-to-End Website & Brand",
+    image: "/client/arpanex/arpanex_home_img.png",
+    colSpan: "md:col-span-2",
+  },
+  {
+    id: 2,
+    title: "Echovyn",
+    category: "Brand Design",
+    image: "/client/echovyn/home_page_img.png",
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: 3,
+    title: "Nyrly",
+    category: "Retails POS",
+    image: "/client/nyrly/nyrly_home_img.png",
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: 4,
+    title: "Vediq Care",
+    category: "Clinic Management Software",
+    image: "/client/VediqCare/VediqCare_home_img.png",
+    colSpan: "md:col-span-2",
   }
+];
 
-  if (caseStudies.length === 0) {
-    return null; // or empty state
-  }
-
+export function CaseStudies() {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 max-w-none">
+    <section className="py-32 relative bg-secondary overflow-hidden">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
         
-        {/* Header matched with Features.tsx */}
-        <div className="relative mb-16">
-          
-          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-8 pb-2">
-            <div>
-              <p className="text-primary font-bold tracking-widest text-sm uppercase mb-4">
-                Selected Work
-              </p>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-[1.1]">
-                Case Studies
-                <br />
-                <span className="text-muted-foreground/60">that speak results</span>
-              </h2>
-            </div>
-            <p className="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed">
-              From fintech infrastructure to AI-powered platforms—see how we turn complex engineering challenges into measurable business wins.
-            </p>
-          </AnimatedSection>
+        <AnimatedSection delay={0.1} className="mb-16">
+          <SectionHeader 
+            title="Take A Look At Our Recent Work"
+            theme="dark"
+            alignment="center"
+          />
+        </AnimatedSection>
 
-        </div>
-
-        {/* Case Study Cards using Blueprint Dashed Grid */}
-        <div className="grid grid-cols-1 gap-8 mt-16">
-          {caseStudies.map((study, index) => {
-            const themeBase = study.accentColor ? study.accentColor.replace('text-', '') : 'primary';
-            return (
-            <AnimatedSection key={study.id} delay={index * 0.1} className="border border-dashed border-border/60">
-              <Link
-                href={`/case-studies/${study.slug || study.id}`}
-                onMouseEnter={() => setHoveredId(study.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                className="group block relative overflow-hidden bg-background transition-all duration-500 hover:bg-primary/5 lg:h-[360px]"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {portfolioItems.map((item, index) => (
+            <AnimatedSection 
+              key={item.id} 
+              delay={0.2 + (index * 0.1)} 
+              className={item.colSpan}
+            >
+              <BentoWidget 
+                className="group relative h-[400px] w-full p-0 cursor-pointer overflow-hidden border-0 bg-secondary"
               >
-                {/* Gradient BG on hover */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${study.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
+                <Image 
+                  src={item.image} 
+                  alt={item.title} 
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-0 h-full">
-                  {/* Left Content: 3/5 */}
-                  <div className="lg:col-span-3 p-6 md:p-8 flex flex-col gap-6 border-r border-dashed border-border/60">
-                    <div>
-                      {/* Tag + Arrow */}
-                      <div className="flex items-center justify-between mb-6">
-                        <span className={`text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm bg-${themeBase}/5 border border-${themeBase}/20 ${study.accentColor}`}>
-                          {study.tag}
-                        </span>
-                        <div className={`w-10 h-10 rounded-sm border border-border/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-${themeBase} group-hover:bg-${themeBase} group-hover:text-primary-foreground -translate-x-4 group-hover:translate-x-0`}>
-                          <ArrowUpRight size={18} />
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className={`text-xl md:text-2xl font-heading font-bold mb-2 leading-tight tracking-tight group-hover:text-${themeBase} transition-colors duration-300`}>
-                        {study.title}
-                      </h3>
-
-                      {/* Description */}
-                      <div>
-                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                          {study.description}
-                        </p>
-                        <span className={`inline-flex items-center gap-1 mt-3 text-sm font-semibold text-${themeBase} group-hover:underline underline-offset-4`}>
-                          Read more <ArrowRight size={14} />
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 pt-5 border-t border-dashed border-border/60">
-                      {study.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-sm border border-border/60 bg-secondary/30 text-muted-foreground uppercase"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
+                  <div>
+                    <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-medium mb-3">
+                      {item.category}
+                    </span>
+                    <h3 className="text-2xl font-bold font-heading text-white">
+                      {item.title}
+                    </h3>
                   </div>
-
-                  {/* Right Image: 2/5 */}
-                  <div className="lg:col-span-2 relative overflow-hidden min-h-[300px] lg:min-h-0 bg-secondary/10 h-full">
-                    <img
-                      src={study.image}
-                      alt={study.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 mix-blend-luminosity opacity-70 group-hover:opacity-100 group-hover:mix-blend-normal"
-                    />
+                  
+                  <div className="w-12 h-12 rounded-full bg-white text-foreground flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <ArrowUpRight size={24} />
                   </div>
                 </div>
-              </Link>
+              </BentoWidget>
             </AnimatedSection>
-          )})}
+          ))}
         </div>
+        
+        <AnimatedSection delay={0.5} className="mt-16 text-center">
+          <button className="px-8 py-4 rounded-full border border-secondary-foreground/20 text-secondary-foreground font-semibold text-base transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2 mx-auto">
+            View All Projects
+          </button>
+        </AnimatedSection>
 
-        {/* Bottom CTA strip */}
-        {!hideFooter && (
-          <div className="relative mt-16">
-            <AnimatedSection className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 pb-2">
-              <p className="text-muted-foreground text-sm">
-                Want to see more of our work?{" "}
-                <Link href="/portfolio" className="text-primary font-semibold hover:underline underline-offset-4">
-                  View Portfolio
-                </Link>
-              </p>
-              <Link
-                href="/case-studies"
-                className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20 flex items-center justify-center gap-1.5 group"
-              >
-                See All Case Studies
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-            </AnimatedSection>
-          </div>
-        )}
       </div>
     </section>
   );

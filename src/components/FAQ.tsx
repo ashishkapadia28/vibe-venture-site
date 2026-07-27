@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { AnimatedSection } from "./AnimatedSection";
-import { Plus, Minus } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 interface FAQItem {
   id: number;
   question: string;
   answer: string;
   category: string;
+  spanClass: string;
 }
 
 const faqData: FAQItem[] = [
@@ -18,150 +18,112 @@ const faqData: FAQItem[] = [
     category: "Pricing",
     question: "What is your pricing model?",
     answer:
-      "We work with both fixed-price and time-and-material models depending on project scope and complexity. For well-defined projects, we offer milestone-based fixed pricing. For larger enterprise engagements or ongoing product development, we structure retainers or sprint-based billing. Every engagement starts with a free discovery call to assess your needs.",
+      "We offer milestone-based fixed pricing for defined scopes, and sprint-based retainers for ongoing product development. Every engagement starts with a free discovery call to accurately assess your needs.",
+    spanClass: "md:col-span-2 lg:col-span-3",
   },
   {
     id: 2,
     category: "Timeline",
-    question: "How long does a typical project take?",
+    question: "How long does a project take?",
     answer:
-      "A focused MVP typically takes 6–10 weeks. A full-scale enterprise platform can range from 3 to 6 months depending on integrations, team size, and scope. We are transparent from day one—after the discovery phase, we give you a detailed project timeline with clearly defined deliverables and milestones before we write a single line of code.",
+      "A focused MVP typically takes 6–10 weeks. A full-scale enterprise platform can range from 3 to 6 months depending on integrations and scope.",
+    spanClass: "md:col-span-2 lg:col-span-2",
   },
   {
     id: 3,
-    category: "Process",
-    question: "What does your development process look like?",
-    answer:
-      "We follow an agile, sprint-based development workflow. Every project starts with a Discovery & Architecture phase, followed by iterative development sprints (2 weeks each). You get access to a staging environment and direct Slack communication with your team throughout. We close with a thorough QA cycle, deployment, and a 30-day post-launch support window.",
-  },
-  {
-    id: 4,
     category: "Team",
     question: "Who will I be working with?",
     answer:
-      "You get a dedicated cross-functional team: a Solutions Architect, 2–3 Senior Engineers, a UI/UX designer, a QA engineer, and a project manager. You will have a single point of contact (your PM) for all communications. Unlike agencies that offshore all work, our core engineering team is senior-level and involved from day one.",
+      "You get a dedicated cross-functional team: a Solutions Architect, 2–3 Senior Engineers, a UI/UX designer, and a PM. Unlike agencies that offshore, our core team is senior-level and involved from day one.",
+    spanClass: "md:col-span-2 lg:col-span-2",
+  },
+  {
+    id: 4,
+    category: "Process",
+    question: "What does your development process look like?",
+    answer:
+      "We follow an agile workflow. Every project starts with Discovery & Architecture, followed by iterative development sprints (2 weeks each). You get access to a staging environment and direct Slack communication.",
+    spanClass: "md:col-span-2 lg:col-span-3",
   },
   {
     id: 5,
-    category: "Technology",
-    question: "What technologies do you specialize in?",
+    category: "Support",
+    question: "What happens after delivery?",
     answer:
-      "Our core stack is centered around React, Next.js, Node.js, and TypeScript for web applications. On the backend, we work with PostgreSQL, MongoDB, Redis, and Kafka. We are cloud-native on AWS, GCP, and Vercel. For mobile, we build with React Native and Flutter. We always recommend the right technology for your use case rather than pushing a single stack.",
+      "Every project includes a 30-day post-launch warranty period to resolve any bugs. After that, we offer flexible monthly retainer packages for ongoing feature development and monitoring.",
+    spanClass: "md:col-span-2 lg:col-span-3",
   },
   {
     id: 6,
-    category: "Security",
-    question: "How do you handle security and compliance?",
+    category: "Tech Stack",
+    question: "What technologies do you use?",
     answer:
-      "Security is not an afterthought—it is built into every layer of our development process. We follow OWASP secure coding guidelines, perform regular dependency audits, implement encryption at rest and in transit, and offer optional penetration testing. For regulated industries (fintech, healthcare), we have experience building SOC 2 and HIPAA-compliant infrastructure.",
-  },
-  {
-    id: 7,
-    category: "Support",
-    question: "What happens after the project is delivered?",
-    answer:
-      "Every project includes a 30-day post-launch warranty period where we resolve any bugs at no additional cost. After that, we offer flexible monthly retainer packages for ongoing maintenance, feature development, and monitoring. We don't disappear after delivery—many of our clients have been with us for 3+ years.",
-  },
-  {
-    id: 8,
-    category: "Process",
-    question: "Can you work with an existing codebase or team?",
-    answer:
-      "Absolutely. We regularly perform code audits and take over legacy codebases. We can integrate directly with your in-house engineering team as an extension, handle a specific module of your platform, or gradually refactor an existing system. We adapt to your workflow and tooling, not the other way around.",
+      "Our core stack centers around React, Next.js, Node.js, and TypeScript. We are cloud-native on AWS, GCP, and Vercel, ensuring high performance and massive scalability.",
+    spanClass: "md:col-span-2 lg:col-span-2",
   },
 ];
 
 export function FAQ() {
-  const [openId, setOpenId] = useState<number | null>(1);
-
-  const toggle = (id: number) => {
-    setOpenId((prev) => (prev === id ? null : id));
-  };
-
   return (
-    <section className="py-24 bg-background relative">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 max-w-none relative z-10">
-        <div className="relative">
-          {/* Top dashed border */}
-
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 border-l border-t border-dashed border-border/60">
-            {/* Left: Sticky header */}
-            <div className="lg:col-span-2 border-r border-b border-dashed border-border/60 relative h-full">
-              <div className="p-8 md:p-12 lg:sticky lg:top-32">
-                <AnimatedSection>
-                  <div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 bg-primary/5 border border-primary/20 rounded-sm">
-                      <span className="text-primary text-[11px] font-bold tracking-widest uppercase">
-                        FAQ
-                      </span>
-                    </div>
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold tracking-tight leading-[1.1] mb-6">
-                      Got a question?
-                      <br />
-                      <span className="text-muted-foreground/60">We have answers</span>
-                    </h2>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-                      Still have questions? Drop us a line — we respond to every serious inquiry within one business day.
-                    </p>
-                    <a
-                      href="/contact"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-semibold rounded-sm hover:bg-primary transition-all duration-300 text-sm active:scale-[0.98]"
-                    >
-                      Ask a Question
-                    </a>
-                  </div>
-                </AnimatedSection>
+    <section className="py-32 bg-background text-foreground relative">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        
+        {/* Header - Bento Style */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
+          <AnimatedSection>
+            <span className="inline-block py-1 px-3 rounded-full border border-border text-xs font-bold tracking-[0.2em] uppercase mb-6 text-foreground/70">
+              Clarity & Transparency
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading font-extrabold tracking-tight text-foreground max-w-2xl leading-[1.1]">
+              Everything you need to know.
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-primary rounded-full hover:scale-105 hover:bg-primary/90 transition-all duration-300 group shadow-2xl shadow-primary/20"
+            >
+              <div className="text-center flex flex-col items-center gap-1">
+                <ArrowUpRight size={24} className="text-primary-foreground group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <span className="text-[10px] font-bold tracking-widest text-primary-foreground uppercase mt-1">Ask Us</span>
               </div>
-            </div>
-
-            {/* Right: Accordion */}
-            <div className="lg:col-span-3 flex flex-col border-r border-b border-dashed border-border/60 divide-y divide-dashed divide-border/60 bg-secondary/5">
-              {faqData.map((item, index) => (
-                <AnimatedSection key={item.id} delay={index * 0.05}>
-                  <div
-                    className="p-5 md:p-6 cursor-pointer group hover:bg-primary/5 transition-colors duration-300"
-                    onClick={() => toggle(item.id)}
-                  >
-                    {/* Question row */}
-                    <div className="flex items-center justify-between gap-6">
-                      <div className="flex items-center gap-4 flex-1 min-w-0">
-                        <span className="hidden sm:block text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm border border-border/60 bg-background text-muted-foreground whitespace-nowrap shrink-0">
-                          {item.category}
-                        </span>
-                        <h3 className="font-semibold text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-200 leading-snug">
-                          {item.question}
-                        </h3>
-                      </div>
-                      <div className="shrink-0 w-8 h-8 rounded-sm border border-border/50 flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                        {openId === item.id ? <Minus size={14} /> : <Plus size={14} />}
-                      </div>
-                    </div>
-
-                    {/* Answer */}
-                    <AnimatePresence initial={false}>
-                      {openId === item.id && (
-                        <motion.div
-                          key="content"
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-                          className="overflow-hidden"
-                        >
-                          <p className="text-base text-muted-foreground leading-relaxed pt-6 pb-2">
-                            {item.answer}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom dashed border */}
+            </Link>
+          </AnimatedSection>
         </div>
+
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          {faqData.map((item, index) => (
+            <AnimatedSection 
+              key={item.id} 
+              delay={index * 0.1}
+              className={`group relative overflow-hidden rounded-[2rem] bg-secondary/5 border border-border p-8 hover:bg-secondary/10 hover:border-primary/50 transition-all duration-500 ${item.spanClass}`}
+            >
+              <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col h-full justify-between gap-12">
+                <div className="flex justify-between items-start gap-4">
+                  <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-border bg-white text-foreground/70">
+                    {item.category}
+                  </span>
+                  <span className="text-2xl font-bold text-foreground/10 group-hover:text-primary/20 transition-colors duration-500 font-heading">
+                    0{item.id}
+                  </span>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-4 leading-snug">
+                    {item.question}
+                  </h3>
+                  <p className="text-sm md:text-base text-foreground/70 leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+        
       </div>
     </section>
   );

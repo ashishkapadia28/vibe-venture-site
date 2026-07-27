@@ -2,53 +2,27 @@
 
 import { AnimatedSection } from "./AnimatedSection";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export function CTA() {
   return (
-    <section className="py-16 bg-background relative z-10">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+    <section className="py-24 bg-background relative z-10">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
         <AnimatedSection>
-          <div className="border border-dashed border-border/80 bg-secondary/10 p-10 md:p-12 lg:p-14 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden rounded-2xl">
+          {/* Main Card Container - Horizontal Banner Layout */}
+          <div className="relative overflow-hidden rounded-[2rem] bg-secondary text-secondary-foreground flex flex-col lg:flex-row items-center justify-between p-10 md:p-14 lg:p-16 gap-8 md:gap-12">
             
-            {/* Subtle soft background glow */}
-            <div className="absolute inset-0 pointer-events-none z-0">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-primary/6 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3" />
-            </div>
+            {/* Safe Ambient Glow (Left Aligned) */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(124,58,237,0.15)_0%,transparent_70%)] pointer-events-none z-0" />
 
-            {/* Left side: Content with button stacked underneath */}
-            <div className="relative z-10 max-w-2xl flex flex-col items-start">
-              
-              {/* Dashed tech badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 border border-dashed border-primary/40 bg-primary/5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span className="text-primary text-[10px] font-bold tracking-widest uppercase">
-                  Ready to launch?
-                </span>
-              </div>
-              
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-tight tracking-tight">
-                Let&apos;s build something <span className="text-primary">extraordinary</span> together.
-              </h3>
-              
-              <p className="text-muted-foreground text-sm md:text-base mt-3 leading-relaxed max-w-xl">
-                Partner with senior tech developers and solutions architects. We engineer high-performance web systems and custom digital solutions designed to scale your business.
-              </p>
-
-              {/* Call to Action Button placed below content */}
-              <div className="mt-8">
-                <Link
-                  href="/contact"
-                  className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/95 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 flex items-center gap-2 group whitespace-nowrap active:scale-[0.98]"
-                >
-                  Get a Free Quote
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right side: High-End Dot-Matrix World Map outline with soft fading overlays */}
-            <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[60%] pointer-events-none select-none z-0 overflow-hidden opacity-30 lg:opacity-45">
+            {/* Background Map Container (Faded on Left, clearly visible) */}
+            <div 
+              className="absolute right-[-10%] lg:right-[-5%] top-1/2 -translate-y-1/2 w-[120%] lg:w-[75%] h-[150%] pointer-events-none select-none z-0 opacity-40 flex items-center justify-center overflow-hidden"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%)'
+              }}
+            >
               
               <svg 
                 className="w-full h-full text-muted-foreground/30" 
@@ -470,6 +444,39 @@ export function CTA() {
               <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-background to-transparent pointer-events-none" />
               {/* Bottom-to-top fade out */}
               <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+            </div>
+
+            {/* Content Left: Text */}
+            <div className="relative z-10 w-full lg:w-2/3 flex flex-col items-start text-left">
+              
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 bg-white/5 backdrop-blur-md rounded-full border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-white text-xs font-bold tracking-[0.2em] uppercase">
+                  Ready to launch?
+                </span>
+              </div>
+              
+              <h3 className="text-4xl md:text-5xl lg:text-5xl font-heading font-extrabold leading-[1.1] tracking-tight text-white mb-4">
+                Let's build something <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary/70">extraordinary</span> together.
+              </h3>
+              
+              <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-lg">
+                Partner with senior tech developers and solutions architects. We engineer high-performance web systems and custom digital solutions designed to scale your business.
+              </p>
+            </div>
+
+            {/* Content Right: Button */}
+            <div className="relative z-10 w-full lg:w-1/3 flex justify-start lg:justify-end mt-4 lg:mt-0">
+              <Link
+                href="/contact"
+                className="flex items-center justify-between gap-4 group pl-8 pr-2 py-2 rounded-full bg-white text-secondary hover:bg-gray-100 transition-all duration-300 whitespace-nowrap shadow-xl shadow-black/20"
+              >
+                <span className="font-bold text-lg">Get a Free Quote</span>
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground group-hover:rotate-45 group-hover:scale-105 transition-all duration-300">
+                  <ArrowUpRight size={24} />
+                </div>
+              </Link>
             </div>
 
           </div>

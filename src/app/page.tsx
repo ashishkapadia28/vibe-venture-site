@@ -1,11 +1,14 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { AgencyIntro } from "@/components/AgencyIntro";
+import { ClientLogos } from "@/components/ClientLogos";
+import { ProblemStatement } from "@/components/ProblemStatement";
 import { Features } from "@/components/Features";
-import { CaseStudies } from "@/components/CaseStudies";
-import { Metrics } from "@/components/Metrics";
-import { Testimonials } from "@/components/Testimonials";
-import { FAQ } from "@/components/FAQ";
+import { ServicesWhy } from "@/components/ServicesWhy";
 import { CTA } from "@/components/CTA";
+import { Testimonials } from "@/components/Testimonials";
+import { ContactSection } from "@/components/ContactSection";
+import { BackupCTA } from "@/components/BackupCTA";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -14,12 +17,15 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <AgencyIntro />
+        <ClientLogos />
+        <ProblemStatement />
         <Features />
-        <Metrics />
-        <CaseStudies />
-        <Testimonials />
-        <FAQ />
+        <ServicesWhy />
         <CTA />
+        <Testimonials />
+        <ContactSection />
+        <BackupCTA />
       </main>
       <Footer />
     </>

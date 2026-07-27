@@ -28,18 +28,7 @@ const YoutubeIcon = () => (
 
 export function Footer() {
   return (
-    <footer className="bg-[#0b0c10] text-[#a0aab2] py-20 relative z-3 overflow-hidden font-sans border-t border-border/10">
-      {/* Dark grey dashed lines matching container boundaries */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none z-20">
-        <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 h-full">
-          <div className="relative w-full h-full">
-            <div className="absolute -left-4 md:-left-8 top-0 bottom-0 w-[2px]"
-              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='1.5' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0.75' y1='0' x2='0.75' y2='16' stroke='%23313131' stroke-width='1.5' stroke-dasharray='8, 8' /%3E%3C/svg%3E\")", backgroundRepeat: "repeat-y" }} />
-            <div className="absolute -right-4 md:-right-8 top-0 bottom-0 w-[2px]"
-              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='1.5' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0.75' y1='0' x2='0.75' y2='16' stroke='%23313131' stroke-width='1.5' stroke-dasharray='8, 8' /%3E%3C/svg%3E\")", backgroundRepeat: "repeat-y" }} />
-          </div>
-        </div>
-      </div>
+    <footer className="bg-secondary text-secondary-foreground/70 pt-20 pb-10 relative z-10 overflow-hidden font-sans rounded-t-[3rem] mt-24">
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between gap-16 mb-24">
           

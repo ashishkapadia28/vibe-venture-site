@@ -4,6 +4,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTA } from "@/components/CTA";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -174,15 +175,15 @@ export default function CaseStudiesPage() {
                           {/* Image Section */}
                           <div className={`relative overflow-hidden ${index === 0 || index === 5 ? 'w-full md:w-1/2' : 'w-full h-48 md:h-56'}`}>
                             {/* Inner borders for image section */}
-                            {index === 0 || index === 5 ? (
-                            ) : null}
                             <div className={`absolute bottom-0 left-0 right-0 h-[1.5px]  z-20 opacity-40 pointer-events-none ${index === 0 || index === 5 ? 'md:hidden' : ''}`} />
                             
                             <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                            <img 
+                            <Image 
                               src={study.image} 
                               alt={study.title}
-                              className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                              fill
+                              className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                              sizes="(max-width: 768px) 100vw, 50vw"
                             />
                           </div>
 

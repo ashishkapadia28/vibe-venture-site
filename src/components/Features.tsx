@@ -1,4 +1,5 @@
 import { AnimatedSection } from "./AnimatedSection";
+import { SectionHeader } from "./ui/SectionHeader";
 import Link from "next/link";
 import {
   Code2,
@@ -73,48 +74,34 @@ export function Features() {
 
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
 
-        {/* Section Header */}
         <div className="relative mb-16">
-          {/* Top dashed border */}
-
-          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-8">
-            <div className="max-w-xl">
-              <p className="text-primary font-bold tracking-widest text-sm uppercase mb-4">
-                WHAT WE DO
-              </p>
-              <h2 className="text-3xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight">
-                Services Built for<br />
-                <span className="text-primary">Real Results</span>
-              </h2>
-            </div>
-            <div className="max-w-sm">
-              <p className="text-muted-foreground text-base leading-relaxed">
-                We combine strategy, design, and technology to help brands grow — from zero to scale.
-              </p>
-            </div>
+          <AnimatedSection>
+            <SectionHeader
+              badge="WHAT WE DO"
+              title={<>Services Built for<br /><span className="text-primary">Real Results</span></>}
+              subtitle="We combine strategy, design, and technology to help brands grow — from zero to scale."
+            />
           </AnimatedSection>
-
-          {/* Bottom dashed border */}
         </div>
 
-        {/* Services Grid — border-based grid lines (always aligns with row/col bounds) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 border-l border-t border-dashed border-border/60">
+        {/* Services Grid — shadow cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
 
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <AnimatedSection key={index} delay={index * 0.08} className="h-full border-r border-b border-dashed border-border/60">
+              <AnimatedSection key={index} delay={index * 0.08} className="h-full">
                 <Link
                   href={service.href}
-                  className="group relative flex flex-col gap-5 p-8 h-full min-h-[220px] transition-colors duration-300 hover:bg-primary/3"
+                  className="group relative flex flex-col gap-5 p-8 h-full min-h-[220px] bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border/50 overflow-hidden"
                 >
                   {/* Tag number */}
-                  <span className="text-[11px] font-bold tracking-widest text-muted-foreground/50 uppercase">
+                  <span className="text-[11px] font-bold tracking-widest text-muted-foreground/50 uppercase relative z-10">
                     {service.tag}
                   </span>
 
                   {/* Icon */}
-                  <div className="w-11 h-11 rounded-sm border border-border flex items-center justify-center text-primary bg-primary/5 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-primary bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 relative z-10">
                     <Icon size={20} strokeWidth={1.75} />
                   </div>
 
@@ -129,13 +116,13 @@ export function Features() {
                   </div>
 
                   {/* Arrow link */}
-                  <div className="flex items-center gap-1 text-primary text-[13px] font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
+                  <div className="flex items-center gap-1 text-primary text-[13px] font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 relative z-10">
                     Learn more
                     <ArrowRight size={14} />
                   </div>
 
-                  {/* Hover accent line at top */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-none" />
+                  {/* Hover subtle glow at top right */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </Link>
               </AnimatedSection>
             );

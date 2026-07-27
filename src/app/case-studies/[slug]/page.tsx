@@ -4,6 +4,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTA } from "@/components/CTA";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 // Deep, immersive case study storytelling
@@ -44,10 +45,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <section className="relative pt-32 pb-24 overflow-hidden min-h-[70vh] flex items-center">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
-            <img 
+            <Image 
               src={study.image || "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80"} 
               alt={study.title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
             />
             {/* Dark gradient overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background z-10" />
