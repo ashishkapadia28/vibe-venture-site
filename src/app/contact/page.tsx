@@ -64,8 +64,7 @@ export default function ContactPage() {
                     </div>
                     <h4 className="text-sm font-bold text-foreground mb-1">Email Us</h4>
                     <a href="mailto:ashish@vibeventure.in" className="text-muted-foreground text-sm hover:text-primary transition-colors">ashish@vibeventure.in</a>
-                    <a href="mailto:sibtain@vibeventure.in" className="text-muted-foreground text-sm hover:text-primary transition-colors">sibtain@vibeventure.in</a>
-                  </div>
+                    </div>
 
                   <div className="p-6 rounded-2xl border border-border/50 bg-white/50 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow group">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
