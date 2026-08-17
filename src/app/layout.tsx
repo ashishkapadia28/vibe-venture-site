@@ -6,6 +6,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SmoothScrolling } from "@/components/SmoothScrolling";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Analytics } from "@/components/Analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -58,6 +59,7 @@ export default function RootLayout({
           <CookieConsent />
         </SmoothScrolling>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
