@@ -33,7 +33,7 @@ export function SectionHeader({
       )}
       
       <h2 className={cn(
-        "text-4xl md:text-5xl lg:text-[56px] font-heading font-bold leading-[1.1] tracking-tight",
+        "text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.1] tracking-tight",
         isDark ? "text-secondary-foreground" : "text-foreground"
       )}>
         {title}
@@ -41,7 +41,7 @@ export function SectionHeader({
       
       {subtitle && (
         <p className={cn(
-          "text-lg font-medium leading-relaxed max-w-xl",
+          "text-base leading-relaxed max-w-xl font-normal",
           isDark ? "text-secondary-foreground/70" : "text-foreground/70"
         )}>
           {subtitle}

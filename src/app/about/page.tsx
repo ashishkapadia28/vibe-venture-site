@@ -151,8 +151,8 @@ export default function AboutPage() {
                       className="border-r border-dashed border-border/60"
                     >
                       <div className="flex items-center gap-4 py-8 px-6">
-                        <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                          <Icon size={20} strokeWidth={1.75} />
+                        <div className="flex items-center justify-center text-primary shrink-0">
+                          <Icon size={28} strokeWidth={1.5} />
                         </div>
                         <div>
                           <p className="text-2xl font-heading font-bold text-foreground leading-none mb-1">
@@ -255,8 +255,8 @@ export default function AboutPage() {
                     delay={0.05 * i}
                     className={`p-8 md:p-10 group hover:bg-primary/5 transition-colors duration-300 ${!isLastInRow ? "border-r border-dashed border-border/80" : ""} ${!isBottomRow ? "border-b border-dashed border-border/80" : ""}`}
                   >
-                    <div className="w-12 h-12 bg-primary/10 border border-dashed border-primary/30 rounded-md flex items-center justify-center text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                      <Icon size={22} />
+                    <div className="flex items-center text-primary mb-5">
+                      <Icon size={32} />
                     </div>
                     <h3 className="text-lg font-heading font-bold mb-3">{value.title}</h3>
                     <p className="text-sm text-foreground/70 leading-relaxed">{value.description}</p>

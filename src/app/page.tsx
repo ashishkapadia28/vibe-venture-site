@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { AgencyIntro } from "@/components/AgencyIntro";
 import { ClientLogos } from "@/components/ClientLogos";
+import { ShopifyPartnerSection } from "@/components/ShopifyPartnerSection";
 import { ProblemStatement } from "@/components/ProblemStatement";
 import { Features } from "@/components/Features";
 import { ServicesWhy } from "@/components/ServicesWhy";
@@ -19,13 +20,13 @@ export default function Home() {
         <Hero />
         <AgencyIntro />
         <ClientLogos />
+        <ShopifyPartnerSection />
         <ProblemStatement />
         <Features />
         <ServicesWhy />
-        <CTA />
         <Testimonials />
         <ContactSection />
-        <BackupCTA />
+        <CTA />
       </main>
       <Footer />
     </>

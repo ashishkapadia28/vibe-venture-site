@@ -209,8 +209,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   <h2 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold mb-8 text-foreground group-hover:text-primary transition-colors">
                     {nextProject.title}
                   </h2>
-                  <div className="w-16 h-16 mx-auto rounded-full border-2 border-border flex items-center justify-center text-foreground group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                    <ArrowUpRight size={24} />
+                  <div className="mx-auto flex items-center justify-center text-foreground group-hover:text-primary transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-2">
+                    <ArrowUpRight size={32} />
                   </div>
                 </Link>
               </AnimatedSection>

@@ -1,6 +1,6 @@
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./ui/SectionHeader";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 const comparison = [
   {
@@ -28,68 +28,74 @@ const comparison = [
 export function ServicesWhy() {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
-      {/* subtle blobs */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] translate-x-1/3 translate-y-1/4" />
-      </div>
-
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
 
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-12 md:mb-16">
           <AnimatedSection>
             <SectionHeader
-              alignment="center"
-              badge="THE VIBE VENTURE DIFFERENCE"
-              title={<>Traditional Agencies <br /><span className="text-primary">vs. Vibe Venture</span></>}
-              subtitle="We don't just build websites; we build growth engines. Here is why hundreds of brands choose us over the old agency model."
+              badge="Why Vibe Venture" 
+              title={<>What Makes Us Different</>}
+              subtitle="Choosing the right agency is harder than it looks. Most say the same things and make the same promises. This comparison shows exactly how we operate versus the industry standard."
             />
           </AnimatedSection>
         </div>
 
-        {/* Comparison Table / Cards */}
-        <div className="mt-16 max-w-5xl mx-auto">
-          {/* Header Row */}
-          <div className="hidden md:grid grid-cols-2 gap-8 mb-6 px-6">
-            <div className="text-lg font-heading font-bold text-muted-foreground/60 text-center uppercase tracking-wider">
-              Traditional Agencies
+        {/* Bespoke Vibe Venture Minimalist Layout */}
+        <AnimatedSection delay={0.2}>
+          <div className="max-w-6xl mx-auto mt-16">
+            
+            {/* Minimalist Headers (Desktop) */}
+            <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-4">
+              <h3 className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.2em] border-b border-border/50 pb-3">
+                The Old Agency Model
+              </h3>
+              <h3 className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] border-b border-primary/20 pb-3">
+                The Vibe Venture Standard
+              </h3>
             </div>
-            <div className="text-lg font-heading font-bold text-primary text-center uppercase tracking-wider">
-              Vibe Venture
-            </div>
-          </div>
 
-          <div className="flex flex-col gap-4">
-            {comparison.map((item, index) => (
-              <AnimatedSection key={index} delay={index * 0.1}>
-                <div className="flex flex-col md:flex-row gap-4 md:gap-8 bg-white rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/50 p-2 relative overflow-hidden group">
+            {/* List Content */}
+            <div className="flex flex-col">
+              {comparison.map((item, index) => (
+                <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 py-5 md:py-6 border-b border-border/40 last:border-b-0 group">
                   
                   {/* Them */}
-                  <div className="flex-1 p-6 md:p-8 rounded-2xl bg-secondary/5 flex items-start gap-4">
-                    <XCircle className="text-red-400 shrink-0 mt-0.5" size={24} />
-                    <p className="text-foreground/70 font-medium leading-relaxed">
-                      {item.them}
-                    </p>
-                  </div>
-
-                  {/* VS Badge (Desktop only) */}
-                  <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md items-center justify-center text-xs font-bold text-muted-foreground z-10">
-                    VS
+                  <div className="flex flex-col md:flex-row md:items-start gap-2 md:gap-4">
+                    <span className="md:hidden text-[9px] font-bold text-muted-foreground uppercase tracking-widest">
+                      Old Model
+                    </span>
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 shrink-0 flex items-center justify-center">
+                        <X size={16} className="text-red-400" strokeWidth={2.5} />
+                      </div>
+                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-1">
+                        {item.them}
+                      </p>
+                    </div>
                   </div>
 
                   {/* Us */}
-                  <div className="flex-1 p-6 md:p-8 rounded-2xl bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300 flex items-start gap-4">
-                    <CheckCircle2 className="text-primary shrink-0 mt-0.5" size={24} />
-                    <p className="text-foreground font-semibold leading-relaxed">
-                      {item.us}
-                    </p>
+                  <div className="flex flex-col md:flex-row md:items-start gap-2 md:gap-4">
+                    <span className="md:hidden text-[9px] font-bold text-primary uppercase tracking-widest">
+                      Vibe Venture
+                    </span>
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 shrink-0 flex items-center justify-center">
+                        <Check size={16} className="text-primary" strokeWidth={3} />
+                      </div>
+                      <p className="text-foreground font-medium text-sm md:text-base leading-relaxed flex-1">
+                        {item.us}
+                      </p>
+                    </div>
                   </div>
-
+                  
                 </div>
-              </AnimatedSection>
-            ))}
+              ))}
+            </div>
+
           </div>
-        </div>
+        </AnimatedSection>
 
       </div>
     </section>

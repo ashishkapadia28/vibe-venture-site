@@ -164,8 +164,8 @@ export default function CaseStudiesPage() {
                           <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm bg-secondary/50 text-foreground border border-border/50 group-hover:border-primary/30 group-hover:text-primary transition-colors">
                             {study.category}
                           </span>
-                          <div className="w-8 h-8 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                            <ArrowUpRight size={14} />
+                          <div className="flex items-center justify-center text-muted-foreground group-hover:text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                            <ArrowUpRight size={20} strokeWidth={2} />
                           </div>
                         </div>
 

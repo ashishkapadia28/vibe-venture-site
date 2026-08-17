@@ -46,7 +46,6 @@ export function CaseStudies() {
           <SectionHeader 
             title="Take A Look At Our Recent Work"
             theme="dark"
-            alignment="center"
           />
         </AnimatedSection>
 

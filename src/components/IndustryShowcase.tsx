@@ -130,8 +130,8 @@ export function IndustryShowcase({ dbIndustries }: { dbIndustries?: any[] }) {
                 {/* Content Area - Take Half Space on Desktop */}
                 <div className="p-8 md:p-10 lg:p-14 flex flex-col justify-center lg:w-1/2 relative z-30">
                   <div className="hidden lg:flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                      <ActiveIcon size={28} />
+                    <div className="flex items-center justify-center text-primary shrink-0">
+                      <ActiveIcon size={36} />
                     </div>
                     <h3 className="text-4xl font-heading font-bold text-foreground leading-tight">
                       {activeIndustry.title}

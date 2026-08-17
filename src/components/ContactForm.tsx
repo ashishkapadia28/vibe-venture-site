@@ -111,8 +111,8 @@ export function ContactForm() {
   if (isSuccess) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center h-full space-y-4 animate-in fade-in zoom-in duration-500">
-        <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-2">
-          <CheckCircle2 size={32} />
+        <div className="text-primary flex items-center justify-center mb-4">
+          <CheckCircle2 size={48} />
         </div>
         <h4 className="text-2xl font-heading font-bold">Inquiry Sent!</h4>
         <p className="text-muted-foreground text-sm max-w-sm">

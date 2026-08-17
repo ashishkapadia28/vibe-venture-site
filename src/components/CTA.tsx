@@ -7,7 +7,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 export function CTA() {
   return (
     <section className="py-24 bg-background relative z-10">
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
         <AnimatedSection>
           {/* Main Card Container - Horizontal Banner Layout */}
           <div className="relative overflow-hidden rounded-[2rem] bg-secondary text-secondary-foreground flex flex-col lg:flex-row items-center justify-between p-10 md:p-14 lg:p-16 gap-8 md:gap-12">
@@ -470,12 +470,10 @@ export function CTA() {
             <div className="relative z-10 w-full lg:w-1/3 flex justify-start lg:justify-end mt-4 lg:mt-0">
               <Link
                 href="/contact"
-                className="flex items-center justify-between gap-4 group pl-8 pr-2 py-2 rounded-full bg-white text-secondary hover:bg-gray-100 transition-all duration-300 whitespace-nowrap shadow-xl shadow-black/20"
+                className="px-8 py-4 rounded-full bg-white text-secondary font-bold text-[17px] transition-all duration-300 hover:bg-gray-100 hover:shadow-lg flex items-center justify-center gap-2 group whitespace-nowrap"
               >
-                <span className="font-bold text-lg">Get a Free Quote</span>
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground group-hover:rotate-45 group-hover:scale-105 transition-all duration-300">
-                  <ArrowUpRight size={24} />
-                </div>
+                Get a Free Quote
+                <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 

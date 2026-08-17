@@ -38,21 +38,17 @@ export function Hero() {
             <AnimatedSection delay={0.4} className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="flex items-center justify-between gap-4 group pl-6 pr-2 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-xl shadow-primary/20"
+                className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20 flex items-center justify-center gap-1.5 group"
               >
-                <span className="font-semibold text-base">Start A Project</span>
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:rotate-45 group-hover:scale-105 transition-all duration-300">
-                  <ArrowUpRight size={20} />
-                </div>
+                Start A Project
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/services"
-                className="flex items-center justify-between gap-4 group pl-6 pr-2 py-2 rounded-full bg-transparent border border-border text-foreground hover:bg-gray-50 transition-all duration-300"
+                className="px-6 py-3 rounded-full bg-white border border-border text-foreground font-medium text-[15px] transition-all duration-300 hover:bg-gray-50 flex items-center justify-center gap-1.5 group shadow-sm"
               >
-                <span className="font-semibold text-base">Learn More</span>
-                <div className="w-10 h-10 rounded-full bg-secondary/5 flex items-center justify-center text-foreground group-hover:bg-secondary/10 group-hover:scale-105 transition-all duration-300">
-                  <ArrowRight size={20} />
-                </div>
+                Learn More
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </AnimatedSection>
           </div>

@@ -16,11 +16,9 @@ export function CutoutBanner() {
             contentPosition="bottom-left"
             buttonContent={
               <>
-                <button className="flex items-center gap-3 group px-6 py-4 rounded-full bg-accent hover:bg-accent/80 transition-colors">
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-foreground group-hover:text-primary transition-colors shadow-sm">
-                    <ArrowUpRight size={14} />
-                  </div>
-                  <span className="font-semibold text-foreground text-sm">View Portfolio</span>
+                <button className="px-6 py-4 rounded-full bg-white border border-border text-foreground font-semibold text-sm transition-all duration-300 hover:bg-gray-50 flex items-center gap-2 group shadow-sm">
+                  View Portfolio
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </button>
                 <button className="px-6 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-sm transition-all duration-300 hover:bg-primary/90 flex items-center gap-2 group">
                   Start A Project

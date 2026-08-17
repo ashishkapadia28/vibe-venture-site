@@ -46,11 +46,11 @@ export default function ContactPage() {
                 </p>
 
                 <div className="flex flex-wrap gap-4 mt-10">
-                  <div className="flex items-center gap-2 text-sm font-medium text-foreground bg-secondary/50 px-4 py-2 rounded-full border border-border">
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-border/50 shadow-sm">
                     <ShieldCheck size={18} className="text-primary" />
                     100% Confidential
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-medium text-foreground bg-secondary/50 px-4 py-2 rounded-full border border-border">
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-border/50 shadow-sm">
                     <Star size={18} className="text-primary" />
                     Trusted by 50+ Brands
                   </div>
@@ -59,16 +59,16 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-16 max-w-xl">
                   {/* Contact Cards */}
                   <div className="p-6 rounded-2xl border border-border/50 bg-white/50 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow group">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <Mail size={20} />
+                    <div className="text-primary flex items-center mb-4 group-hover:scale-110 transition-transform origin-left">
+                      <Mail size={28} />
                     </div>
                     <h4 className="text-sm font-bold text-foreground mb-1">Email Us</h4>
                     <a href="mailto:ashish@vibeventure.in" className="text-muted-foreground text-sm hover:text-primary transition-colors">ashish@vibeventure.in</a>
-                    </div>
+                  </div>
 
                   <div className="p-6 rounded-2xl border border-border/50 bg-white/50 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow group">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <Phone size={20} />
+                    <div className="text-primary flex items-center mb-4 group-hover:scale-110 transition-transform origin-left">
+                      <Phone size={28} />
                     </div>
                     <h4 className="text-sm font-bold text-foreground mb-1">Call Us</h4>
                     <a href="tel:+916352380624" className="text-muted-foreground text-sm hover:text-primary transition-colors">+91 63 5238 0624</a>

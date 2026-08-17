@@ -9,7 +9,7 @@ import { SectionHeader } from "./ui/SectionHeader";
 export function Testimonials() {
   return (
     <section className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden z-10">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
         
         <div className="mb-16 z-30">
           <AnimatedSection>

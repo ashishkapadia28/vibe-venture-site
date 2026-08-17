@@ -101,8 +101,8 @@ export function Features() {
                   </span>
 
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-primary bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 relative z-10">
-                    <Icon size={20} strokeWidth={1.75} />
+                  <div className="text-primary relative z-10 mb-1">
+                    <Icon size={32} strokeWidth={1.5} />
                   </div>
 
                   {/* Content */}

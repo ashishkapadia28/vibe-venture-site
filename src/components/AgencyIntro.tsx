@@ -67,12 +67,10 @@ export function AgencyIntro() {
             <AnimatedSection delay={0.6}>
               <Link 
                 href="/about"
-                className="inline-flex items-center justify-between gap-4 group pl-6 pr-2 py-2 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-all duration-300 shadow-xl shadow-primary/20"
+                className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20 inline-flex items-center justify-center gap-1.5 group"
               >
-                <span className="text-base">More About Us</span>
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:rotate-45 group-hover:scale-105 transition-all duration-300">
-                  <ArrowUpRight size={20} />
-                </div>
+                More About Us
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </AnimatedSection>
           </div>

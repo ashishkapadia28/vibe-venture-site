@@ -349,8 +349,8 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
             <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar flex-1">
               {isSuccess ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center animate-in fade-in zoom-in duration-500">
-                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle size={40} className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary),0.3)]" />
+                  <div className="flex items-center justify-center mb-6">
+                    <CheckCircle size={56} className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary),0.3)]" />
                   </div>
                   <h3 className="text-3xl font-bold font-heading mb-3">Application Received!</h3>
                   <p className="text-muted-foreground max-w-sm">

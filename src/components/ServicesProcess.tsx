@@ -87,8 +87,8 @@ export function ServicesProcess() {
                     <span className="text-[11px] font-bold tracking-widest text-muted-foreground/50 uppercase">
                       {step.number}
                     </span>
-                    <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                      <Icon size={18} strokeWidth={1.75} />
+                    <div className="text-primary mt-1">
+                      <Icon size={24} strokeWidth={1.5} />
                     </div>
                   </div>
 

@@ -72,8 +72,8 @@ export function ServicesHero() {
                   className="border-r border-dashed border-border/60"
                 >
                   <div className="flex items-center gap-4 py-8 px-6">
-                    <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                      <Icon size={20} strokeWidth={1.75} />
+                    <div className="flex items-center justify-center text-primary shrink-0">
+                      <Icon size={28} strokeWidth={1.5} />
                     </div>
                     <div>
                       <p className="text-2xl font-heading font-bold text-foreground leading-none mb-1">

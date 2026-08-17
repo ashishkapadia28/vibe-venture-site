@@ -33,7 +33,6 @@ export function ProblemStatement() {
         <div className="mb-16">
           <AnimatedSection>
             <SectionHeader
-              alignment="center"
               badge="THE DIGITAL GROWTH BARRIER"
               title={<>Why Most Businesses <span className="text-primary/90">Fail to Scale Online</span></>}
               subtitle="In today's hyper-competitive digital landscape, an outdated presence isn't just an inconvenience—it's actively costing you revenue. Here are the core challenges holding your business back:"
@@ -50,8 +49,8 @@ export function ProblemStatement() {
                 delay={index * 0.1}
                 className="bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 p-8 md:p-10 flex flex-col gap-6 transition-all duration-300 border border-border/50 group"
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  <Icon size={24} strokeWidth={1.5} />
+                <div className="text-primary mb-2">
+                  <Icon size={32} strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold font-heading mb-3 text-foreground group-hover:text-primary/90 transition-colors">

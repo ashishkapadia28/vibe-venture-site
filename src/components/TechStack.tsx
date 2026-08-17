@@ -101,8 +101,8 @@ export function TechStack() {
                   const Icon = item.icon;
                   return (
                     <div key={i} className="flex items-center gap-3 bg-background border border-dashed border-border/80 rounded-md px-4 py-3">
-                      <div className="w-7 h-7 bg-primary/10 border border-dashed border-primary/30 rounded-md flex items-center justify-center shrink-0">
-                        <Icon size={13} className="text-primary" />
+                      <div className="flex items-center justify-center shrink-0">
+                        <Icon size={18} className="text-primary" />
                       </div>
                       <span className="text-sm text-foreground/70 font-medium">{item.label}</span>
                     </div>

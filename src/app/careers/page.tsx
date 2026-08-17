@@ -134,7 +134,7 @@ export default function CareersPage() {
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
 
                     <div className="relative z-10">
-                      <div className="w-14 h-14 rounded-full border border-border/50 flex items-center justify-center mb-6 bg-secondary group-hover:border-primary group-hover:scale-110 transition-all duration-500">
+                      <div className="flex items-center text-primary mb-6 group-hover:scale-110 transition-transform duration-500 origin-left">
                         {value.icon}
                       </div>
                       <h3 className="text-2xl font-heading font-bold mb-4 group-hover:text-primary transition-colors">

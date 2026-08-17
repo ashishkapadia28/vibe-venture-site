@@ -168,8 +168,8 @@ export function Navbar() {
                                 className="flex items-start gap-4 p-3 hover:bg-secondary/40 rounded-xl transition-colors relative z-10"
                                 onMouseEnter={() => setHoveredMenuItemName(dropItem.name)}
                               >
-                                <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 transition-colors group-hover/item:bg-primary group-hover/item:text-primary-foreground">
-                                  <dropItem.icon size={20} strokeWidth={1.5} />
+                                <div className="text-primary flex items-center justify-center shrink-0 mt-0.5">
+                                  <dropItem.icon size={24} strokeWidth={1.5} />
                                 </div>
                                 <div className="flex-1 pt-0.5">
                                   <h4 className="text-[15px] font-semibold text-foreground mb-0.5 group-hover/item:text-primary transition-colors">{dropItem.name}</h4>

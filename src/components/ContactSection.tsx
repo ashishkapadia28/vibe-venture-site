@@ -27,8 +27,8 @@ export function ContactSection() {
 
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <Mail size={24} strokeWidth={1.5} />
+                  <div className="flex items-center justify-center text-primary shrink-0 mr-2 mt-1">
+                    <Mail size={32} strokeWidth={1.5} />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold font-heading mb-1 text-foreground">Email Us</h4>
@@ -38,8 +38,8 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <Phone size={24} strokeWidth={1.5} />
+                  <div className="flex items-center justify-center text-primary shrink-0 mr-2 mt-1">
+                    <Phone size={32} strokeWidth={1.5} />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold font-heading mb-1 text-foreground">Call Us</h4>
@@ -49,8 +49,8 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <MapPin size={24} strokeWidth={1.5} />
+                  <div className="flex items-center justify-center text-primary shrink-0 mr-2 mt-1">
+                    <MapPin size={32} strokeWidth={1.5} />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold font-heading mb-1 text-foreground">Headquarters</h4>
