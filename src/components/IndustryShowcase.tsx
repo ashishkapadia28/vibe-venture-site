@@ -27,17 +27,28 @@ const fallbackIndustries = [
   }
 ];
 
-export function IndustryShowcase({ dbIndustries }: { dbIndustries?: any[] }) {
+interface DbIndustry {
+  id: string;
+  name: string;
+  description?: string;
+  icon_name?: string;
+  image_url?: string;
+  stats?: string[];
+}
+
+const LUCIDE_ICONS = LucideIcons as unknown as Record<string, LucideIcons.LucideIcon>;
+
+export function IndustryShowcase({ dbIndustries }: { dbIndustries?: DbIndustry[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   // Transform DB industries or use fallback
   const industries = dbIndustries && dbIndustries.length > 0 ? dbIndustries.map(ind => ({
     id: ind.id,
     title: ind.name,
     description: ind.description || "Transforming businesses with custom digital solutions.",
-    icon: (LucideIcons as any)[ind.icon_name || "Building2"] || LucideIcons.Building2,
+    icon: LUCIDE_ICONS[ind.icon_name || "Building2"] || LucideIcons.Building2,
     image: ind.image_url || "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
-    stats: ind.stats?.length > 0 ? ind.stats : ["Domain Expertise", "Secure Architecture", "Scalable Growth"]
+    stats: ind.stats && ind.stats.length > 0 ? ind.stats : ["Domain Expertise", "Secure Architecture", "Scalable Growth"]
   })) : fallbackIndustries;
 
   const activeIndustry = industries[activeIndex];

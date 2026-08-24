@@ -1,14 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { InlineWidget } from "react-calendly";
+import { useIsClient } from "@/hooks/useIsClient";
 
 export function CalendlyEmbed() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const isClient = useIsClient();
 
   if (!isClient) {
     return <div className="w-full h-full min-h-[600px] bg-background flex items-center justify-center text-muted-foreground">Loading Calendar...</div>;

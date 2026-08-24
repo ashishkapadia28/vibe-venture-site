@@ -15,7 +15,6 @@ import {
   TrendingUp,
   Globe,
   CheckCircle2,
-  Rocket,
   Target,
   HeartHandshake,
 } from "lucide-react";
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
 const stats = [
   { icon: Users, value: "100+", label: "Businesses Served" },
   { icon: Trophy, value: "250+", label: "Projects Delivered" },
-  { icon: Clock, value: "5+", label: "Years of Excellence" },
+  { icon: Clock, value: "1+", label: "Years of Excellence" },
   { icon: Layers, value: "99%", label: "Client Satisfaction" },
 ];
 
@@ -73,12 +72,6 @@ const values = [
   },
 ];
 
-
-const techStack = [
-  "Next.js", "React", "TypeScript", "Node.js", "Python", "Flutter",
-  "PostgreSQL", "Redis", "AWS", "Vercel", "Docker", "Figma",
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -107,7 +100,7 @@ export default function AboutPage() {
 
               <AnimatedSection delay={0.15}>
                 <h1 className="text-5xl md:text-6xl lg:text-[72px] font-heading font-bold mb-6 leading-[1.05] tracking-tight">
-                  We Don't Just Build Websites.{" "}
+                  We Don&apos;t Just Build Websites.{" "}
                   <br className="hidden md:block" />
                   <span className="text-primary">We Build Growth Engines.</span>
                 </h1>
@@ -188,7 +181,7 @@ export default function AboutPage() {
                     We started Vibe Venture because we saw too many businesses settling for mediocre digital experiences — slow websites, generic apps, and marketing that blends into the noise. We knew we could do better.
                   </p>
                   <p className="text-foreground/70 mb-5 leading-relaxed">
-                    Our team of engineers, designers, and growth strategists come together with one shared mission: to build digital products that don't just work — they win.
+                    Our team of engineers, designers, and growth strategists come together with one shared mission: to build digital products that don&apos;t just work — they win.
                   </p>
                   <p className="text-foreground/70 leading-relaxed">
                     Today, we serve businesses across the globe, from ambitious startups to established enterprises, helping each one harness the full power of technology to grow faster and smarter.
@@ -204,9 +197,9 @@ export default function AboutPage() {
                       <span className="text-primary text-[10px] font-bold tracking-widest uppercase">Our Mission</span>
                     </div>
                     <p className="text-2xl font-heading font-bold leading-snug">
-                      "Empower businesses to thrive in the digital era through{" "}
+                      &ldquo;Empower businesses to thrive in the digital era through{" "}
                       <span className="text-primary">exceptional engineering</span> and{" "}
-                      <span className="text-primary">bold design.</span>"
+                      <span className="text-primary">bold design.</span>&rdquo;
                     </p>
                   </div>
 

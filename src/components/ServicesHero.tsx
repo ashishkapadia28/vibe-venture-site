@@ -5,7 +5,7 @@ import { ArrowRight, Layers, Users, Trophy, Clock } from "lucide-react";
 const stats = [
   { icon: Users, value: "100+", label: "Businesses Served" },
   { icon: Trophy, value: "250+", label: "Projects Delivered" },
-  { icon: Clock, value: "5+", label: "Years of Excellence" },
+  { icon: Clock, value: "1+", label: "Years of Excellence" },
   { icon: Layers, value: "4", label: "Core Service Lines" },
 ];
 

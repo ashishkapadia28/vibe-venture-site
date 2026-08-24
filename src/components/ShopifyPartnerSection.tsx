@@ -1,6 +1,6 @@
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./ui/SectionHeader";
-import { ArrowUpRight, Zap, Blocks } from "lucide-react";
+import { ArrowUpRight, Zap } from "lucide-react";
 
 export function ShopifyPartnerSection() {
   return (

@@ -4,6 +4,16 @@ import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArrowUpRight, ArrowRight, ChevronDown, X, Loader2, CheckCircle } from "lucide-react";
+import { useIsClient } from "@/hooks/useIsClient";
+
+interface Role {
+  id: number | string;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  experience: string;
+}
 
 // Custom Dropdown Component
 function CustomDropdown({ 
@@ -74,34 +84,33 @@ function CustomDropdown({
   );
 }
 
-export function OpenPositions({ openRoles }: { openRoles: any[] }) {
+export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
   const [departmentFilter, setDepartmentFilter] = useState("All");
   const [experienceFilter, setExperienceFilter] = useState("All");
   const [typeFilter, setTypeFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
   // Application Modal States
-  const [selectedJob, setSelectedJob] = useState<any | null>(null);
+  const [selectedJob, setSelectedJob] = useState<Role | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', linkedin: '', experience: '', cover_letter: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
   const [experienceType, setExperienceType] = useState<'Fresher' | 'Experienced'>('Fresher');
   const [expYears, setExpYears] = useState('');
   const [expMonths, setExpMonths] = useState('');
   const [countryCode, setCountryCode] = useState('+91');
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const ITEMS_PER_PAGE = 10;
 
-  // Reset pagination when filters change
-  useEffect(() => {
+  // Reset pagination when filters change (adjusted during render, per React's
+  // guidance for state that depends on other state — avoids an extra effect pass)
+  const [appliedFilters, setAppliedFilters] = useState([departmentFilter, experienceFilter, typeFilter]);
+  if (appliedFilters[0] !== departmentFilter || appliedFilters[1] !== experienceFilter || appliedFilters[2] !== typeFilter) {
+    setAppliedFilters([departmentFilter, experienceFilter, typeFilter]);
     setCurrentPage(1);
-  }, [departmentFilter, experienceFilter, typeFilter]);
+  }
 
   const departments = ["All", ...Array.from(new Set(openRoles.map((role) => role.department)))];
   const experiences = ["All", "Fresher", "Mid-Level", "Experienced"];
@@ -122,6 +131,7 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
 
   const handleApplySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedJob) return;
     setIsSubmitting(true);
     setError('');
 
@@ -149,7 +159,7 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
         setExpMonths('');
         setCountryCode('+91');
       }, 3000);
-    } catch (err) {
+    } catch {
       setError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -166,7 +176,7 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
                 Open Positions
               </h2>
               <p className="text-muted-foreground max-w-2xl">
-                Ready to build? Check out our current openings. If you don't see a perfect fit, pitch us anyway.
+                Ready to build? Check out our current openings. If you don&apos;t see a perfect fit, pitch us anyway.
               </p>
             </div>
             
@@ -259,7 +269,7 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
                 
                 <p className="text-xl font-heading font-bold mb-2">No Open Roles</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
-                  We don't have any open roles available at the moment. Please check back later.
+                  We don&apos;t have any open roles available at the moment. Please check back later.
                 </p>
               </div>
             ) : (
@@ -267,7 +277,7 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
                 
                 <p className="text-xl font-heading font-bold mb-2">No Matches Found</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
-                  We don't have any open roles matching these exact filters right now.
+                  We don&apos;t have any open roles matching these exact filters right now.
                 </p>
                 <button 
                   onClick={() => {
@@ -309,8 +319,8 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
         </div>
         
         <AnimatedSection delay={0.4} className="mt-16">
-          <p className="text-muted-foreground mb-4">Don't see a perfect fit?</p>
-          <a href="mailto:careers@vibeventure.com" className="inline-flex items-center gap-2 font-bold text-foreground hover:text-primary transition-colors border-b border-primary pb-1">
+          <p className="text-muted-foreground mb-4">Don&apos;t see a perfect fit?</p>
+          <a href="mailto:ashish@vibeventure.in" className="inline-flex items-center gap-2 font-bold text-foreground hover:text-primary transition-colors border-b border-primary pb-1">
             Pitch Yourself Directly <ArrowRight size={16} />
           </a>
         </AnimatedSection>
@@ -342,7 +352,7 @@ export function OpenPositions({ openRoles }: { openRoles: any[] }) {
                 Apply for {selectedJob.title}
               </h3>
               <p className="text-sm text-muted-foreground mt-2">
-                We're excited to see what you can bring to the team. Let's get started.
+                We&apos;re excited to see what you can bring to the team. Let&apos;s get started.
               </p>
             </div>
         

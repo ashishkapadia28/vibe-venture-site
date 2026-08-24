@@ -29,14 +29,14 @@ export default function NotFound() {
 
             <AnimatedSection delay={0.2}>
               <h1 className="text-4xl md:text-5xl lg:text-[64px] font-heading font-bold mb-6 leading-[1.1] tracking-tight">
-                Looks Like You've Hit<br />
+                Looks Like You&apos;ve Hit<br />
                 <span className="text-primary">A Dead End</span>
               </h1>
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
               <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
-                The coordinate you requested does not exist in our current architecture. It may have been deprecated, moved, or never built at all. Let's get you back to the homepage.
+                The coordinate you requested does not exist in our current architecture. It may have been deprecated, moved, or never built at all. Let&apos;s get you back to the homepage.
               </p>
             </AnimatedSection>
 

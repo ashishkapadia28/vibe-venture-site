@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X, ChevronDown, ArrowRight, Building2, ShoppingCart, Users, GraduationCap, Landmark, MoreHorizontal, ArrowUpRight, Laptop, Smartphone, PenTool, Megaphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -23,10 +23,10 @@ const navItems = [
         buttonHref: "/services",
       },
       items: [
-        { icon: Laptop, name: "Web Development", description: "Custom, responsive websites built for speed and conversions.", href: "/services/web", coverImage: "/covers/web-dev.png" },
-        { icon: Smartphone, name: "Mobile Apps", description: "Native and cross-platform applications for iOS and Android.", href: "/services/mobile", coverImage: "/covers/mobile-app.png" },
-        { icon: PenTool, name: "UI/UX Design", description: "User-centric designs that deliver engaging digital experiences.", href: "/services/design", coverImage: "/covers/ui-ux.png" },
-        { icon: Megaphone, name: "Digital Marketing", description: "Data-driven strategies to increase your brand's reach and visibility.", href: "/services/marketing", coverImage: "/covers/digital-marketing.png" },
+        { icon: Laptop, name: "Web Development", description: "Custom, responsive websites built for speed and conversions.", href: "/services", coverImage: "/covers/web-dev.png" },
+        { icon: Smartphone, name: "Mobile Apps", description: "Native and cross-platform applications for iOS and Android.", href: "/services", coverImage: "/covers/mobile-app.png" },
+        { icon: PenTool, name: "UI/UX Design", description: "User-centric designs that deliver engaging digital experiences.", href: "/services", coverImage: "/covers/ui-ux.png" },
+        { icon: Megaphone, name: "Digital Marketing", description: "Data-driven strategies to increase your brand's reach and visibility.", href: "/services", coverImage: "/covers/digital-marketing.png" },
       ]
     }
   },
@@ -43,16 +43,15 @@ const navItems = [
         buttonHref: "/industry",
       },
       items: [
-        { icon: ShoppingCart, name: "E-commerce", description: "Drive more sales with data-backed campaigns and conversion optimization.", href: "/industry/ecommerce", coverImage: "/covers/ecommerce.png" },
-        { icon: Users, name: "Healthcare", description: "Reach more patients and build trust with targeted digital strategies.", href: "/industry/healthcare", coverImage: "/covers/healthcare.png" },
-        { icon: GraduationCap, name: "Education", description: "Generate quality leads and increase enrollments with performance marketing.", href: "/industry/education", coverImage: "/covers/education.png" },
-        { icon: Landmark, name: "Finance", description: "Build credibility and acquire high-value leads with result-oriented campaigns.", href: "/industry/finance", coverImage: "/covers/finance.png" },
-        { icon: MoreHorizontal, name: "And Many More", description: "From real estate to SaaS, we help every industry grow digitally.", href: "/industry/all", coverImage: "/covers/other-industries.png" },
+        { icon: ShoppingCart, name: "E-commerce", description: "Drive more sales with data-backed campaigns and conversion optimization.", href: "/industry", coverImage: "/covers/ecommerce.png" },
+        { icon: Users, name: "Healthcare", description: "Reach more patients and build trust with targeted digital strategies.", href: "/industry", coverImage: "/covers/healthcare.png" },
+        { icon: GraduationCap, name: "Education", description: "Generate quality leads and increase enrollments with performance marketing.", href: "/industry", coverImage: "/covers/education.png" },
+        { icon: Landmark, name: "Finance", description: "Build credibility and acquire high-value leads with result-oriented campaigns.", href: "/industry", coverImage: "/covers/finance.png" },
+        { icon: MoreHorizontal, name: "And Many More", description: "From real estate to SaaS, we help every industry grow digitally.", href: "/industry", coverImage: "/covers/other-industries.png" },
       ]
     }
   },
   { name: "Case Studies", href: "/case-studies" },
-  { name: "Blog", href: "/blog" },
   { name: "Career", href: "/career" },
   { name: "Contact us", href: "/contact" },
 ];
@@ -82,7 +81,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-90 transition-opacity relative z-50">
-          <Image src="/vibe_venture_logo.svg" alt="Vibe Venture Logo" width={160} height={48} className="object-contain" priority />
+          <Image src="/vibe_venture_logo.svg" alt="Vibe Venture Logo" width={160} height={48} className="object-contain w-40 h-12" priority />
         </Link>
 
         {/* Desktop Nav */}

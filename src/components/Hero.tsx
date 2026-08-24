@@ -4,7 +4,7 @@ import { AnimatedSection } from "./AnimatedSection";
 import { BentoWidget } from "./ui/BentoWidget";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Star, TrendingUp, Trophy } from "lucide-react";
+import { ArrowRight, Star, TrendingUp, Trophy } from "lucide-react";
 
 export function Hero() {
   return (

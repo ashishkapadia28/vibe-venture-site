@@ -14,7 +14,7 @@ export async function proxy(request: NextRequest) {
   try {
     // Fetch maintenance mode state from Supabase REST API directly
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
     
     if (supabaseUrl && supabaseKey) {
       const res = await fetch(`${supabaseUrl}/rest/v1/site_settings?id=eq.global&select=maintenance_mode`, {
@@ -22,9 +22,9 @@ export async function proxy(request: NextRequest) {
           'apikey': supabaseKey,
           'Authorization': `Bearer ${supabaseKey}`
         },
-        cache: 'no-store', // Disable caching completely
+        // Cache the flag briefly instead of hitting Supabase on every single page view
         next: {
-          revalidate: 0 // Fetch latest state on every request
+          revalidate: 30
         }
       });
       
@@ -32,8 +32,6 @@ export async function proxy(request: NextRequest) {
         const data = await res.json();
         const isMaintenance = data && data.length > 0 && data[0].maintenance_mode;
         
-        console.log("PROXY CHECK: Maintenance Mode is", isMaintenance);
-
         if (isMaintenance) {
           // If maintenance mode is ON and user is NOT on /maintenance, redirect to /maintenance
           if (request.nextUrl.pathname !== '/maintenance') {

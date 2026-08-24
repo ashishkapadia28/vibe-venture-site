@@ -30,7 +30,7 @@ export function Testimonials() {
           <AnimatedSection>
             <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">What Our Clients Say</h2>
             <p className="text-muted-foreground text-lg">
-              Don't just take our word for it. Here's what industry leaders think about our work.
+              Don&apos;t just take our word for it. Here&apos;s what industry leaders think about our work.
             </p>
           </AnimatedSection>
         </div>
@@ -41,7 +41,7 @@ export function Testimonials() {
               <div className="glass p-8 rounded-2xl relative h-full flex flex-col">
                 <Quote size={40} className="text-primary/20 absolute top-6 right-6" />
                 <p className="text-lg leading-relaxed mb-8 relative z-10 grow">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-4 mt-auto">
                   <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">

@@ -1,51 +1,64 @@
 "use client";
 
 import Script from "next/script";
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
+
+interface ConsentState {
+  analytics: boolean;
+  marketing: boolean;
+}
+
+const DEFAULT_CONSENT: ConsentState = { analytics: false, marketing: false };
+let cachedConsent: ConsentState = DEFAULT_CONSENT;
+
+function readConsent(): ConsentState {
+  if (localStorage.getItem("cookie_consent") !== "custom") return DEFAULT_CONSENT;
+  try {
+    const prefs = JSON.parse(localStorage.getItem("cookie_preferences") || "{}");
+    return { analytics: !!prefs.analytics, marketing: !!prefs.marketing };
+  } catch {
+    return DEFAULT_CONSENT;
+  }
+}
+
+// Reads localStorage directly instead of mirroring it into state via an
+// effect — avoids both the extra post-mount render and the hydration
+// mismatch a synchronous localStorage read would otherwise cause, since
+// useSyncExternalStore is built to reconcile server/client snapshots safely.
+function subscribe(callback: () => void) {
+  const handleChange = () => {
+    const next = readConsent();
+    if (next.analytics !== cachedConsent.analytics || next.marketing !== cachedConsent.marketing) {
+      cachedConsent = next;
+      callback();
+    }
+  };
+  window.addEventListener("cookie_consent_update", handleChange);
+  window.addEventListener("storage", handleChange);
+  return () => {
+    window.removeEventListener("cookie_consent_update", handleChange);
+    window.removeEventListener("storage", handleChange);
+  };
+}
+
+function getSnapshot(): ConsentState {
+  const next = readConsent();
+  if (next.analytics !== cachedConsent.analytics || next.marketing !== cachedConsent.marketing) {
+    cachedConsent = next;
+  }
+  return cachedConsent;
+}
+
+function getServerSnapshot(): ConsentState {
+  return DEFAULT_CONSENT;
+}
 
 export function Analytics() {
-  const [analyticsGranted, setAnalyticsGranted] = useState(false);
-  const [marketingGranted, setMarketingGranted] = useState(false);
-
-  useEffect(() => {
-    // Check initial state
-    const consent = localStorage.getItem("cookie_consent");
-    if (consent === "accepted") {
-      setAnalyticsGranted(true);
-      setMarketingGranted(true);
-    } else if (consent === "custom") {
-      try {
-        const prefs = JSON.parse(localStorage.getItem("cookie_preferences") || "{}");
-        if (prefs.analytics) setAnalyticsGranted(true);
-        if (prefs.marketing) setMarketingGranted(true);
-      } catch (e) {
-        console.error("Could not parse cookie preferences");
-      }
-    }
-
-    // Listen for custom event from CookieConsent component
-    const handleConsentEvent = (e: Event) => {
-      // old basic event fallback
-      if (e.type === "cookie_consent_accepted") {
-        setAnalyticsGranted(true);
-        setMarketingGranted(true);
-      } else {
-        // custom preferences event
-        const customEvent = e as CustomEvent;
-        if (customEvent.detail) {
-          setAnalyticsGranted(customEvent.detail.analytics);
-          setMarketingGranted(customEvent.detail.marketing);
-        }
-      }
-    };
-
-    window.addEventListener("cookie_consent_accepted", handleConsentEvent);
-    window.addEventListener("cookie_consent_update", handleConsentEvent);
-    return () => {
-      window.removeEventListener("cookie_consent_accepted", handleConsentEvent);
-      window.removeEventListener("cookie_consent_update", handleConsentEvent);
-    };
-  }, []);
+  const { analytics: analyticsGranted, marketing: marketingGranted } = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
 
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;

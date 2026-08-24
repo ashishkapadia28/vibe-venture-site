@@ -35,7 +35,7 @@ export function Footer() {
           {/* Left Column */}
           <div className="w-full lg:w-[35%] flex flex-col gap-6">
             <Link href="/" className="flex items-center mb-1 hover:opacity-90 transition-opacity">
-              <Image src="/vibe_venture_logo.svg" alt="Vibe Venture" width={160} height={48} className="object-contain brightness-0 invert" />
+              <Image src="/vibe_venture_logo.svg" alt="Vibe Venture" width={160} height={48} className="object-contain brightness-0 invert w-40 h-12" />
             </Link>
             
             <p className="text-[13px] font-medium text-[#768493] mb-1 tracking-wide">
@@ -66,10 +66,10 @@ export function Footer() {
             <div>
               <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Quick Links</h4>
               <ul className="space-y-[14px]">
-                <li><Link href="/services/web" className="text-[13px] hover:text-white transition-colors">Web Development</Link></li>
-                <li><Link href="/services/mobile" className="text-[13px] hover:text-white transition-colors">Mobile Apps</Link></li>
-                <li><Link href="/services/design" className="text-[13px] hover:text-white transition-colors">UI/UX Design</Link></li>
-                <li><Link href="/services/marketing" className="text-[13px] hover:text-white transition-colors">Digital Marketing</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Web Development</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Mobile Apps</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">UI/UX Design</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Digital Marketing</Link></li>
               </ul>
             </div>
 
@@ -79,9 +79,9 @@ export function Footer() {
               <ul className="space-y-[14px]">
                 <li><Link href="/contact" className="text-[13px] hover:text-white transition-colors">Contact us</Link></li>
                 <li><Link href="/about" className="text-[13px] hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/blog" className="text-[13px] hover:text-white transition-colors">Blog</Link></li>
                 <li><Link href="/career" className="text-[13px] hover:text-white transition-colors">Career</Link></li>
                 <li><Link href="/industry" className="text-[13px] hover:text-white transition-colors">Industries</Link></li>
+                <li><Link href="/case-studies" className="text-[13px] hover:text-white transition-colors">Case Studies</Link></li>
               </ul>
             </div>
 
@@ -89,7 +89,6 @@ export function Footer() {
             <div>
               <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Legal</h4>
               <ul className="space-y-[14px]">
-                <li><Link href="/career" className="text-[13px] hover:text-white transition-colors">Career</Link></li>
                 <li><Link href="/privacy" className="text-[13px] hover:text-white transition-colors">Privacy policy</Link></li>
                 <li><Link href="/terms" className="text-[13px] hover:text-white transition-colors">Terms of service</Link></li>
                 <li><Link href="/cookies" className="text-[13px] hover:text-white transition-colors">Cookie policy</Link></li>

@@ -137,7 +137,7 @@ export function CookieConsent() {
                     We value your privacy
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed max-w-2xl">
-                    We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+                    We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking &ldquo;Accept All&rdquo;, you consent to our use of cookies.
                   </p>
                 </div>
               </div>

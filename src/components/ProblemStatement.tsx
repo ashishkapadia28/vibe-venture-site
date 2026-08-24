@@ -1,6 +1,6 @@
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./ui/SectionHeader";
-import { AlertCircle, TrendingDown, Clock, SearchX } from "lucide-react";
+import { TrendingDown, Clock, SearchX } from "lucide-react";
 
 const problems = [
   {

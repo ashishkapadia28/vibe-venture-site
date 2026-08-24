@@ -6,29 +6,84 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+interface CaseStudyMetric {
+  label: string;
+  value: string;
+}
+
+interface CaseStudy {
+  id: number | string;
+  slug?: string;
+  tag?: string;
+  title: string;
+  role?: string;
+  industry?: string;
+  timeline?: string | number;
+  tech?: string[];
+  overview?: string;
+  challenge?: string;
+  solution?: string;
+  impact?: string;
+  image?: string;
+  metrics?: CaseStudyMetric[];
+}
+
+async function getCaseStudies(): Promise<CaseStudy[]> {
+  const baseUrl = process.env.ADMIN_API_URL || "http://localhost:3001";
+  const apiUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+
+  try {
+    // Next dedupes identical fetches within the same request, so calling this
+    // from both generateMetadata and the page component only hits the network once.
+    const res = await fetch(`${apiUrl}/api/case-studies?is_published=true`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    return res.json();
+  } catch (err) {
+    console.error("Failed to fetch case studies for detail page:", err);
+    return [];
+  }
+}
+
+function findStudy(caseStudies: CaseStudy[], slug: string) {
+  const studyIndex = caseStudies.findIndex((s) => s.id.toString() === slug || s.slug === slug);
+  const study = studyIndex !== -1 ? caseStudies[studyIndex] : null;
+  return { study, studyIndex };
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const caseStudies = await getCaseStudies();
+  const { study } = findStudy(caseStudies, slug);
+
+  if (!study) {
+    return { title: "Case Study | Vibe Venture" };
+  }
+
+  const description = study.overview || study.impact || `See how Vibe Venture delivered results for this ${study.industry || ""} project.`.trim();
+
+  return {
+    title: `${study.title} | Vibe Venture Case Studies`,
+    description,
+    openGraph: {
+      title: study.title,
+      description,
+      images: study.image ? [{ url: study.image, width: 1200, height: 630, alt: study.title }] : undefined,
+      type: "article",
+    },
+  };
+}
 
 // Deep, immersive case study storytelling
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  
-  const baseUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || "http://localhost:3001";
-  const apiUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
-  
-  let caseStudies = [];
-  try {
-    const res = await fetch(`${apiUrl}/api/case-studies?is_published=true`, {
-      cache: 'no-store'
-    });
-    if (res.ok) {
-      caseStudies = await res.json();
-    }
-  } catch (err) {
-    console.error("Failed to fetch case studies for detail page:", err);
-  }
 
-  const studyIndex = caseStudies.findIndex((s: any) => s.id.toString() === slug || s.slug === slug);
-  const study = studyIndex !== -1 ? caseStudies[studyIndex] : null;
-  
+  const caseStudies = await getCaseStudies();
+  const { study, studyIndex } = findStudy(caseStudies, slug);
+
   const nextStudyIndex = caseStudies.length > 1 ? (studyIndex + 1) % caseStudies.length : -1;
   const nextProject = nextStudyIndex !== -1 ? caseStudies[nextStudyIndex] : null;
 
@@ -177,7 +232,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <div className="relative">
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-10">
-                    {study.metrics?.map((metric: any, i: number) => (
+                    {study.metrics?.map((metric, i) => (
                       <div key={i} className="p-8 flex flex-col justify-center items-center text-center relative bg-primary/5">
                         
                         <span className="text-4xl md:text-5xl font-heading font-black tracking-tighter text-primary mb-2">

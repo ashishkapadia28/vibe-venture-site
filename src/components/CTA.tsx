@@ -2,7 +2,7 @@
 
 import { AnimatedSection } from "./AnimatedSection";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function CTA() {
   return (
@@ -458,7 +458,7 @@ export function CTA() {
               </div>
               
               <h3 className="text-4xl md:text-5xl lg:text-5xl font-heading font-extrabold leading-[1.1] tracking-tight text-white mb-4">
-                Let's build something <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary/70">extraordinary</span> together.
+                Let&apos;s build something <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary/70">extraordinary</span> together.
               </h3>
               
               <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-lg">

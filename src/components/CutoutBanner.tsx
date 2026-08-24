@@ -2,7 +2,7 @@
 
 import { AnimatedSection } from "./AnimatedSection";
 import { CutoutCard } from "./ui/CutoutCard";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function CutoutBanner() {
   return (

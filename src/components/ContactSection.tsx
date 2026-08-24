@@ -32,8 +32,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold font-heading mb-1 text-foreground">Email Us</h4>
-                    <p className="text-muted-foreground text-sm">hello@vibeventure.com</p>
-                    <p className="text-muted-foreground text-sm">Support: support@vibeventure.com</p>
+                    <p className="text-muted-foreground text-sm">ashish@vibeventure.in</p>
                   </div>
                 </div>
 
@@ -43,7 +42,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold font-heading mb-1 text-foreground">Call Us</h4>
-                    <p className="text-muted-foreground text-sm">+91 (123) 456-7890</p>
+                    <p className="text-muted-foreground text-sm">+91 927 494 0383</p>
                     <p className="text-muted-foreground text-sm">Mon - Fri, 9am - 6pm (IST)</p>
                   </div>
                 </div>
@@ -54,8 +53,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold font-heading mb-1 text-foreground">Headquarters</h4>
-                    <p className="text-muted-foreground text-sm">123 Innovation Drive, Tech Hub</p>
-                    <p className="text-muted-foreground text-sm">Mumbai, India 400001</p>
+                    <p className="text-muted-foreground text-sm">2, Somnath Complex, Somnath Road</p>
+                    <p className="text-muted-foreground text-sm">Mahesana, Gujarat, India</p>
                   </div>
                 </div>
               </div>

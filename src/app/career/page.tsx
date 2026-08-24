@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 async function getJobs() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:3001";
+    const apiUrl = process.env.ADMIN_API_URL || "http://localhost:3001";
     const res = await fetch(`${apiUrl}/api/jobs?is_active=true`, {
       cache: 'no-store',
     });
@@ -61,7 +61,7 @@ export default async function CareersPage() {
               
               <AnimatedSection delay={0.3}>
                 <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-2xl font-medium leading-relaxed">
-                  We are a syndicate of elite engineers, designers, and strategists. We don't hire employees; we partner with relentless problem solvers.
+                  We are a syndicate of elite engineers, designers, and strategists. We don&apos;t hire employees; we partner with relentless problem solvers.
                 </p>
               </AnimatedSection>
 

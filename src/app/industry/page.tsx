@@ -131,7 +131,7 @@ export default async function IndustryPage() {
                   Why industry leaders choose <span className="text-primary">Vibe Venture</span>
                 </h2>
                 <p className="text-foreground/70 text-lg">
-                  We don't just write code; we understand business models.
+                  We don&apos;t just write code; we understand business models.
                 </p>
               </div>
             </AnimatedSection>

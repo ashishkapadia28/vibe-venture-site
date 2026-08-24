@@ -77,11 +77,11 @@ export function BackupCTA() {
 
                 {/* Secondary Actions */}
                 <div className="grid grid-cols-2">
-                  <Link href="tel:+910000000000" className="px-6 py-6 border-r border-border/50 group hover:bg-primary/5 transition-colors duration-300 flex flex-col items-center text-center justify-center relative overflow-hidden">
+                  <Link href="tel:+919274940383" className="px-6 py-6 border-r border-border/50 group hover:bg-primary/5 transition-colors duration-300 flex flex-col items-center text-center justify-center relative overflow-hidden">
                     <Phone size={20} className="text-primary mb-2 group-hover:scale-110 transition-transform duration-300 relative z-10" />
                     <span className="text-sm font-semibold tracking-wide relative z-10">Call Direct</span>
                   </Link>
-                  <Link href="mailto:hello@vibeventure.com" className="px-6 py-6 group hover:bg-primary/5 transition-colors duration-300 flex flex-col items-center text-center justify-center relative overflow-hidden">
+                  <Link href="mailto:ashish@vibeventure.in" className="px-6 py-6 group hover:bg-primary/5 transition-colors duration-300 flex flex-col items-center text-center justify-center relative overflow-hidden">
                     <Mail size={20} className="text-primary mb-2 group-hover:scale-110 transition-transform duration-300 relative z-10" />
                     <span className="text-sm font-semibold tracking-wide relative z-10">Email Us</span>
                   </Link>

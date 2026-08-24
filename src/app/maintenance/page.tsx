@@ -64,13 +64,13 @@ export default function MaintenancePage() {
 
           {/* Contact Info */}
           <div className="flex flex-col sm:flex-row items-center gap-6">
-            <a href="mailto:ashishkdevs@gmail.com" className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
+            <a href="mailto:ashish@vibeventure.in" className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
               <Mail size={16} />
               ashish@vibeventure.in
             </a>
-            <a href="tel:+916352380624" className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
+            <a href="tel:+919274940383" className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
               <Phone size={16} />
-              +91 63 5238 0624
+              +91 927 494 0383
             </a>
           </div>
 

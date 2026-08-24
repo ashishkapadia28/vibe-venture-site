@@ -59,7 +59,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${outfit.variable} antialiased`}
     >
-      <body className="min-h-screen flex flex-col font-sans text-foreground bg-background relative">
+      <body
+        className="min-h-screen flex flex-col font-sans text-foreground bg-background relative"
+        suppressHydrationWarning
+      >
         <SmoothScrolling>
           {children}
           <WhatsAppButton />

@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import type { Metadata } from "next";
-import { MapPin, Mail, Phone, ShieldCheck, Star } from "lucide-react";
+import { Mail, Phone, ShieldCheck, Star } from "lucide-react";
 import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 
 export const metadata: Metadata = {
@@ -38,11 +38,11 @@ export default function ContactPage() {
                 
                 <h1 className="text-5xl md:text-6xl lg:text-[4rem] font-heading font-bold mb-6 tracking-tight leading-[1.05]">
                   Ready to Scale? <br />
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary/60">Let's Talk.</span>
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary/60">Let&apos;s Talk.</span>
                 </h1>
                 
                 <p className="text-lg md:text-xl text-muted-foreground mt-6 leading-relaxed max-w-xl">
-                  Schedule a 30-minute discovery call with our growth experts. We'll audit your current digital presence and outline a tailored roadmap to achieve your goals — zero obligations.
+                  Schedule a 30-minute discovery call with our growth experts. We&apos;ll audit your current digital presence and outline a tailored roadmap to achieve your goals — zero obligations.
                 </p>
 
                 <div className="flex flex-wrap gap-4 mt-10">
@@ -71,7 +71,7 @@ export default function ContactPage() {
                       <Phone size={28} />
                     </div>
                     <h4 className="text-sm font-bold text-foreground mb-1">Call Us</h4>
-                    <a href="tel:+916352380624" className="text-muted-foreground text-sm hover:text-primary transition-colors">+91 63 5238 0624</a>
+                    <a href="tel:+919274940383" className="text-muted-foreground text-sm hover:text-primary transition-colors">+91 927 494 0383</a>
                   </div>
                 </div>
               </AnimatedSection>

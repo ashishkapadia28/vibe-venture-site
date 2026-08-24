@@ -9,7 +9,6 @@ import { ServicesWhy } from "@/components/ServicesWhy";
 import { CTA } from "@/components/CTA";
 import { Testimonials } from "@/components/Testimonials";
 import { ContactSection } from "@/components/ContactSection";
-import { BackupCTA } from "@/components/BackupCTA";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {

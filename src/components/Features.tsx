@@ -133,9 +133,9 @@ export function Features() {
         <div className="relative mt-0">
           <AnimatedSection className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 pb-2">
             <p className="text-muted-foreground text-sm">
-              Don't see what you need?{" "}
+              Don&apos;t see what you need?{" "}
               <Link href="/contact" className="text-primary font-semibold hover:underline underline-offset-4">
-                Let's talk
+                Let&apos;s talk
               </Link>
             </p>
             <Link

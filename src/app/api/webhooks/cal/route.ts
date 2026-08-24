@@ -33,7 +33,7 @@ export async function POST(req: Request) {
 
     // TODO: Save this data to your database (e.g., Supabase, MongoDB, etc.)
     if (payload.triggerEvent === "BOOKING_CREATED") {
-      const { title, description, attendees, startTime, endTime } = payload.payload;
+      const { title, attendees, startTime, endTime } = payload.payload;
       console.log("New Booking Details:", { title, attendees, startTime, endTime });
     }
 

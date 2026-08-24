@@ -5,7 +5,7 @@ import { SectionHeader } from "./ui/SectionHeader";
 import { BentoWidget } from "./ui/BentoWidget";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function AgencyIntro() {
   return (
@@ -42,7 +42,7 @@ export function AgencyIntro() {
               delay={0.3} 
               className="absolute left-1/2 top-[15%] -translate-x-1/2 z-30 bg-green-500 text-white p-4 rounded-2xl shadow-xl flex items-center gap-3"
             >
-              <div className="text-3xl font-heading font-bold leading-none">28+</div>
+              <div className="text-3xl font-heading font-bold leading-none">1+</div>
               <div className="text-xs font-medium leading-tight">
                 Years of<br />Experience
               </div>

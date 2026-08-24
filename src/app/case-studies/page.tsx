@@ -105,7 +105,7 @@ export default function CaseStudiesPage() {
 
               <AnimatedSection delay={0.3}>
                 <p className="text-lg md:text-xl text-foreground/70 mb-10 max-w-2xl font-medium leading-relaxed">
-                  We don't just build software. We engineer solutions that transform operations, accelerate growth, and drive massive ROI for our partners.
+                  We don&apos;t just build software. We engineer solutions that transform operations, accelerate growth, and drive massive ROI for our partners.
                 </p>
               </AnimatedSection>
 

@@ -4,8 +4,8 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // Define the URL of your admin backend API
-    const adminApiUrl = process.env.NEXT_PUBLIC_ADMIN_API_URL || "http://localhost:3001";
+    // Define the URL of your admin backend API (server-only — never exposed to the client)
+    const adminApiUrl = process.env.ADMIN_API_URL || "http://localhost:3001";
     
     // Securely forward the request to the admin backend
     const response = await fetch(`${adminApiUrl}/api/applications`, {
