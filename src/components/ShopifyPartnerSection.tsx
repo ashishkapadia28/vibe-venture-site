@@ -30,7 +30,7 @@ export function ShopifyPartnerSection() {
           <AnimatedSection delay={0.1} className="md:col-span-2 group">
             <div className="h-full bg-white/60 backdrop-blur-md rounded-3xl border border-border/50 shadow-sm p-6 md:p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-500 hover:border-primary/30 hover:bg-white/90 hover:shadow-md">
               {/* Custom Dots Pattern Background */}
-              <div className="absolute inset-0 opacity-[0.4] bg-[url('/images/dots_pattern.png')] bg-cover bg-center pointer-events-none" />
+              <div className="absolute inset-0 opacity-[0.4] bg-[url('/Images/dots_pattern.png')] bg-cover bg-center pointer-events-none" />
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors pointer-events-none" />
               
               {/* Soft bottom fade for text readability */}
@@ -56,7 +56,7 @@ export function ShopifyPartnerSection() {
               
               {/* Massive 99% Background Watermark */}
               <div className="absolute inset-0 flex items-center justify-center z-0 group-hover:scale-110 transition-transform duration-700 pointer-events-none md:-translate-y-12">
-                <div className="text-[12rem] md:text-[18rem] font-heading font-black leading-none tracking-tighter bg-[url('/images/dots_pattern.png')] bg-cover bg-center text-transparent bg-clip-text drop-shadow-sm inline-block opacity-80">
+                <div className="text-[12rem] md:text-[18rem] font-heading font-black leading-none tracking-tighter bg-[url('/Images/dots_pattern.png')] bg-cover bg-center text-transparent bg-clip-text drop-shadow-sm inline-block opacity-80">
                   99<span className="text-6xl md:text-8xl">%</span>
                 </div>
               </div>
