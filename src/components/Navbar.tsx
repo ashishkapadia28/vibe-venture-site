@@ -164,7 +164,7 @@ export function Navbar() {
                             <div key={dropItem.name} className={cn("relative group/item", idx !== item.megaMenu.items.length - 1 ? "mb-1" : "")}>
                               <Link 
                                 href={dropItem.href}
-                                className="flex items-start gap-4 p-3 hover:bg-secondary/40 rounded-xl transition-colors relative z-10"
+                                className="flex items-start gap-4 p-3 hover:bg-primary/10 rounded-xl transition-colors relative z-10"
                                 onMouseEnter={() => setHoveredMenuItemName(dropItem.name)}
                               >
                                 <div className="text-primary flex items-center justify-center shrink-0 mt-0.5">
