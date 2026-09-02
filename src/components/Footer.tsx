@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 // SVG Icons components for cleaner JSX
 const LinkedinIcon = () => (
@@ -28,20 +29,42 @@ const YoutubeIcon = () => (
 
 export function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground/70 pt-20 pb-10 relative z-10 overflow-hidden font-sans rounded-t-[3rem] mt-24">
+    <footer className="bg-secondary text-secondary-foreground/70 pt-24 pb-32 relative z-10 overflow-hidden font-sans rounded-t-[3rem] mt-24">
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between gap-16 mb-24">
           
           {/* Left Column */}
           <div className="w-full lg:w-[35%] flex flex-col gap-6">
-            <Link href="/" className="flex items-center mb-1 hover:opacity-90 transition-opacity">
-              <Image src="/vibe_venture_logo.svg" alt="Vibe Venture" width={160} height={48} className="object-contain brightness-0 invert w-40 h-12" />
-            </Link>
-            
-            <p className="text-[13px] font-medium text-[#768493] mb-1 tracking-wide">
-              © {new Date().getFullYear()} Vibe Venture, Inc.
-            </p>
-            
+            <div className="flex flex-col gap-1">
+              <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
+                <Image src="/vibe_venture_logo.svg" alt="Vibe Venture" width={224} height={68} className="object-contain brightness-0 invert w-56 h-16" />
+              </Link>
+
+              <p className="text-[13px] text-[#768493] leading-relaxed max-w-xs">
+                We build premium, high-performance digital products — websites, apps, and platforms engineered for speed, scale, and results.
+              </p>
+            </div>
+
+            {/* Contact Details */}
+            <div className="flex flex-col gap-3 mt-1">
+              <div className="flex items-start gap-3">
+                <MapPin size={16} strokeWidth={1.5} className="text-[#768493] shrink-0 mt-0.5" />
+                <span className="text-[13px] text-[#768493] leading-relaxed">
+                  2, Somnath Complex,<br />
+                  Somnath Road,<br />
+                  Mehsana 1, Gujarat, India 384001
+                </span>
+              </div>
+              <a href="tel:+919274940383" className="flex items-center gap-3 hover:text-white transition-colors group w-fit">
+                <Phone size={16} strokeWidth={1.5} className="text-[#768493] shrink-0 group-hover:text-white transition-colors" />
+                <span className="text-[13px] text-[#768493] group-hover:text-white transition-colors">+91 927 494 0383</span>
+              </a>
+              <a href="mailto:ashish@vibeventure.in" className="flex items-center gap-3 hover:text-white transition-colors group w-fit">
+                <Mail size={16} strokeWidth={1.5} className="text-[#768493] shrink-0 group-hover:text-white transition-colors" />
+                <span className="text-[13px] text-[#768493] group-hover:text-white transition-colors">ashish@vibeventure.in</span>
+              </a>
+            </div>
+
             <div className="flex items-center gap-2.5 mt-2">
                 <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
                   <LinkedinIcon />
@@ -61,31 +84,42 @@ export function Footer() {
           </div>
 
           {/* Right Columns */}
-          <div className="w-full lg:w-[55%] grid grid-cols-2 md:grid-cols-3 gap-10 lg:gap-8 pt-2">
-            {/* Product Column */}
+          <div className="w-full lg:w-[65%] grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-6 pt-2">
+            {/* Company Column */}
             <div>
-              <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Quick Links</h4>
+              <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Company</h4>
+              <ul className="space-y-[14px]">
+                <li><Link href="/about" className="text-[13px] hover:text-white transition-colors">About us</Link></li>
+                <li><Link href="/products" className="text-[13px] hover:text-white transition-colors">Products</Link></li>
+                <li><Link href="/case-studies" className="text-[13px] hover:text-white transition-colors">Case Studies</Link></li>
+                <li><Link href="/tools" className="text-[13px] hover:text-white transition-colors">Tools</Link></li>
+                <li><Link href="/career" className="text-[13px] hover:text-white transition-colors">Career</Link></li>
+                <li><Link href="/blogs" className="text-[13px] hover:text-white transition-colors">Blogs</Link></li>
+              </ul>
+            </div>
+
+            {/* Services Column A */}
+            <div>
+              <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Services</h4>
               <ul className="space-y-[14px]">
                 <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Web Development</Link></li>
-                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Mobile Apps</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">App Development</Link></li>
                 <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">UI/UX Design</Link></li>
-                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Digital Marketing</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">AI Solutions</Link></li>
               </ul>
             </div>
 
-            {/* Resources Column */}
+            {/* Services Column B */}
             <div>
-              <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Resources</h4>
+              <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6 md:invisible md:h-0 md:mb-0">More Services</h4>
               <ul className="space-y-[14px]">
-                <li><Link href="/contact" className="text-[13px] hover:text-white transition-colors">Contact us</Link></li>
-                <li><Link href="/about" className="text-[13px] hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/career" className="text-[13px] hover:text-white transition-colors">Career</Link></li>
-                <li><Link href="/industry" className="text-[13px] hover:text-white transition-colors">Industries</Link></li>
-                <li><Link href="/case-studies" className="text-[13px] hover:text-white transition-colors">Case Studies</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Software Development</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">E-commerce Solutions</Link></li>
+                <li><Link href="/services" className="text-[13px] hover:text-white transition-colors">Branding & Creative</Link></li>
               </ul>
             </div>
 
-            {/* Company Column */}
+            {/* Legal Column */}
             <div>
               <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-6">Legal</h4>
               <ul className="space-y-[14px]">
@@ -95,7 +129,7 @@ export function Footer() {
               </ul>
             </div>
           </div>
-          
+
         </div>
       </div>
 

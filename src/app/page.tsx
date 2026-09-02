@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { AgencyIntro } from "@/components/AgencyIntro";
 import { ClientLogos } from "@/components/ClientLogos";
 import { ShopifyPartnerSection } from "@/components/ShopifyPartnerSection";
 import { ProblemStatement } from "@/components/ProblemStatement";
@@ -17,7 +16,6 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <AgencyIntro />
         <ClientLogos />
         <ShopifyPartnerSection />
         <ProblemStatement />

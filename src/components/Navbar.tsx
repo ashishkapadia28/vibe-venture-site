@@ -4,62 +4,152 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, ChevronDown, ArrowRight, Building2, ShoppingCart, Users, GraduationCap, Landmark, MoreHorizontal, ArrowUpRight, Laptop, Smartphone, PenTool, Megaphone } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, ArrowRight, Gauge, ImageOff } from "lucide-react";
+import {
+  TbCode, TbDeviceMobile, TbVectorBezier2, TbRobot, TbSourceCode, TbShoppingCart, TbPalette,
+  TbWorld, TbCloud, TbShoppingBag, TbLayoutGrid, TbPlug,
+  TbBrandAndroid, TbBrandApple, TbBrandReact, TbFeather, TbBriefcase,
+  TbLayoutDashboard, TbSearch, TbStack2,
+  TbMessageCircle, TbSettingsAutomation, TbDatabase, TbLink,
+  TbTerminal2, TbUsers, TbBuilding, TbTool,
+  TbBrandWordpress, TbBuildingStore, TbCreditCard,
+  TbFingerprint, TbPencil, TbBook2, TbSpeakerphone,
+  TbStethoscope,
+} from "react-icons/tb";
 import { cn } from "@/lib/utils";
 
+const servicesItems = [
+  {
+    icon: TbCode,
+    name: "Web Development",
+    href: "/services",
+    subServices: [
+      { icon: TbWorld, name: "Business Websites", href: "/services" },
+      { icon: TbCloud, name: "SaaS", href: "/services" },
+      { icon: TbShoppingBag, name: "E-commerce", href: "/services" },
+      { icon: TbLayoutGrid, name: "Web Apps", href: "/services" },
+      { icon: TbPlug, name: "API", href: "/services" },
+    ],
+  },
+  {
+    icon: TbDeviceMobile,
+    name: "App Development",
+    href: "/services",
+    subServices: [
+      { icon: TbBrandAndroid, name: "Android", href: "/services" },
+      { icon: TbBrandApple, name: "iOS", href: "/services" },
+      { icon: TbBrandReact, name: "React Native", href: "/services" },
+      { icon: TbFeather, name: "Flutter", href: "/services" },
+      { icon: TbBriefcase, name: "Business Apps", href: "/services" },
+    ],
+  },
+  {
+    icon: TbVectorBezier2,
+    name: "UI/UX Design",
+    href: "/services",
+    subServices: [
+      { icon: TbWorld, name: "Web", href: "/services" },
+      { icon: TbDeviceMobile, name: "Mobile", href: "/services" },
+      { icon: TbCloud, name: "SaaS", href: "/services" },
+      { icon: TbLayoutDashboard, name: "Dashboard", href: "/services" },
+      { icon: TbSearch, name: "UX Research", href: "/services" },
+      { icon: TbStack2, name: "Design System", href: "/services" },
+    ],
+  },
+  {
+    icon: TbRobot,
+    name: "AI Solutions",
+    href: "/services",
+    subServices: [
+      { icon: TbRobot, name: "AI Agents", href: "/services" },
+      { icon: TbMessageCircle, name: "AI Chatbots", href: "/services" },
+      { icon: TbSettingsAutomation, name: "AI Automation", href: "/services" },
+      { icon: TbDatabase, name: "RAG", href: "/services" },
+      { icon: TbLink, name: "AI Integrations", href: "/services" },
+    ],
+  },
+  {
+    icon: TbSourceCode,
+    name: "Software Development",
+    href: "/services",
+    subServices: [
+      { icon: TbTerminal2, name: "Custom Software", href: "/services" },
+      { icon: TbUsers, name: "CRM", href: "/services" },
+      { icon: TbBuilding, name: "ERP", href: "/services" },
+      { icon: TbLayoutDashboard, name: "Admin Panels", href: "/services" },
+      { icon: TbTool, name: "Internal Tools", href: "/services" },
+    ],
+  },
+  {
+    icon: TbShoppingCart,
+    name: "E-commerce Solutions",
+    href: "/services",
+    subServices: [
+      { icon: TbShoppingBag, name: "Shopify", href: "/services" },
+      { icon: TbBrandWordpress, name: "WooCommerce", href: "/services" },
+      { icon: TbBuildingStore, name: "Custom E-commerce", href: "/services" },
+      { icon: TbCreditCard, name: "Payment & Shipping", href: "/services" },
+    ],
+  },
+  {
+    icon: TbPalette,
+    name: "Branding & Creative",
+    href: "/services",
+    subServices: [
+      { icon: TbFingerprint, name: "Brand Identity", href: "/services" },
+      { icon: TbPencil, name: "Logo", href: "/services" },
+      { icon: TbBook2, name: "Guidelines", href: "/services" },
+      { icon: TbSpeakerphone, name: "Marketing Creatives", href: "/services" },
+    ],
+  },
+];
+
+const productsItems = [
+  {
+    icon: TbStethoscope,
+    name: "VediqCare",
+    href: "/products/vediqcare",
+    image: null as string | null,
+  },
+];
+
 const navItems = [
-  { name: "Home", href: "/" },
   { name: "About us", href: "/about" },
-  { 
-    name: "Services", 
+  {
+    name: "Services",
     href: "/services",
     megaMenu: {
-      leftPanel: {
-        icon: Laptop,
-        title: "Digital\nServices",
-        description: "End-to-end digital solutions to build, grow, and scale your business.",
-        badge: "Premium Quality",
-        buttonText: "All Services",
-        buttonHref: "/services",
-      },
-      items: [
-        { icon: Laptop, name: "Web Development", description: "Custom, responsive websites built for speed and conversions.", href: "/services", coverImage: "/covers/web-dev.png" },
-        { icon: Smartphone, name: "Mobile Apps", description: "Native and cross-platform applications for iOS and Android.", href: "/services", coverImage: "/covers/mobile-app.png" },
-        { icon: PenTool, name: "UI/UX Design", description: "User-centric designs that deliver engaging digital experiences.", href: "/services", coverImage: "/covers/ui-ux.png" },
-        { icon: Megaphone, name: "Digital Marketing", description: "Data-driven strategies to increase your brand's reach and visibility.", href: "/services", coverImage: "/covers/digital-marketing.png" },
-      ]
+      twoColumn: true as const,
+      menuLabel: "Core Services",
+      subLabel: "Services",
+      items: servicesItems,
     }
   },
-  { 
-    name: "Industry", 
-    href: "/industry",
+  {
+    name: "Products",
+    href: "/products",
     megaMenu: {
-      leftPanel: {
-        icon: Building2,
-        title: "Business &\nServices",
-        description: "Helping businesses scale with performance-driven marketing strategies.",
-        badge: "8+ Industries",
-        buttonText: "Explore Solutions",
-        buttonHref: "/industry",
-      },
-      items: [
-        { icon: ShoppingCart, name: "E-commerce", description: "Drive more sales with data-backed campaigns and conversion optimization.", href: "/industry", coverImage: "/covers/ecommerce.png" },
-        { icon: Users, name: "Healthcare", description: "Reach more patients and build trust with targeted digital strategies.", href: "/industry", coverImage: "/covers/healthcare.png" },
-        { icon: GraduationCap, name: "Education", description: "Generate quality leads and increase enrollments with performance marketing.", href: "/industry", coverImage: "/covers/education.png" },
-        { icon: Landmark, name: "Finance", description: "Build credibility and acquire high-value leads with result-oriented campaigns.", href: "/industry", coverImage: "/covers/finance.png" },
-        { icon: MoreHorizontal, name: "And Many More", description: "From real estate to SaaS, we help every industry grow digitally.", href: "/industry", coverImage: "/covers/other-industries.png" },
-      ]
+      imageColumn: true as const,
+      menuLabel: "Products",
+      items: productsItems,
     }
   },
   { name: "Case Studies", href: "/case-studies" },
+  {
+    name: "Tools",
+    href: "/tools",
+    dropdown: [
+      { icon: Gauge, name: "Website Checker", href: "/tools/website-checker" },
+    ],
+  },
   { name: "Career", href: "/career" },
-  { name: "Contact us", href: "/contact" },
+  { name: "Blogs", href: "/blogs" },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [hoveredMenuItemName, setHoveredMenuItemName] = useState<string | null>(null);
+  const [activeMenuItem, setActiveMenuItem] = useState(servicesItems[0].name);
   const pathname = usePathname();
 
   const isActive = (href: string) => {
@@ -94,92 +184,109 @@ export function Navbar() {
                   <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200 opacity-50" />
                   
                   {/* Desktop Dropdown Wrapper to bridge hover gap */}
-                  <div className="absolute top-[calc(100%-16px)] pt-[24px] left-[-200px] w-[760px] pointer-events-none group-hover:pointer-events-auto z-50">
+                  <div className="absolute top-[calc(100%-16px)] pt-6 -left-50 w-190 pointer-events-none group-hover:pointer-events-auto z-50">
                     <div className={cn(
                       "w-full bg-background rounded-3xl border border-border/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-200 transform origin-top-left translate-y-2 group-hover:translate-y-0 flex overflow-hidden relative"
 
                     )}
-                    onMouseLeave={() => setHoveredMenuItemName(null)}
+                    onMouseLeave={() => setActiveMenuItem(item.megaMenu.items[0].name)}
                     >
-                      {/* ALWAYS ON TOP BORDERS */}
-                      
                       <div className="flex w-full relative z-10">
-                        {/* Left Panel */}
-                        <div className="w-[280px] bg-linear-to-br from-primary/10 via-background to-background relative overflow-hidden group/leftpane">
-                          {(() => {
-                            const hoveredItemData = item.megaMenu.items.find((i) => i.name === hoveredMenuItemName);
-                            const currentCoverImage = hoveredItemData && 'coverImage' in hoveredItemData ? hoveredItemData.coverImage as string : null;
-                            return (
-                              <>
-                                {/* Default Content (Hidden if image hovered) */}
-                                <div className={cn("p-8 flex flex-col justify-between h-full transition-opacity duration-300", currentCoverImage ? "opacity-0 invisible" : "opacity-100 visible")}>
-                                  {/* Optional decorative blobs */}
-                                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-                                  <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-                                  
-                                  <div className="relative z-10 flex flex-col items-start">
-                                    <div className="w-14 h-14 bg-background rounded-2xl shadow-sm flex items-center justify-center text-primary mb-6 border border-border/50">
-                                      <item.megaMenu.leftPanel.icon size={28} strokeWidth={1.5} />
-                                    </div>
-                                    <h3 className="text-xl font-semibold mb-3 whitespace-pre-line text-foreground">
-                                      {item.megaMenu.leftPanel.title}
-                                    </h3>
-                                    <p className="text-[13px] text-muted-foreground mb-6 leading-relaxed">
-                                      {item.megaMenu.leftPanel.description}
-                                    </p>
-                                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background border border-border/50 text-xs font-medium text-foreground mb-8 shadow-sm">
-                                      <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                                      {item.megaMenu.leftPanel.badge}
-                                    </div>
-                                  </div>
-                                  
-                                  <Link href={item.megaMenu.leftPanel.buttonHref} className="relative z-10 inline-flex items-center justify-between px-5 py-3 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-colors group/btn">
-                                    {item.megaMenu.leftPanel.buttonText}
-                                    <ArrowUpRight size={16} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                                  </Link>
-                                </div>
+                        {/* Left: main list */}
+                        <div className="w-70 shrink-0 bg-linear-to-br from-primary/5 via-background to-background p-4 border-r border-border/50">
+                          <div className="px-3 pt-2 pb-3 text-[11px] font-bold tracking-widest uppercase text-muted-foreground">
+                            {item.megaMenu.menuLabel}
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            {item.megaMenu.items.map((menuItem) => {
+                              const isActiveMenuItem = activeMenuItem === menuItem.name;
+                              return (
+                                <button
+                                  key={menuItem.name}
+                                  type="button"
+                                  onMouseEnter={() => setActiveMenuItem(menuItem.name)}
+                                  onClick={() => setActiveMenuItem(menuItem.name)}
+                                  className={cn(
+                                    "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-colors",
+                                    isActiveMenuItem ? "bg-primary/10 text-primary" : "text-foreground/80 hover:bg-secondary/50 hover:text-foreground"
+                                  )}
+                                >
+                                  <menuItem.icon size={20} className={cn("shrink-0", isActiveMenuItem ? "text-primary" : "text-muted-foreground")} />
+                                  <span className="flex-1 text-[14px] font-semibold">{menuItem.name}</span>
+                                  <ChevronRight size={16} className={cn("shrink-0 transition-all", isActiveMenuItem ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-1")} />
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
 
-                                {/* Hover Image Overlay */}
-                                {currentCoverImage && hoveredItemData && (
-                                  <div className="absolute inset-0 w-full h-full animate-in fade-in zoom-in-95 duration-300 z-20">
-                                    <Image src={currentCoverImage} alt={hoveredItemData.name} fill className="object-cover" />
-                                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                                      <h3 className="text-white text-xl font-semibold mb-2 leading-tight">{hoveredItemData.name}</h3>
-                                      <p className="text-white/80 text-xs line-clamp-2 mb-4">{hoveredItemData.description}</p>
-                                      <Link href={hoveredItemData.href} className="text-white text-sm font-medium flex items-center gap-1 hover:text-primary transition-colors">
-                                        Explore <ArrowRight size={14} />
-                                      </Link>
+                        {/* Right: content for the active entry */}
+                        <div className="flex-1 p-8 flex flex-col justify-start">
+                          {(() => {
+                            if (item.megaMenu.imageColumn) {
+                              const active = item.megaMenu.items.find((s) => s.name === activeMenuItem) ?? item.megaMenu.items[0];
+                              return (
+                                <Link href={active.href} key={active.name} className="group/product block h-full">
+                                  {active.image ? (
+                                    <div className="relative w-full h-full min-h-56 rounded-2xl overflow-hidden border border-border/50">
+                                      <Image src={active.image} alt={active.name} fill className="object-cover" />
                                     </div>
-                                  </div>
-                                )}
-                              </>
+                                  ) : (
+                                    <div className="w-full h-full min-h-56 rounded-2xl border border-dashed border-border flex flex-col items-center justify-center gap-3 text-muted-foreground group-hover/product:border-primary/40 group-hover/product:text-primary transition-colors">
+                                      <ImageOff size={28} strokeWidth={1.5} />
+                                      <span className="text-[13px] font-medium">Mockup coming soon</span>
+                                    </div>
+                                  )}
+                                </Link>
+                              );
+                            }
+
+                            const active = item.megaMenu.items.find((s) => s.name === activeMenuItem) ?? item.megaMenu.items[0];
+                            return (
+                              <div key={active.name}>
+                                <div className="px-4 pb-3 text-[11px] font-bold tracking-widest uppercase text-muted-foreground">
+                                  {item.megaMenu.subLabel}
+                                </div>
+                                <div className="flex flex-col gap-1">
+                                  {active.subServices.map((sub) => (
+                                    <Link
+                                      key={sub.name}
+                                      href={sub.href}
+                                      className="group/sub flex items-center justify-between px-4 py-3 rounded-xl border border-border/50 text-[14px] font-medium text-foreground/80 hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-colors"
+                                    >
+                                      <span className="flex items-center gap-3">
+                                        <sub.icon size={16} className="text-muted-foreground shrink-0 group-hover/sub:text-primary transition-colors" />
+                                        {sub.name}
+                                      </span>
+                                      <ArrowRight size={14} className="opacity-0 -translate-x-1 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all" />
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
                             );
                           })()}
                         </div>
-
-                        {/* Right Panel Items */}
-                        <div className="flex-1 p-6 flex flex-col justify-center relative" onMouseLeave={() => setHoveredMenuItemName(null)}>
-                          {item.megaMenu.items.map((dropItem, idx) => (
-                            <div key={dropItem.name} className={cn("relative group/item", idx !== item.megaMenu.items.length - 1 ? "mb-1" : "")}>
-                              <Link 
-                                href={dropItem.href}
-                                className="flex items-start gap-4 p-3 hover:bg-primary/10 rounded-xl transition-colors relative z-10"
-                                onMouseEnter={() => setHoveredMenuItemName(dropItem.name)}
-                              >
-                                <div className="text-primary flex items-center justify-center shrink-0 mt-0.5">
-                                  <dropItem.icon size={24} strokeWidth={1.5} />
-                                </div>
-                                <div className="flex-1 pt-0.5">
-                                  <h4 className="text-[15px] font-semibold text-foreground mb-0.5 group-hover/item:text-primary transition-colors">{dropItem.name}</h4>
-                                  <p className="text-[13px] text-muted-foreground leading-relaxed">{dropItem.description}</p>
-                                </div>
-                                <ArrowRight size={16} className="text-primary opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all self-center mr-2" />
-                              </Link>
-                            </div>
-                          ))}
-                        </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              ) : item.dropdown ? (
+                <div className={cn("flex items-center gap-1 cursor-pointer text-[15px] font-medium transition-colors py-2", isActive(item.href) ? "text-primary" : "text-foreground hover:text-primary")}>
+                  <Link href={item.href}>{item.name}</Link>
+                  <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200 opacity-50" />
+
+                  <div className="absolute top-[calc(100%-16px)] pt-6 left-0 w-64 pointer-events-none group-hover:pointer-events-auto z-50">
+                    <div className="w-full bg-background rounded-2xl border border-border/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-200 transform origin-top-left translate-y-2 group-hover:translate-y-0 overflow-hidden p-2">
+                      {item.dropdown.map((toolItem) => (
+                        <Link
+                          key={toolItem.name}
+                          href={toolItem.href}
+                          className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors group/item"
+                        >
+                          <toolItem.icon size={18} strokeWidth={1.5} className="text-primary shrink-0" />
+                          <span className="text-[14px] font-semibold text-foreground group-hover/item:text-primary transition-colors">{toolItem.name}</span>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -233,7 +340,7 @@ export function Navbar() {
                   </button>
                   <div className={cn(
                     "flex flex-col overflow-hidden transition-all duration-300",
-                    activeDropdown === item.name ? "max-h-[1000px] py-2 opacity-100" : "max-h-0 opacity-0"
+                    activeDropdown === item.name ? "max-h-250 py-2 opacity-100" : "max-h-0 opacity-0"
                   )}>
                       {item.megaMenu.items.map((dropItem) => (
                         <Link 
@@ -244,6 +351,32 @@ export function Navbar() {
                         >
                           <dropItem.icon size={18} />
                           {dropItem.name}
+                        </Link>
+                      ))}
+                  </div>
+                </>
+              ) : item.dropdown ? (
+                <>
+                  <button
+                    onClick={() => toggleDropdown(item.name)}
+                    className={cn("flex items-center justify-between py-3 text-lg font-medium border-b border-border/50", isActive(item.href) ? "text-primary" : "")}
+                  >
+                    <span>{item.name}</span>
+                    <ChevronDown size={20} className={cn("transition-transform duration-200", activeDropdown === item.name ? "rotate-180" : "")} />
+                  </button>
+                  <div className={cn(
+                    "flex flex-col overflow-hidden transition-all duration-300",
+                    activeDropdown === item.name ? "max-h-100 py-2 opacity-100" : "max-h-0 opacity-0"
+                  )}>
+                      {item.dropdown.map((toolItem) => (
+                        <Link
+                          key={toolItem.name}
+                          href={toolItem.href}
+                          className={cn("py-3 pl-4 flex items-center gap-3", pathname === toolItem.href ? "text-primary" : "text-muted-foreground")}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <toolItem.icon size={18} />
+                          {toolItem.name}
                         </Link>
                       ))}
                   </div>

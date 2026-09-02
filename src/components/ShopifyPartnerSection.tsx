@@ -6,8 +6,8 @@ export function ShopifyPartnerSection() {
   return (
     <section className="py-24 relative overflow-hidden bg-background">
       {/* Abstract Background Glows */}
-      <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-200 h-200 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-150 h-150 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-[0.03] pointer-events-none" />
 
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
@@ -17,7 +17,7 @@ export function ShopifyPartnerSection() {
           <AnimatedSection>
             <SectionHeader
               badge="SHOPIFY PARTNER"
-              title={<>Beyond Standard <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">E-Commerce.</span></>}
+              title={<>Beyond Standard <br /><span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-purple-500">E-Commerce.</span></>}
               subtitle="Certified Shopify Partners engineering scalable, high-converting digital experiences."
             />
           </AnimatedSection>
@@ -34,7 +34,7 @@ export function ShopifyPartnerSection() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors pointer-events-none" />
               
               {/* Soft bottom fade for text readability */}
-              <div className="absolute bottom-0 left-0 right-0 h-[85%] bg-gradient-to-t from-white/95 via-white/80 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[85%] bg-linear-to-t from-white/95 via-white/80 to-transparent pointer-events-none" />
               
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center text-primary mb-6 border border-primary/10 group-hover:scale-110 transition-transform duration-500 shadow-sm">
@@ -52,7 +52,7 @@ export function ShopifyPartnerSection() {
 
           {/* Card 2: Lightning Fast (Tall) - Massive Dotted 99% */}
           <AnimatedSection delay={0.2} className="md:row-span-2 group">
-            <div className="h-full bg-gradient-to-b from-primary/5 to-white/60 backdrop-blur-md rounded-3xl border border-border/50 shadow-sm p-6 md:p-10 flex flex-col justify-end relative overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-md">
+            <div className="h-full bg-linear-to-b from-primary/5 to-white/60 backdrop-blur-md rounded-3xl border border-border/50 shadow-sm p-6 md:p-10 flex flex-col justify-end relative overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-md">
               
               {/* Massive 99% Background Watermark */}
               <div className="absolute inset-0 flex items-center justify-center z-0 group-hover:scale-110 transition-transform duration-700 pointer-events-none md:-translate-y-12">
@@ -62,7 +62,7 @@ export function ShopifyPartnerSection() {
               </div>
               
               {/* Soft bottom fade for text readability */}
-              <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-white/95 via-white/80 to-transparent pointer-events-none z-0" />
+              <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-linear-to-t from-white/95 via-white/80 to-transparent pointer-events-none z-0" />
               
               <div className="relative z-10 flex flex-col">
                 <div className="mb-4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/80 flex items-center justify-center backdrop-blur-md border border-primary/10 shadow-sm group-hover:scale-110 transition-transform duration-500">
@@ -105,7 +105,7 @@ export function ShopifyPartnerSection() {
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 pointer-events-none" />
               
               {/* Dark bottom fade for white text readability */}
-              <div className="absolute bottom-0 left-0 right-0 h-[70%] bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[70%] bg-linear-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
               
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 drop-shadow-lg">Seamless Ecosystem</h3>
