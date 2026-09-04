@@ -1,65 +1,71 @@
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./ui/SectionHeader";
 import Link from "next/link";
-import {
-  Code2,
-  Smartphone,
-  PenTool,
-  Megaphone,
-  BarChart3,
-  Shield,
-  ArrowRight,
-} from "lucide-react";
-
+import { ArrowRight } from "lucide-react";
 const services = [
   {
-    icon: Code2,
-    tag: "01",
-    title: "Web Development",
+    image: "/Illustration/Services/Custom Web Development.png",
+    title: "Custom Web Development",
     description:
       "Tailor-made websites and web apps built with Next.js, React, and modern stacks — engineered for speed, conversion, and scale.",
-    href: "/services/web",
+    href: "/services",
     highlight: true,
   },
   {
-    icon: Smartphone,
-    tag: "02",
-    title: "Mobile Apps",
+    image: "/Illustration/Services/SaaS Development.png",
+    title: "SaaS Development",
     description:
-      "Native and cross-platform iOS & Android apps built for seamless user experiences and high retention.",
-    href: "/services/mobile",
+      "Multi-tenant, subscription-ready SaaS products built to scale from first user to full growth.",
+    href: "/services",
   },
   {
-    icon: PenTool,
-    tag: "03",
+    image: "/Illustration/Services/Mobile App Development.png",
+    title: "Mobile App Development",
+    description:
+      "Native and cross-platform iOS & Android apps built for seamless user experiences and high retention.",
+    href: "/services",
+  },
+  {
+    image: "/Illustration/Services/AI Automation.png",
+    title: "AI Automation",
+    description:
+      "Automated pipelines that connect your tools and eliminate repetitive manual work.",
+    href: "/services",
+  },
+  {
+    image: "/Illustration/Services/Ecommerce Development.png",
+    title: "Ecommerce Development",
+    description:
+      "End-to-end online store builds — catalog, checkout, and payments — built to convert.",
+    href: "/services",
+  },
+  {
+    image: "/Illustration/Services/UI-UX Design.png",
     title: "UI/UX Design",
     description:
       "User-centric design systems, wireframes, and pixel-perfect interfaces that make your product intuitive and beautiful.",
-    href: "/services/design",
+    href: "/services",
   },
   {
-    icon: Megaphone,
-    tag: "04",
-    title: "Digital Marketing",
+    image: "/Illustration/Services/Branding & Creative.png",
+    title: "Branding & Creative",
     description:
-      "Data-driven campaigns across SEO, paid ads, and social media to drive real ROI and sustainable growth.",
-    href: "/services/marketing",
+      "Brand identity, logo design, and creative assets that make your business memorable.",
+    href: "/services",
   },
   {
-    icon: BarChart3,
-    tag: "05",
-    title: "Analytics & Strategy",
+    image: "/Illustration/Services/Conversion Rate Optimization.png",
+    title: "Conversion Rate Optimization",
     description:
-      "Deep insights and performance dashboards that turn raw data into clear decisions for your business.",
-    href: "/services/analytics",
+      "Data-driven A/B testing and UX refinements that turn more visitors into paying customers.",
+    href: "/services",
   },
   {
-    icon: Shield,
-    tag: "06",
-    title: "Secure & Scalable Infrastructure",
+    image: "/Illustration/Services/API & Integrations Development.png",
+    title: "API & Integrations Development",
     description:
-      "Enterprise-grade cloud architecture, security audits, and DevOps pipelines built to grow with you.",
-    href: "/services/infrastructure",
+      "Custom APIs and third-party integrations that connect your stack and keep data flowing.",
+    href: "/services",
   },
 ];
 
@@ -88,41 +94,29 @@ export function Features() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
 
           {services.map((service, index) => {
-            const Icon = service.icon;
             return (
               <AnimatedSection key={index} delay={index * 0.08} className="h-full">
                 <Link
                   href={service.href}
-                  className="group relative flex flex-col gap-5 p-8 h-full min-h-[220px] bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border/50 overflow-hidden"
+                  className="card-hover group relative flex flex-col gap-3 p-6 h-full bg-white rounded-2xl shadow-sm border border-border/50"
                 >
-                  {/* Tag number */}
-                  <span className="text-[11px] font-bold tracking-widest text-muted-foreground/50 uppercase relative z-10">
-                    {service.tag}
-                  </span>
-
-                  {/* Icon */}
-                  <div className="text-primary relative z-10 mb-1">
-                    <Icon size={32} strokeWidth={1.5} />
+                  {/* Illustration */}
+                  <div className="relative z-10">
+                    <div className="w-20 h-20 rounded-xl overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={service.image} alt="" className="w-full h-full object-cover" />
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 flex flex-col gap-2">
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200 tracking-tight">
+                  <div className="flex flex-col gap-1.5">
+                    <h3 className="text-lg font-semibold text-foreground tracking-tight">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {service.description}
                     </p>
                   </div>
-
-                  {/* Arrow link */}
-                  <div className="flex items-center gap-1 text-primary text-[13px] font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 relative z-10">
-                    Learn more
-                    <ArrowRight size={14} />
-                  </div>
-
-                  {/* Hover subtle glow at top right */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </Link>
               </AnimatedSection>
             );

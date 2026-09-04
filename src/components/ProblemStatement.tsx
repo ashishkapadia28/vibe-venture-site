@@ -1,20 +1,19 @@
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./ui/SectionHeader";
-import { TrendingDown, Clock, SearchX } from "lucide-react";
 
 const problems = [
   {
-    icon: TrendingDown,
+    image: "/Illustration/Low Conversion Rates & High Bounce Rates.png",
     title: "Low Conversion Rates & High Bounce Rates",
     description: "Your website gets traffic, but visitors leave without taking action. Poor UX/UI and slow loading speeds are killing your ROI.",
   },
   {
-    icon: Clock,
+    image: "/Illustration/Manual Processes Stunting Growth.png",
     title: "Manual Processes Stunting Growth",
     description: "Your team spends countless hours on repetitive tasks that should be automated. Operational bottlenecks prevent scaling.",
   },
   {
-    icon: SearchX,
+    image: "/Illustration/Invisible to Search Engines (Poor SEO).png",
     title: "Invisible to Search Engines (Poor SEO)",
     description: "You have a great product, but potential clients can't find you on Google. Your competitors are capturing your market share.",
   }
@@ -42,18 +41,20 @@ export function ProblemStatement() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {problems.map((problem, index) => {
-            const Icon = problem.icon;
             return (
-              <AnimatedSection 
-                key={index} 
+              <AnimatedSection
+                key={index}
                 delay={index * 0.1}
-                className="bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 p-8 md:p-10 flex flex-col gap-6 transition-all duration-300 border border-border/50 group"
+                className="card-hover bg-white rounded-2xl shadow-sm p-6 flex flex-col gap-3 border border-border/50"
               >
-                <div className="text-primary mb-2">
-                  <Icon size={32} strokeWidth={1.5} />
+                <div className="text-foreground">
+                  <div className="w-20 h-20 rounded-xl overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={problem.image} alt="" className="w-full h-full object-cover" />
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold font-heading mb-3 text-foreground group-hover:text-primary/90 transition-colors">
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-xl font-bold font-heading text-foreground">
                     {problem.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">
