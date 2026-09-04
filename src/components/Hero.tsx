@@ -1,121 +1,111 @@
 "use client";
 
 import { AnimatedSection } from "./AnimatedSection";
-import { BentoWidget } from "./ui/BentoWidget";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Star, TrendingUp, Trophy } from "lucide-react";
+import { Star } from "lucide-react";
+
+const reviewers = [
+  "https://i.pravatar.cc/100?img=11",
+  "https://i.pravatar.cc/100?img=32",
+  "https://i.pravatar.cc/100?img=47",
+  "https://i.pravatar.cc/100?img=15",
+];
+
+function GoogleIcon(props: { size?: number }) {
+  const size = props.size ?? 16;
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48">
+      <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+      <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+      <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.97 21.97 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" />
+      <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+    </svg>
+  );
+}
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden min-h-screen flex flex-col justify-center bg-background">
+    <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-screen flex flex-col justify-center bg-linear-to-b from-primary/10 via-background to-background">
+      {/* Abstract low-opacity background elements */}
+      <div
+        className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('/Images/dots_pattern.png')] bg-cover bg-center"
+        style={{
+          maskImage: "radial-gradient(ellipse 60% 60% at 50% 30%, black, transparent)",
+          WebkitMaskImage: "radial-gradient(ellipse 60% 60% at 50% 30%, black, transparent)",
+        }}
+      />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-225 h-225 bg-primary/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-[10%] w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-[10%] w-72 h-72 bg-primary/10 rounded-full blur-[110px] pointer-events-none" />
+
       <div className="container relative z-10 mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
-          
-          {/* Left Column: Typography & CTAs */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
-            <AnimatedSection delay={0.1}>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm ring-1 ring-border mb-8">
-                <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-                Top Rated Digital Agency
-              </div>
-            </AnimatedSection>
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          <AnimatedSection delay={0.1}>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm ring-1 ring-border mb-8">
+              <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+              Web, App &amp; AI Development Agency
+            </div>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.2}>
-              <h1 className="text-5xl md:text-6xl lg:text-[72px] font-heading font-bold mb-6 leading-[1.05] tracking-tight text-foreground">
-                Awesome<br />
-                Solution For<br />
-                Your Business
-              </h1>
-            </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 leading-[1.15] tracking-tight text-foreground max-w-3xl mx-auto">
+              Custom Web, App &amp; AI Solutions That Grow Your Business
+            </h1>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.3}>
-              <p className="text-lg md:text-xl text-foreground/70 mb-10 max-w-xl font-medium leading-relaxed">
-                We strive to develop real-world web solutions that are ideal for small to large projects with bespoke requirements.
-              </p>
-            </AnimatedSection>
+          <AnimatedSection delay={0.3}>
+            <p className="text-base md:text-lg text-foreground/70 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+              We partner with ambitious brands to design, build, and scale digital products from your first launch to long-term growth.
+            </p>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.4} className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/contact"
-                className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20 flex items-center justify-center gap-1.5 group"
-              >
-                Start A Project
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/services"
-                className="px-6 py-3 rounded-full bg-white border border-border text-foreground font-medium text-[15px] transition-all duration-300 hover:bg-gray-50 flex items-center justify-center gap-1.5 group shadow-sm"
-              >
-                Learn More
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-            </AnimatedSection>
-          </div>
+          <AnimatedSection delay={0.4} className="flex flex-wrap items-center justify-center gap-4 mb-10">
+            <Link
+              href="/contact"
+              className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20"
+            >
+              Get a Free Consultation
+            </Link>
+            <Link
+              href="/services"
+              className="px-6 py-3 rounded-full bg-white border border-border text-foreground font-medium text-[15px] transition-all duration-300 hover:bg-gray-50 shadow-sm"
+            >
+              Explore Our Services
+            </Link>
+          </AnimatedSection>
 
-          {/* Right Column: Bento Widgets */}
-          <div className="w-full lg:w-1/2 relative h-[500px] lg:h-[600px] flex items-center justify-center">
-            {/* Main Image Widget */}
-            <BentoWidget delay={0.3} className="absolute inset-0 m-auto w-[85%] h-[80%] z-10 p-0 shadow-2xl">
-              <Image 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
-                alt="Professional at work" 
-                fill
-                priority
-                className="object-cover rounded-[inherit]"
-                sizes="(max-width: 768px) 85vw, 40vw"
-              />
-            </BentoWidget>
-
-            {/* Floating Widget 1: Success Rate */}
-            <BentoWidget delay={0.5} className="absolute -top-4 -left-4 md:top-4 md:left-4 z-20 w-48 bg-secondary text-secondary-foreground p-5 border border-white/10">
-              <div className="flex items-center justify-between mb-2">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <TrendingUp size={20} className="text-primary" />
-                </div>
-                <span className="text-xs font-medium text-green-400">+14%</span>
-              </div>
-              <h3 className="text-3xl font-bold font-heading mb-1">99%</h3>
-              <p className="text-xs text-secondary-foreground/60">Success Rate</p>
-              
-              {/* Fake chart bars */}
-              <div className="flex items-end gap-1.5 h-12 mt-4">
-                {[40, 70, 45, 90, 65, 80, 100].map((h, i) => (
-                  <div key={i} className="w-full bg-primary rounded-t-sm" style={{ height: `${h}%`, opacity: h === 100 ? 1 : 0.6 }} />
+          {/* Trust widget */}
+          <AnimatedSection delay={0.5} className="flex flex-col items-center gap-2.5">
+            <div className="inline-flex items-center gap-3 bg-white rounded-full pl-2 pr-4 py-2 shadow-sm ring-1 ring-border">
+              <div className="flex -space-x-2.5">
+                {reviewers.map((src, i) => (
+                  <Image
+                    key={i}
+                    src={src}
+                    alt="Client"
+                    width={30}
+                    height={30}
+                    className="rounded-full border-2 border-white"
+                  />
                 ))}
               </div>
-            </BentoWidget>
-
-            {/* Floating Widget 2: Award */}
-            <BentoWidget delay={0.6} className="absolute -bottom-8 right-0 md:bottom-12 md:-right-8 z-20 w-56 bg-white p-5 shadow-xl">
-              <div className="flex gap-4 items-center">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                  <Trophy size={24} className="text-green-600" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold font-heading leading-tight text-foreground">Award Winning</h4>
-                  <p className="text-xs text-foreground/60">Top Agency 2024</p>
+              <div className="w-px h-5 bg-border" />
+              <div className="flex items-center gap-1.5">
+                <GoogleIcon size={16} />
+                <div className="flex text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} fill="currentColor" />
+                  ))}
                 </div>
               </div>
-            </BentoWidget>
-            
-            {/* Floating Widget 3: Rating */}
-            <BentoWidget delay={0.7} className="absolute top-1/2 -right-4 md:-right-12 z-20 bg-white p-4 shadow-xl flex items-center gap-3 rounded-full">
-              <div className="flex -space-x-2">
-                <Image src="https://i.pravatar.cc/100?img=11" alt="User" width={32} height={32} className="rounded-full border-2 border-white" />
-                <Image src="https://i.pravatar.cc/100?img=32" alt="User" width={32} height={32} className="rounded-full border-2 border-white" />
-                <Image src="https://i.pravatar.cc/100?img=47" alt="User" width={32} height={32} className="rounded-full border-2 border-white" />
-              </div>
-              <div className="flex items-center gap-1 text-yellow-400">
-                <Star size={14} fill="currentColor" />
-                <span className="text-sm font-bold text-foreground">5.0</span>
-              </div>
-            </BentoWidget>
-          </div>
+            </div>
+            <p className="text-sm text-foreground/60">
+              Backed by a team committed to quality and real results.
+            </p>
+          </AnimatedSection>
         </div>
       </div>
-
-
     </section>
   );
 }
