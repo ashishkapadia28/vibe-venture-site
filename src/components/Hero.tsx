@@ -56,7 +56,7 @@ export function Hero() {
 
           <AnimatedSection delay={0.3}>
             <p className="text-base md:text-lg text-foreground/70 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
-              We partner with ambitious brands to design, build, and scale digital products from your first launch to long-term growth.
+              Vibe Venture partners with ambitious brands to design, build, and scale digital products — from your first launch to long-term growth.
             </p>
           </AnimatedSection>
 
@@ -93,10 +93,17 @@ export function Hero() {
               <div className="w-px h-5 bg-border" />
               <div className="flex items-center gap-1.5">
                 <GoogleIcon size={16} />
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
+                <span className="text-xs font-semibold text-foreground/70">4.5</span>
+                <div className="flex items-center text-yellow-400">
+                  {[...Array(4)].map((_, i) => (
                     <Star key={i} size={12} fill="currentColor" />
                   ))}
+                  <div className="relative w-3 h-3">
+                    <Star size={12} className="absolute inset-0 text-yellow-400/30" />
+                    <div className="absolute inset-0 overflow-hidden w-1.5">
+                      <Star size={12} fill="currentColor" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
