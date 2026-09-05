@@ -1,8 +1,9 @@
 import { Navbar } from "@/components/Navbar";
+import { SecondaryHero } from "@/components/SecondaryHero";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTA } from "@/components/CTA";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -81,53 +82,20 @@ export default function CaseStudiesPage() {
       <Navbar />
       <main className="flex-1" id="case-studies">
         {/* ─── HERO SECTION ─── */}
-        <section className="relative pt-32 pb-16 overflow-hidden bg-background">
-          {/* Background gradient blobs */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] translate-x-1/3" />
-            <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -translate-x-1/2" />
-          </div>
-
-          <div className="container relative z-10 mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
-            <div className="max-w-4xl pt-8 pb-8">
-              <AnimatedSection delay={0.1}>
-                <p className="text-primary font-bold tracking-widest text-sm uppercase mb-6">
-                  OUR PORTFOLIO
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.2}>
-                <h1 className="text-4xl md:text-5xl lg:text-[64px] font-heading font-bold mb-6 leading-[1.1] tracking-tight">
-                  Real Challenges.<br />
-                  <span className="text-primary">Real Results.</span>
-                </h1>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.3}>
-                <p className="text-lg md:text-xl text-foreground/70 mb-10 max-w-2xl font-medium leading-relaxed">
-                  We don&apos;t just build software. We engineer solutions that transform operations, accelerate growth, and drive massive ROI for our partners.
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.4} className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20 flex items-center justify-center gap-2 group"
-                >
-                  Start Your Project
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  href="#portfolio-grid"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full border border-border bg-transparent text-foreground font-medium text-[15px] transition-all duration-300 hover:border-foreground/40 flex items-center justify-center gap-2 group"
-                >
-                  Explore Work
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-              </AnimatedSection>
-            </div>
-          </div>
-        </section>
+        <SecondaryHero
+          eyebrow="Our Portfolio"
+          title={
+            <>
+              Real Challenges.<br />
+              <span className="text-primary">Real Results.</span>
+            </>
+          }
+          subtitle="We don't just build software. We engineer solutions that transform operations, accelerate growth, and drive massive ROI for our partners."
+          ctas={[
+            { text: "Start Your Project", href: "/contact" },
+            { text: "Explore Work", href: "#portfolio-grid", variant: "secondary" },
+          ]}
+        />
 
         {/* ─── BENTO GRID CASE STUDIES (THEME MATCHED) ─── */}
         <section id="portfolio-grid" className="pb-32 bg-background relative z-10 pt-16 -mt-16">

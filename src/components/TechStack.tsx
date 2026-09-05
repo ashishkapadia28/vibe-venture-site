@@ -1,39 +1,76 @@
 "use client";
 
 import { AnimatedSection } from "./AnimatedSection";
-import { CheckCircle2, Layers, TrendingUp, Zap } from "lucide-react";
+import type { CSSProperties, ReactNode } from "react";
+import { TbApi } from "react-icons/tb";
+import { FaAws } from "react-icons/fa6";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+  SiNodedotjs,
+  SiPython,
+  SiFlutter,
+  SiPostgresql,
+  SiRedis,
+  SiMongodb,
+  SiGraphql,
+  SiPrisma,
+  SiVercel,
+  SiDocker,
+  SiTailwindcss,
+  SiGithub,
+} from "react-icons/si";
+
+type PillIcon = (props: { size?: number; className?: string; style?: CSSProperties }) => ReactNode;
+
+function FigmaIcon({ size = 18, className, style }: { size?: number; className?: string; style?: CSSProperties }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 38 57" className={className} style={style}>
+      <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0Z" fill="#1ABCFE" />
+      <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0Z" fill="#0ACF83" />
+      <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19Z" fill="#F24E1E" />
+      <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5Z" fill="#FF7262" />
+      <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5Z" fill="#A259FF" />
+    </svg>
+  );
+}
 
 const row1 = [
-  { name: "Next.js", emoji: "▲" },
-  { name: "React", emoji: "⚛" },
-  { name: "TypeScript", emoji: "TS" },
-  { name: "Node.js", emoji: "⬡" },
-  { name: "Python", emoji: "🐍" },
-  { name: "Flutter", emoji: "◆" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+  { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "Flutter", icon: SiFlutter, color: "#027DFC" },
 ];
 
 const row2 = [
-  { name: "PostgreSQL", emoji: "🐘" },
-  { name: "Redis", emoji: "⚡" },
-  { name: "MongoDB", emoji: "🍃" },
-  { name: "GraphQL", emoji: "◈" },
-  { name: "REST API", emoji: "↔" },
-  { name: "Prisma", emoji: "▷" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  { name: "Redis", icon: SiRedis, color: "#DC382D" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
+  { name: "REST API", icon: TbApi, color: "#8B5CF6" },
+  { name: "Prisma", icon: SiPrisma, color: "#2D3748" },
 ];
 
 const row3 = [
-  { name: "AWS", emoji: "☁" },
-  { name: "Vercel", emoji: "▲" },
-  { name: "Docker", emoji: "🐳" },
-  { name: "Figma", emoji: "✦" },
-  { name: "Tailwind CSS", emoji: "🌊" },
-  { name: "GitHub Actions", emoji: "⚙" },
+  { name: "AWS", icon: FaAws, color: "#FF9900" },
+  { name: "Vercel", icon: SiVercel, color: "#000000" },
+  { name: "Docker", icon: SiDocker, color: "#2496ED" },
+  { name: "Figma", icon: FigmaIcon, color: undefined },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "GitHub Actions", icon: SiGithub, color: "#181717" },
 ];
 
-function TechPill({ name, emoji }: { name: string; emoji: string }) {
+function TechPill({ name, icon: Icon, color }: { name: string; icon: PillIcon; color?: string }) {
   return (
-    <div className="flex items-center gap-3 px-5 py-3 border border-dashed border-border/80 bg-background hover:border-primary/60 hover:bg-primary/5 transition-all duration-300 rounded-lg mx-2.5 shrink-0 group cursor-default shadow-sm">
-      <span className="text-primary font-bold text-sm select-none w-5 text-center group-hover:scale-110 transition-transform duration-200">{emoji}</span>
+    <div className="card-hover flex items-center gap-3 px-5 py-3 border border-border/50 bg-white hover:border-primary/40 transition-all duration-300 rounded-full mx-2.5 shrink-0 group cursor-default shadow-sm">
+      <Icon
+        size={18}
+        style={color ? { color } : undefined}
+        className="shrink-0 group-hover:scale-110 transition-transform duration-200"
+      />
       <span className="text-sm font-semibold text-foreground/70 whitespace-nowrap group-hover:text-foreground transition-colors">{name}</span>
     </div>
   );
@@ -44,7 +81,7 @@ function MarqueeRow({
   direction = "left",
   speed = 30,
 }: {
-  items: { name: string; emoji: string }[];
+  items: { name: string; icon: PillIcon; color?: string }[];
   direction?: "left" | "right";
   speed?: number;
 }) {
@@ -58,7 +95,7 @@ function MarqueeRow({
         }}
       >
         {doubled.map((item, i) => (
-          <TechPill key={i} name={item.name} emoji={item.emoji} />
+          <TechPill key={i} name={item.name} icon={item.icon} color={item.color} />
         ))}
       </div>
     </div>
@@ -67,19 +104,19 @@ function MarqueeRow({
 
 export function TechStack() {
   return (
-    <section className="py-0 bg-background relative overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden">
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-        <div className="border border-dashed border-border/80 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
 
-          {/* ── Top: Content ── */}
-          <div className="p-10 md:p-16 bg-secondary/10 border-b border-dashed border-border/80 relative overflow-hidden">
+          {/* ── Left: Content card ── */}
+          <div className="card-hover rounded-3xl p-10 md:p-12 bg-white border border-border/50 shadow-sm relative overflow-hidden flex flex-col justify-center">
             {/* Subtle glow */}
             <div className="absolute top-1/2 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2 pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-10">
-              <AnimatedSection className="max-w-xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 mb-5 border border-dashed border-primary/40 bg-primary/5 rounded-full">
+            <div className="relative z-10">
+              <AnimatedSection>
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-5 border border-primary/30 bg-white rounded-full shadow-sm">
                   <span className="w-1.5 h-1.5 bg-primary animate-pulse rounded-full" />
                   <span className="text-primary text-[10px] font-bold tracking-widest uppercase">Our Tech Stack</span>
                 </div>
@@ -90,38 +127,19 @@ export function TechStack() {
                   We pick and master tools that deliver speed, reliability, and developer happiness — so your product scales without friction.
                 </p>
               </AnimatedSection>
-
-              <AnimatedSection delay={0.15} className="grid grid-cols-1 sm:grid-cols-2 gap-3 shrink-0">
-                {[
-                  { icon: Zap, label: "Performance-first architecture" },
-                  { icon: Layers, label: "Modular & scalable codebases" },
-                  { icon: TrendingUp, label: "Future-ready tech choices" },
-                  { icon: CheckCircle2, label: "Battle-tested in production" },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="flex items-center gap-3 bg-background border border-dashed border-border/80 rounded-md px-4 py-3">
-                      <div className="flex items-center justify-center shrink-0">
-                        <Icon size={18} className="text-primary" />
-                      </div>
-                      <span className="text-sm text-foreground/70 font-medium">{item.label}</span>
-                    </div>
-                  );
-                })}
-              </AnimatedSection>
             </div>
           </div>
 
-          {/* ── Bottom: Infinite Marquee Rows ── */}
-          <div className="bg-background relative overflow-hidden">
+          {/* ── Right: Infinite Marquee Rows ── */}
+          <div className="relative overflow-hidden flex flex-col justify-center">
             {/* Fade masks */}
-            <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
 
             <div className="py-10 flex flex-col gap-4">
-              <MarqueeRow items={row1} direction="left" speed={30} />
-              <MarqueeRow items={row2} direction="right" speed={35} />
-              <MarqueeRow items={row3} direction="left" speed={27} />
+              <MarqueeRow items={row1} direction="left" speed={24} />
+              <MarqueeRow items={row2} direction="right" speed={28} />
+              <MarqueeRow items={row3} direction="left" speed={22} />
             </div>
           </div>
 

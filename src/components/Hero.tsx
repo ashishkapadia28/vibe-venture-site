@@ -4,6 +4,7 @@ import { AnimatedSection } from "./AnimatedSection";
 import Link from "next/link";
 import Image from "next/image";
 import { Star } from "lucide-react";
+import type { ReactNode } from "react";
 
 const reviewers = [
   "https://i.pravatar.cc/100?img=11",
@@ -24,7 +25,28 @@ function GoogleIcon(props: { size?: number }) {
   );
 }
 
-export function Hero() {
+interface HeroCta {
+  text: string;
+  href: string;
+}
+
+interface HeroProps {
+  badge?: string;
+  title?: ReactNode;
+  subtitle?: string;
+  primaryCta?: HeroCta;
+  secondaryCta?: HeroCta;
+  showTrustWidget?: boolean;
+}
+
+export function Hero({
+  badge = "Web, App & AI Development Agency",
+  title = "Custom Web, App & AI Solutions That Grow Your Business",
+  subtitle = "Vibe Venture partners with ambitious brands to design, build, and scale digital products — from your first launch to long-term growth.",
+  primaryCta = { text: "Get a Free Consultation", href: "/contact" },
+  secondaryCta = { text: "Explore Our Services", href: "/services" },
+  showTrustWidget = true,
+}: HeroProps) {
   return (
     <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-screen flex flex-col justify-center bg-linear-to-b from-primary/10 via-background to-background">
       {/* Abstract low-opacity background elements */}
@@ -44,73 +66,75 @@ export function Hero() {
           <AnimatedSection delay={0.1}>
             <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm ring-1 ring-border mb-8">
               <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-              Web, App &amp; AI Development Agency
+              {badge}
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 leading-[1.15] tracking-tight text-foreground max-w-3xl mx-auto">
-              Custom Web, App &amp; AI Solutions That Grow Your Business
+              {title}
             </h1>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
             <p className="text-base md:text-lg text-foreground/70 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
-              Vibe Venture partners with ambitious brands to design, build, and scale digital products — from your first launch to long-term growth.
+              {subtitle}
             </p>
           </AnimatedSection>
 
           <AnimatedSection delay={0.4} className="flex flex-wrap items-center justify-center gap-4 mb-10">
             <Link
-              href="/contact"
+              href={primaryCta.href}
               className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-sm hover:shadow-primary/20"
             >
-              Get a Free Consultation
+              {primaryCta.text}
             </Link>
             <Link
-              href="/services"
+              href={secondaryCta.href}
               className="px-6 py-3 rounded-full bg-white border border-border text-foreground font-medium text-[15px] transition-all duration-300 hover:bg-gray-50 shadow-sm"
             >
-              Explore Our Services
+              {secondaryCta.text}
             </Link>
           </AnimatedSection>
 
           {/* Trust widget */}
-          <AnimatedSection delay={0.5} className="flex flex-col items-center gap-2.5">
-            <div className="inline-flex items-center gap-3 bg-white rounded-full pl-2 pr-4 py-2 shadow-sm ring-1 ring-border">
-              <div className="flex -space-x-2.5">
-                {reviewers.map((src, i) => (
-                  <Image
-                    key={i}
-                    src={src}
-                    alt="Client"
-                    width={30}
-                    height={30}
-                    className="rounded-full border-2 border-white"
-                  />
-                ))}
-              </div>
-              <div className="w-px h-5 bg-border" />
-              <div className="flex items-center gap-1.5">
-                <GoogleIcon size={16} />
-                <span className="text-xs font-semibold text-foreground/70">4.5</span>
-                <div className="flex items-center text-yellow-400">
-                  {[...Array(4)].map((_, i) => (
-                    <Star key={i} size={12} fill="currentColor" />
+          {showTrustWidget && (
+            <AnimatedSection delay={0.5} className="flex flex-col items-center gap-2.5">
+              <div className="inline-flex items-center gap-3 bg-white rounded-full pl-2 pr-4 py-2 shadow-sm ring-1 ring-border">
+                <div className="flex -space-x-2.5">
+                  {reviewers.map((src, i) => (
+                    <Image
+                      key={i}
+                      src={src}
+                      alt="Client"
+                      width={30}
+                      height={30}
+                      className="rounded-full border-2 border-white"
+                    />
                   ))}
-                  <div className="relative w-3 h-3">
-                    <Star size={12} className="absolute inset-0 text-yellow-400/30" />
-                    <div className="absolute inset-0 overflow-hidden w-1.5">
-                      <Star size={12} fill="currentColor" />
+                </div>
+                <div className="w-px h-5 bg-border" />
+                <div className="flex items-center gap-1.5">
+                  <GoogleIcon size={16} />
+                  <span className="text-xs font-semibold text-foreground/70">4.5</span>
+                  <div className="flex items-center text-yellow-400">
+                    {[...Array(4)].map((_, i) => (
+                      <Star key={i} size={12} fill="currentColor" />
+                    ))}
+                    <div className="relative w-3 h-3">
+                      <Star size={12} className="absolute inset-0 text-yellow-400/30" />
+                      <div className="absolute inset-0 overflow-hidden w-1.5">
+                        <Star size={12} fill="currentColor" />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <p className="text-sm text-foreground/60">
-              Backed by a team committed to quality and real results.
-            </p>
-          </AnimatedSection>
+              <p className="text-sm text-foreground/60">
+                Backed by a team committed to quality and real results.
+              </p>
+            </AnimatedSection>
+          )}
         </div>
       </div>
     </section>

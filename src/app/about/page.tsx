@@ -1,23 +1,14 @@
 import { Navbar } from "@/components/Navbar";
+import { SecondaryHero } from "@/components/SecondaryHero";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTA } from "@/components/CTA";
 import { TechStack } from "@/components/TechStack";
+import { StoryMissionSection } from "@/components/StoryMissionSection";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Users,
-  Trophy,
-  Clock,
-  Layers,
-  Zap,
-  Shield,
-  TrendingUp,
-  Globe,
-  CheckCircle2,
-  Target,
-  HeartHandshake,
-} from "lucide-react";
+import { TbBrandLinkedin } from "react-icons/tb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -26,49 +17,59 @@ export const metadata: Metadata = {
     "Meet the team behind Vibe Venture — a digital agency built on precision engineering, bold design, and a relentless drive to help businesses grow.",
 };
 
-const stats = [
-  { icon: Users, value: "100+", label: "Businesses Served" },
-  { icon: Trophy, value: "250+", label: "Projects Delivered" },
-  { icon: Clock, value: "1+", label: "Years of Excellence" },
-  { icon: Layers, value: "99%", label: "Client Satisfaction" },
-];
-
 const values = [
   {
-    icon: Zap,
+    image: "/Illustration/about/move_fast_build_right.png",
     title: "Move Fast, Build Right",
     description:
       "We ship with speed without sacrificing quality. Rapid delivery backed by rigorous engineering standards.",
   },
   {
-    icon: Shield,
+    image: "/Illustration/about/built_to_last.png",
     title: "Built to Last",
     description:
       "Every solution is architected for longevity — scalable infrastructure, clean codebases, and future-ready stacks.",
   },
   {
-    icon: TrendingUp,
+    image: "/Illustration/about/growth_first_thinking.png",
     title: "Growth-First Thinking",
     description:
       "We don't just build products. We build engines for growth — optimizing for outcomes, not just outputs.",
   },
   {
-    icon: HeartHandshake,
+    image: "/Illustration/about/partners_not_endors.png",
     title: "Partners, Not Vendors",
     description:
       "Your success is our success. We become true partners invested in every milestone of your digital journey.",
   },
   {
-    icon: Target,
+    image: "/Illustration/about/precision_engineering.png",
     title: "Precision Engineering",
     description:
       "We obsess over details that most miss — performance, accessibility, security, and pixel-perfect UX.",
   },
   {
-    icon: Globe,
+    image: "/Illustration/about/global_perspective.png",
     title: "Global Perspective",
     description:
       "With clients across continents, we bring cross-industry insights and international best practices to every project.",
+  },
+];
+
+const founders = [
+  {
+    name: "Ashish Kapadia",
+    title: "CEO & Co-Founder",
+    bio: "Co-founded Vibe Venture to help ambitious brands build digital products that actually move the needle — not just look good.",
+    photo: "/Ashish%20Kapadia.png",
+    linkedin: "#",
+  },
+  {
+    name: "Sibtain Nadolia",
+    title: "Co-Founder",
+    bio: "Co-founded Vibe Venture with a focus on turning bold ideas into scalable, well-engineered products.",
+    photo: null,
+    linkedin: "#",
   },
 ];
 
@@ -79,183 +80,173 @@ export default function AboutPage() {
       <main className="flex-1" id="about">
 
         {/* ─── HERO ─── */}
-        <section className="relative pt-32 pb-0 overflow-hidden bg-background">
-          {/* Background blobs */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] -translate-x-1/2" />
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] translate-x-1/3" />
-            <div className="absolute bottom-0 left-1/2 w-[400px] h-[400px] bg-primary/4 rounded-full blur-[100px] -translate-x-1/2" />
+        <SecondaryHero
+          eyebrow="About Vibe Venture"
+          title={
+            <>
+              We Don&apos;t Just Build Products.{" "}
+              <br className="hidden md:block" />
+              <span className="text-primary">We Build Growth Engines.</span>
+            </>
+          }
+          subtitle="Vibe Venture is a next-generation digital agency — fusing precision engineering with bold design to help ambitious businesses dominate their digital landscape."
+          ctas={[
+            { text: "Start a Project", href: "/contact" },
+            { text: "Our Services", href: "/services", variant: "secondary" },
+          ]}
+        />
+
+        {/* ─── BRAND INTRO ─── */}
+        <section className="relative pt-20 pb-4 md:pt-24 overflow-hidden bg-background">
+          {/* Giant faint background icon */}
+          <div className="absolute -bottom-20 -right-20 w-125 h-125 opacity-[0.05] rotate-12 pointer-events-none">
+            <Image src="/vibe_venture_Icon.svg" alt="" fill className="object-contain" />
           </div>
 
-          <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-7xl">
-            <div className="max-w-4xl pt-8 pb-16">
-              <AnimatedSection delay={0.05}>
-                <div className="inline-flex items-center gap-2.5 px-3 py-1 mb-8 border border-dashed border-primary/40 bg-primary/5 rounded-full">
-                  <span className="w-1.5 h-1.5 bg-primary animate-pulse" />
-                  <span className="text-primary text-[11px] font-bold tracking-widest uppercase">
-                    About Vibe Venture
-                  </span>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.15}>
-                <h1 className="text-5xl md:text-6xl lg:text-[72px] font-heading font-bold mb-6 leading-[1.05] tracking-tight">
-                  We Don&apos;t Just Build Websites.{" "}
-                  <br className="hidden md:block" />
-                  <span className="text-primary">We Build Growth Engines.</span>
-                </h1>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.25}>
-                <p className="text-lg md:text-xl text-foreground/70 mb-10 max-w-2xl font-medium leading-relaxed">
-                  Vibe Venture is a next-generation digital agency — fusing precision engineering with bold design to help ambitious businesses dominate their digital landscape.
-                </p>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.35} className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-[15px] transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2 group"
-                >
-                  Start a Project
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  href="/services"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full border border-dashed border-border/80 bg-transparent text-foreground font-medium text-[15px] transition-all duration-300 hover:border-primary/60 hover:text-primary flex items-center justify-center gap-2 group"
-                >
-                  Our Services
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-              </AnimatedSection>
-            </div>
-          </div>
-
-          {/* Stats strip */}
-          <div className="relative">
-            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-              <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-dashed border-border/60">
-                {stats.map((stat, i) => {
-                  const Icon = stat.icon;
-                  return (
-                    <AnimatedSection
-                      key={i}
-                      delay={0.1 + i * 0.08}
-                      className="border-r border-dashed border-border/60"
-                    >
-                      <div className="flex items-center gap-4 py-8 px-6">
-                        <div className="flex items-center justify-center text-primary shrink-0">
-                          <Icon size={28} strokeWidth={1.5} />
-                        </div>
-                        <div>
-                          <p className="text-2xl font-heading font-bold text-foreground leading-none mb-1">
-                            {stat.value}
-                          </p>
-                          <p className="text-xs text-muted-foreground font-medium tracking-wide">
-                            {stat.label}
-                          </p>
-                        </div>
-                      </div>
-                    </AnimatedSection>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── OUR STORY ─── */}
-        <section className="py-24 bg-background relative overflow-hidden">
-          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-dashed border-border/80">
-              {/* Left – story text */}
-              <div className="lg:col-span-7 p-10 md:p-16 bg-secondary/10 border-b lg:border-b-0 lg:border-r border-dashed border-border/80">
-                <AnimatedSection delay={0.1}>
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-6 border border-dashed border-primary/40 bg-primary/5 rounded-md">
-                    <span className="text-primary text-[10px] font-bold tracking-widest uppercase">Our Story</span>
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 leading-tight">
-                    Born from a conviction that digital <span className="text-primary">should be exceptional.</span>
-                  </h2>
-                  <p className="text-foreground/70 mb-5 leading-relaxed">
-                    We started Vibe Venture because we saw too many businesses settling for mediocre digital experiences — slow websites, generic apps, and marketing that blends into the noise. We knew we could do better.
-                  </p>
-                  <p className="text-foreground/70 mb-5 leading-relaxed">
-                    Our team of engineers, designers, and growth strategists come together with one shared mission: to build digital products that don&apos;t just work — they win.
-                  </p>
-                  <p className="text-foreground/70 leading-relaxed">
-                    Today, we serve businesses across the globe, from ambitious startups to established enterprises, helping each one harness the full power of technology to grow faster and smarter.
-                  </p>
-                </AnimatedSection>
-              </div>
-
-              {/* Right – founder note / mission */}
-              <div className="lg:col-span-5 p-10 md:p-16 flex flex-col justify-between gap-8">
-                <AnimatedSection delay={0.2}>
-                  <div className="mb-8">
-                    <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-6 border border-dashed border-primary/40 bg-primary/5 rounded-md">
-                      <span className="text-primary text-[10px] font-bold tracking-widest uppercase">Our Mission</span>
-                    </div>
-                    <p className="text-2xl font-heading font-bold leading-snug">
-                      &ldquo;Empower businesses to thrive in the digital era through{" "}
-                      <span className="text-primary">exceptional engineering</span> and{" "}
-                      <span className="text-primary">bold design.</span>&rdquo;
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 border-t border-dashed border-border/80 pt-8">
-                    {[
-                      "100% custom-built solutions, no templates",
-                      "Senior engineers & designers on every project",
-                      "Results-driven approach with measurable KPIs",
-                      "Transparent communication, always",
-                    ].map((point, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground/80">{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                </AnimatedSection>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── CORE VALUES ─── */}
-        <section className="py-24 bg-background relative">
-
-          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl relative">
             <AnimatedSection>
-              <div className="text-center mb-16 max-w-2xl mx-auto">
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-4 border border-dashed border-primary/40 bg-primary/5 rounded-full">
-                  <span className="text-primary text-[10px] font-bold tracking-widest uppercase">Our Values</span>
+              <div className="flex items-center gap-11 mb-6">
+                <Image
+                  src="/vibe_venture_Icon.svg"
+                  alt="Vibe Venture"
+                  width={128}
+                  height={134}
+                  className="shrink-0"
+                />
+                <div>
+                  <p className="text-lg text-foreground/60 font-medium leading-none">Vibe Venture —</p>
+                  <h2 className="text-3xl md:text-4xl font-heading font-bold leading-tight mt-1">
+                    Built With Intent
+                  </h2>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold leading-tight">
-                  The principles that drive every pixel and every line of code
-                </h2>
+              </div>
+              <div className="space-y-4 max-w-3xl">
+                <p className="text-foreground/70 leading-relaxed">
+                  Vibe Venture is a full-service web, app &amp; AI development agency built for brands that refuse to blend in. We partner with startups, growing businesses, and enterprises to design, engineer, and scale digital products — from high-performance websites and mobile apps to custom software and AI-driven automation. Every engagement starts with a simple question: what will actually move the needle for your business, not just your brand.
+                </p>
+                <p className="text-foreground/70 leading-relaxed">
+                  Our team of senior engineers, designers, and growth strategists works as an extension of yours — no templates, no cookie-cutter playbooks, no juniors learning on your dime. We combine precision engineering with bold, conversion-focused design so that everything we ship is measured against real outcomes: faster load times, higher conversions, stronger retention, and revenue you can actually track back to the work.
+                </p>
+                <p className="text-foreground/70 leading-relaxed">
+                  What sets Vibe Venture apart is intent. We don&apos;t chase trends or pad timelines — we scope tight, build fast, and iterate based on data, not guesswork. Whether you need a scalable e-commerce platform, a custom SaaS product, an AI automation pipeline, or a complete brand and UI/UX overhaul, we bring the technical depth and strategic clarity to get it right the first time. That&apos;s what &ldquo;Built With Intent&rdquo; means to us.
+                </p>
               </div>
             </AnimatedSection>
+          </div>
+        </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-dashed border-border/80">
-              {values.map((value, i) => {
-                const Icon = value.icon;
-                const isBottomRow = i >= 3;
-                const isLastInRow = (i + 1) % 3 === 0;
-                return (
-                  <AnimatedSection
-                    key={i}
-                    delay={0.05 * i}
-                    className={`p-8 md:p-10 group hover:bg-primary/5 transition-colors duration-300 ${!isLastInRow ? "border-r border-dashed border-border/80" : ""} ${!isBottomRow ? "border-b border-dashed border-border/80" : ""}`}
-                  >
-                    <div className="flex items-center text-primary mb-5">
-                      <Icon size={32} />
+        {/* ─── OUR STORY / OUR MISSION ─── */}
+        <StoryMissionSection />
+
+        {/* ─── CORE VALUES ─── */}
+        <section className="py-24 bg-background relative overflow-hidden">
+          {/* Subtle background gradient blobs */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <div className="absolute top-0 right-0 w-150 h-150 bg-primary/5 rounded-full blur-[140px] translate-x-1/2 -translate-y-1/4" />
+            <div className="absolute bottom-0 left-0 w-100 h-100 bg-primary/5 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/4" />
+          </div>
+
+          <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
+            <div className="relative mb-16">
+              <AnimatedSection>
+                <SectionHeader
+                  alignment="center"
+                  badge="OUR VALUES"
+                  title="The principles that drive every pixel and every line of code"
+                  subtitle="These aren't wall posters — they're how every project, sprint, and decision at Vibe Venture actually gets made."
+                  className="mx-auto text-center items-center"
+                />
+              </AnimatedSection>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {values.map((value, i) => (
+                <AnimatedSection key={i} delay={i * 0.08} className="h-full">
+                  <div className="card-hover group relative flex flex-col gap-3 p-6 h-full bg-white rounded-2xl shadow-sm border border-border/50">
+                    {/* Illustration */}
+                    <div className="relative z-10">
+                      <div className="w-20 h-20 rounded-xl overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={value.image} alt="" className="w-full h-full object-cover" />
+                      </div>
                     </div>
-                    <h3 className="text-lg font-heading font-bold mb-3">{value.title}</h3>
-                    <p className="text-sm text-foreground/70 leading-relaxed">{value.description}</p>
-                  </AnimatedSection>
-                );
-              })}
+
+                    {/* Content */}
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="text-lg font-semibold text-foreground tracking-tight">
+                        {value.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── MEET OUR FOUNDERS ─── */}
+        <section className="py-24 bg-background relative overflow-hidden">
+          <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
+            <div className="relative mb-16">
+              <AnimatedSection>
+                <SectionHeader
+                  alignment="center"
+                  badge="MEET THE TEAM"
+                  title="Meet Our Founders"
+                  subtitle="The two people behind every decision, every line of code, and every client relationship at Vibe Venture."
+                  className="mx-auto text-center items-center"
+                />
+              </AnimatedSection>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-425 mx-auto">
+              {founders.map((founder, i) => (
+                <AnimatedSection key={i} delay={i * 0.1}>
+                  <div className="group relative w-full aspect-7/6 rounded-2xl overflow-hidden bg-secondary/20 shadow-sm">
+                    {/* Photo */}
+                    {founder.photo ? (
+                      <Image
+                        src={founder.photo}
+                        alt={founder.name}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+                        <span className="text-4xl font-heading font-bold text-primary/25">
+                          {founder.name.split(" ").map((n) => n[0]).join("")}
+                        </span>
+                        <span className="text-[11px] tracking-widest uppercase text-muted-foreground/70">
+                          Photo coming soon
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Overlaid content */}
+                    <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                      <div className="flex items-start justify-between gap-3 mb-4">
+                        <div>
+                          <h3 className="text-xl font-heading font-bold text-white">{founder.name}</h3>
+                          <p className="text-sm text-white/70">{founder.title}</p>
+                        </div>
+                        <Link
+                          href={founder.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${founder.name} on LinkedIn`}
+                          className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
+                        >
+                          <TbBrandLinkedin size={16} />
+                        </Link>
+                      </div>
+                      <p className="text-sm text-white/80 leading-relaxed">{founder.bio}</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </section>
