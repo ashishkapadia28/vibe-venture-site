@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function MaintenancePage() {
   return (
     <main className="min-h-screen bg-background flex flex-col relative overflow-hidden" id="maintenance">
-      
+
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2" />
@@ -18,12 +18,12 @@ export default function MaintenancePage() {
 
       {/* Top Navigation Bar / Logo */}
       <div className="w-full py-8 relative z-20 flex justify-center border-b border-border/50 bg-background/50 backdrop-blur-sm">
-        <Image 
-          src="/vibe_venture_logo.svg" 
-          alt="Vibe Venture" 
-          width={200} 
-          height={60} 
-          className="object-contain" 
+        <Image
+          src="/vibe_venture_logo.svg"
+          alt="Vibe Venture"
+          width={200}
+          height={60}
+          className="object-contain"
         />
       </div>
 
@@ -56,7 +56,7 @@ export default function MaintenancePage() {
       {/* Footer Details */}
       <div className="w-full py-8 relative z-20 border-t border-border/50 bg-background/50 backdrop-blur-sm mt-auto">
         <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 flex flex-col md:flex-row items-center justify-between gap-6">
-          
+
           {/* Copyright */}
           <div className="text-muted-foreground text-sm font-medium tracking-wide">
             © {new Date().getFullYear()} Vibe Venture, Inc. All rights reserved.
@@ -64,9 +64,9 @@ export default function MaintenancePage() {
 
           {/* Contact Info */}
           <div className="flex flex-col sm:flex-row items-center gap-6">
-            <a href="mailto:ashish@vibeventure.in" className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
+            <a href="mailto:hello@vibeventure.in" className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
               <Mail size={16} />
-              ashish@vibeventure.in
+              hello@vibeventure.in
             </a>
             <a href="tel:+919274940383" className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors text-sm font-medium">
               <Phone size={16} />

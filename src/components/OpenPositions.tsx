@@ -16,15 +16,15 @@ interface Role {
 }
 
 // Custom Dropdown Component
-function CustomDropdown({ 
-  label, 
-  options, 
-  value, 
-  onChange 
-}: { 
-  label: string; 
-  options: string[]; 
-  value: string; 
+function CustomDropdown({
+  label,
+  options,
+  value,
+  onChange
+}: {
+  label: string;
+  options: string[];
+  value: string;
   onChange: (v: string) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +42,7 @@ function CustomDropdown({
 
   return (
     <div className="relative group h-full" ref={dropdownRef}>
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left bg-transparent px-4 py-3 outline-none cursor-pointer relative z-20 flex flex-col justify-center h-full border border-transparent rounded-lg hover:bg-foreground/5 transition-colors"
       >
@@ -56,24 +56,22 @@ function CustomDropdown({
       </button>
 
       {/* Custom Dropdown Menu */}
-      <div 
-        className={`absolute top-full left-0 right-0 mt-2 bg-background border border-border/50 rounded-lg shadow-lg z-50 overflow-hidden backdrop-blur-xl transition-all duration-200 origin-top ${
-          isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
-        }`}
+      <div
+        className={`absolute top-full left-0 right-0 mt-2 bg-background border border-border/50 rounded-lg shadow-lg z-50 overflow-hidden backdrop-blur-xl transition-all duration-200 origin-top ${isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
+          }`}
       >
         <ul className="max-h-64 overflow-y-auto py-1 custom-scrollbar">
           {options.map((opt) => (
-            <li 
+            <li
               key={opt}
               onClick={() => {
                 onChange(opt);
                 setIsOpen(false);
               }}
-              className={`px-4 py-3 text-sm cursor-pointer transition-all ${
-                value === opt 
-                  ? 'bg-primary/10 text-primary font-bold border-l-2 border-primary' 
+              className={`px-4 py-3 text-sm cursor-pointer transition-all ${value === opt
+                  ? 'bg-primary/10 text-primary font-bold border-l-2 border-primary'
                   : 'text-foreground/80 hover:bg-secondary hover:text-foreground border-l-2 border-transparent'
-              }`}
+                }`}
             >
               {opt}
             </li>
@@ -148,7 +146,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
       });
 
       if (!res.ok) throw new Error("Failed to submit application");
-      
+
       setIsSuccess(true);
       setTimeout(() => {
         setSelectedJob(null);
@@ -179,26 +177,26 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                 Ready to build? Check out our current openings. If you don&apos;t see a perfect fit, pitch us anyway.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 border border-border p-2 rounded-xl relative bg-secondary/20 h-auto">
               <div className="absolute top-2 bottom-2 left-1/3 w-[1px] bg-border/50 hidden md:block" />
               <div className="absolute top-2 bottom-2 left-2/3 w-[1px] bg-border/50 hidden md:block" />
 
-              <CustomDropdown 
+              <CustomDropdown
                 label="Department"
                 options={departments}
                 value={departmentFilter}
                 onChange={setDepartmentFilter}
               />
-              
-              <CustomDropdown 
+
+              <CustomDropdown
                 label="Experience Level"
                 options={experiences}
                 value={experienceFilter}
                 onChange={setExperienceFilter}
               />
 
-              <CustomDropdown 
+              <CustomDropdown
                 label="Job Type"
                 options={types}
                 value={typeFilter}
@@ -210,17 +208,17 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
 
         <div className="relative">
           {/* Top border of the list */}
-          
+
           <div className="flex flex-col relative z-10 min-h-[300px]">
             {paginatedRoles.length > 0 ? (
               paginatedRoles.map((role, index) => (
-                <AnimatedSection 
-                  key={role.id} 
+                <AnimatedSection
+                  key={role.id}
                   delay={index * 0.1}
                   className="p-8 group bg-background relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6"
                 >
                   {/* Bottom dashed border for each row */}
-                  
+
                   {/* Left and Right boundaries for the whole container */}
 
                   {/* Subtle Hover Gradient */}
@@ -240,7 +238,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                         {role.title}
                       </h3>
                     </div>
-                    
+
                     <div className="flex gap-6 items-center">
                       <div className="flex flex-col md:text-right gap-1">
                         <span className="text-sm font-medium text-foreground">
@@ -250,10 +248,10 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                           {role.type}
                         </span>
                       </div>
-                      
+
                       <div className="hidden md:block w-[1px] h-10 bg-border/50 mx-4" />
 
-                      <button 
+                      <button
                         onClick={() => setSelectedJob(role)}
                         className="px-6 py-3 rounded-full border border-primary bg-transparent text-primary font-bold text-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground flex items-center justify-center gap-2 group/btn shrink-0 w-full md:w-auto"
                       >
@@ -266,7 +264,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
               ))
             ) : openRoles.length === 0 ? (
               <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-[300px]">
-                
+
                 <p className="text-xl font-heading font-bold mb-2">No Open Roles</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
                   We don&apos;t have any open roles available at the moment. Please check back later.
@@ -274,12 +272,12 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
               </div>
             ) : (
               <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-[300px]">
-                
+
                 <p className="text-xl font-heading font-bold mb-2">No Matches Found</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
                   We don&apos;t have any open roles matching these exact filters right now.
                 </p>
-                <button 
+                <button
                   onClick={() => {
                     setDepartmentFilter("All");
                     setExperienceFilter("All");
@@ -295,19 +293,19 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
 
           {totalPages > 1 && (
             <AnimatedSection delay={0.2} className="flex justify-center items-center gap-4 mt-12 relative z-10">
-              <button 
+              <button
                 onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
                 className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <ArrowRight size={16} className="rotate-180" />
               </button>
-              
+
               <div className="text-xs font-bold tracking-widest uppercase text-muted-foreground bg-secondary/50 px-4 py-2 rounded-full border border-border/50">
                 Page <span className="text-foreground">{currentPage}</span> of {totalPages}
               </div>
 
-              <button 
+              <button
                 onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
                 className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
@@ -317,28 +315,28 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
             </AnimatedSection>
           )}
         </div>
-        
+
         <AnimatedSection delay={0.4} className="mt-16">
           <p className="text-muted-foreground mb-4">Don&apos;t see a perfect fit?</p>
-          <a href="mailto:ashish@vibeventure.in" className="inline-flex items-center gap-2 font-bold text-foreground hover:text-primary transition-colors border-b border-primary pb-1">
+          <a href="mailto:hello@vibeventure.in" className="inline-flex items-center gap-2 font-bold text-foreground hover:text-primary transition-colors border-b border-primary pb-1">
             Pitch Yourself Directly <ArrowRight size={16} />
           </a>
         </AnimatedSection>
-        
+
       </div>
 
       {mounted && selectedJob && createPortal(
         <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 bg-foreground/20 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-background border border-border/60 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl relative animate-in zoom-in-95 duration-300 flex flex-col">  
+          <div className="bg-background border border-border/60 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl relative animate-in zoom-in-95 duration-300 flex flex-col">
             {/* Header Area */}
             <div className="bg-secondary/40 border-b border-border/50 p-6 md:p-8 relative">
-              <button 
+              <button
                 onClick={() => setSelectedJob(null)}
                 className="absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-all p-2 bg-background/80 hover:bg-background rounded-full shadow-sm border border-border/50 z-10"
               >
                 <X size={20} />
               </button>
-              
+
               <div className="flex flex-wrap gap-2 mb-3">
                 <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">
                   {selectedJob.department}
@@ -347,7 +345,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                   {selectedJob.location}
                 </span>
               </div>
-              
+
               <h3 className="text-2xl md:text-3xl font-bold font-heading text-foreground pr-8">
                 Apply for {selectedJob.title}
               </h3>
@@ -355,7 +353,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                 We&apos;re excited to see what you can bring to the team. Let&apos;s get started.
               </p>
             </div>
-        
+
             <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar flex-1">
               {isSuccess ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center animate-in fade-in zoom-in duration-500">
@@ -381,31 +379,31 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                       <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
                         Full Name <span className="text-red-400">*</span>
                       </label>
-                      <input 
-                        required 
-                        minLength={2} 
+                      <input
+                        required
+                        minLength={2}
                         pattern="^[a-zA-Z\s]+$"
                         title="Only letters and spaces are allowed"
-                        type="text" 
-                        value={formData.name} 
-                        onChange={e => setFormData({...formData, name: e.target.value})} 
-                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50" 
-                        placeholder="Jane Doe" 
+                        type="text"
+                        value={formData.name}
+                        onChange={e => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
+                        placeholder="Jane Doe"
                       />
                     </div>
                     <div className="group">
                       <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
                         Email Address <span className="text-red-400">*</span>
                       </label>
-                      <input 
-                        required 
-                        type="email" 
+                      <input
+                        required
+                        type="email"
                         pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
                         title="Please enter a valid email address"
-                        value={formData.email} 
-                        onChange={e => setFormData({...formData, email: e.target.value})} 
-                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50" 
-                        placeholder="jane@example.com" 
+                        value={formData.email}
+                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
+                        placeholder="jane@example.com"
                       />
                     </div>
                   </div>
@@ -416,14 +414,14 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                       <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
                         LinkedIn Profile <span className="text-red-400">*</span>
                       </label>
-                      <input 
-                        required 
-                        type="url" 
-                        pattern="https?://.*" 
-                        value={formData.linkedin} 
-                        onChange={e => setFormData({...formData, linkedin: e.target.value})} 
-                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50" 
-                        placeholder="https://linkedin.com/in/janedoe" 
+                      <input
+                        required
+                        type="url"
+                        pattern="https?://.*"
+                        value={formData.linkedin}
+                        onChange={e => setFormData({ ...formData, linkedin: e.target.value })}
+                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
+                        placeholder="https://linkedin.com/in/janedoe"
                       />
                     </div>
                     <div className="group">
@@ -446,17 +444,17 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                           <option value="+86">🇨🇳 +86</option>
                           <option value="+971">🇦🇪 +971</option>
                         </select>
-                        <input 
-                          required 
-                          type="tel" 
-                          minLength={8} 
+                        <input
+                          required
+                          type="tel"
+                          minLength={8}
                           maxLength={15}
                           pattern="^[0-9\s\-()]{8,15}$"
                           title="Please enter a valid phone number (e.g. 234-567-8900)"
-                          value={formData.phone} 
-                          onChange={e => setFormData({...formData, phone: e.target.value})} 
-                          className="flex-1 min-w-0 bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50" 
-                          placeholder="(234) 567-8900" 
+                          value={formData.phone}
+                          onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                          className="flex-1 min-w-0 bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
+                          placeholder="(234) 567-8900"
                         />
                       </div>
                     </div>
@@ -467,14 +465,14 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                       Experience Level <span className="text-red-400">*</span>
                     </label>
                     <div className="flex gap-4 mb-3">
-                      <button 
+                      <button
                         type="button"
                         onClick={() => setExperienceType('Fresher')}
                         className={`flex-1 py-3 text-sm font-bold rounded-xl border transition-all ${experienceType === 'Fresher' ? 'bg-primary/10 border-primary text-primary' : 'bg-secondary/30 border-border/50 text-muted-foreground hover:bg-secondary/50'}`}
                       >
                         Fresher
                       </button>
-                      <button 
+                      <button
                         type="button"
                         onClick={() => setExperienceType('Experienced')}
                         className={`flex-1 py-3 text-sm font-bold rounded-xl border transition-all ${experienceType === 'Experienced' ? 'bg-primary/10 border-primary text-primary' : 'bg-secondary/30 border-border/50 text-muted-foreground hover:bg-secondary/50'}`}
@@ -485,30 +483,30 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                     {experienceType === 'Experienced' && (
                       <div className="flex gap-4 animate-in fade-in slide-in-from-top-2">
                         <div className="flex-1 relative">
-                          <input 
-                            required 
-                            type="number" 
+                          <input
+                            required
+                            type="number"
                             min="0"
                             max="50"
-                            value={expYears} 
-                            onChange={e => setExpYears(e.target.value)} 
-                            className="w-full bg-secondary/30 border border-border/50 rounded-xl pl-4 pr-16 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50" 
-                            placeholder="0" 
+                            value={expYears}
+                            onChange={e => setExpYears(e.target.value)}
+                            className="w-full bg-secondary/30 border border-border/50 rounded-xl pl-4 pr-16 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
+                            placeholder="0"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest pointer-events-none">
                             Years
                           </span>
                         </div>
                         <div className="flex-1 relative">
-                          <input 
-                            required 
-                            type="number" 
+                          <input
+                            required
+                            type="number"
                             min="0"
                             max="11"
-                            value={expMonths} 
-                            onChange={e => setExpMonths(e.target.value)} 
-                            className="w-full bg-secondary/30 border border-border/50 rounded-xl pl-4 pr-20 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50" 
-                            placeholder="0" 
+                            value={expMonths}
+                            onChange={e => setExpMonths(e.target.value)}
+                            className="w-full bg-secondary/30 border border-border/50 rounded-xl pl-4 pr-20 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
+                            placeholder="0"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest pointer-events-none">
                             Months
@@ -517,24 +515,24 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                       </div>
                     )}
                   </div>
-                  
+
                   <div className="group">
                     <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
                       Cover Letter <span className="text-red-400">*</span>
                     </label>
-                    <textarea 
+                    <textarea
                       required
-                      value={formData.cover_letter} 
-                      onChange={e => setFormData({...formData, cover_letter: e.target.value})} 
-                      className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-4 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all h-32 resize-none custom-scrollbar placeholder:text-muted-foreground/50" 
-                      placeholder="Tell us why you'd be a great fit for this role..." 
+                      value={formData.cover_letter}
+                      onChange={e => setFormData({ ...formData, cover_letter: e.target.value })}
+                      className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-4 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all h-32 resize-none custom-scrollbar placeholder:text-muted-foreground/50"
+                      placeholder="Tell us why you'd be a great fit for this role..."
                     />
                   </div>
-                  
+
                   <div className="pt-2">
-                    <button 
-                      disabled={isSubmitting} 
-                      type="submit" 
+                    <button
+                      disabled={isSubmitting}
+                      type="submit"
                       className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-xl hover:bg-primary/90 hover:shadow-[0_4px_20px_rgba(var(--primary),0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-50 disabled:hover:shadow-none disabled:hover:translate-y-0 flex justify-center items-center gap-2 group/btn"
                     >
                       {isSubmitting ? (

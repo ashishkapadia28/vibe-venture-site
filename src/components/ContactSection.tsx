@@ -13,7 +13,7 @@ export function ContactSection() {
 
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          
+
           {/* Left Column: Context */}
           <div>
             <AnimatedSection>
@@ -32,7 +32,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold font-heading mb-1 text-foreground">Email Us</h4>
-                    <p className="text-muted-foreground text-sm">ashish@vibeventure.in</p>
+                    <p className="text-muted-foreground text-sm">hello@vibeventure.in</p>
                   </div>
                 </div>
 
@@ -67,7 +67,7 @@ export function ContactSection() {
               <div className="bg-white shadow-xl border border-border/50 p-8 md:p-10 rounded-2xl relative z-10">
                 <ContactForm />
               </div>
-              
+
               {/* Decorative elements behind form */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-[40px] z-0" />
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-[50px] z-0" />

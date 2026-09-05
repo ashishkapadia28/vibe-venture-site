@@ -32,7 +32,7 @@ export function Footer() {
     <footer className="bg-secondary text-secondary-foreground/70 pt-24 pb-32 relative z-10 overflow-hidden font-sans rounded-t-[3rem] mt-24">
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between gap-16 mb-24">
-          
+
           {/* Left Column */}
           <div className="w-full lg:w-[35%] flex flex-col gap-6">
             <div className="flex flex-col gap-1">
@@ -59,25 +59,25 @@ export function Footer() {
                 <Phone size={16} strokeWidth={1.5} className="text-[#768493] shrink-0 group-hover:text-white transition-colors" />
                 <span className="text-[13px] text-[#768493] group-hover:text-white transition-colors">+91 927 494 0383</span>
               </a>
-              <a href="mailto:ashish@vibeventure.in" className="flex items-center gap-3 hover:text-white transition-colors group w-fit">
+              <a href="mailto:hello@vibeventure.in" className="flex items-center gap-3 hover:text-white transition-colors group w-fit">
                 <Mail size={16} strokeWidth={1.5} className="text-[#768493] shrink-0 group-hover:text-white transition-colors" />
-                <span className="text-[13px] text-[#768493] group-hover:text-white transition-colors">ashish@vibeventure.in</span>
+                <span className="text-[13px] text-[#768493] group-hover:text-white transition-colors">hello@vibeventure.in</span>
               </a>
             </div>
 
             <div className="flex items-center gap-2.5 mt-2">
-                <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
-                  <LinkedinIcon />
-                </a>
-                <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
-                  <InstagramIcon />
-                </a>
-                <a href="#" aria-label="X (Twitter)" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
-                  <XIcon />
-                </a>
-                <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
-                  <YoutubeIcon />
-                </a>
+              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
+                <LinkedinIcon />
+              </a>
+              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
+                <InstagramIcon />
+              </a>
+              <a href="#" aria-label="X (Twitter)" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
+                <XIcon />
+              </a>
+              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-[8px] border border-[#2a2f36] flex items-center justify-center hover:bg-[#1a1d21] hover:text-white transition-all text-white">
+                <YoutubeIcon />
+              </a>
             </div>
 
 
@@ -135,9 +135,9 @@ export function Footer() {
 
       {/* Giant Watermark Background */}
       <div className="absolute bottom-[-2%] left-0 w-full pointer-events-none select-none overflow-hidden flex justify-center z-0 opacity-10 px-8 md:px-16 lg:px-24 xl:px-32">
-        <span 
-          className="text-[13vw] font-black tracking-tighter text-transparent whitespace-nowrap w-full text-center" 
-          style={{ 
+        <span
+          className="text-[13vw] font-black tracking-tighter text-transparent whitespace-nowrap w-full text-center"
+          style={{
             WebkitTextStroke: "1.5px #ffffff",
             lineHeight: "0.9"
           }}

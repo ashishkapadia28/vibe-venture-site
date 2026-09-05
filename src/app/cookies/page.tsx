@@ -80,7 +80,7 @@ export default function CookiePolicyPage() {
                   <h2 className="text-2xl font-heading font-bold mb-3">5. Contact Us</h2>
                   <p className="text-foreground/70 leading-relaxed">
                     Questions about this policy can be sent to{" "}
-                    <a href="mailto:ashish@vibeventure.in" className="text-primary hover:underline underline-offset-4">ashish@vibeventure.in</a>.
+                    <a href="mailto:hello@vibeventure.in" className="text-primary hover:underline underline-offset-4">hello@vibeventure.in</a>.
                   </p>
                 </div>
               </AnimatedSection>

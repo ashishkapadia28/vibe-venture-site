@@ -3,7 +3,7 @@ import { SecondaryHero } from "@/components/SecondaryHero";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTA } from "@/components/CTA";
-import { TechStack } from "@/components/TechStack";
+import { ContactSection } from "@/components/ContactSection";
 import { StoryMissionSection } from "@/components/StoryMissionSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import Image from "next/image";
@@ -61,15 +61,15 @@ const founders = [
     name: "Ashish Kapadia",
     title: "CEO & Co-Founder",
     bio: "Co-founded Vibe Venture to help ambitious brands build digital products that actually move the needle — not just look good.",
-    photo: "/Ashish%20Kapadia.png",
-    linkedin: "#",
+    photo: "/ashish_kapadia.png",
+    linkedin: "https://www.linkedin.com/in/ashish-kapadiya/",
   },
   {
     name: "Sibtain Nadolia",
     title: "Co-Founder",
     bio: "Co-founded Vibe Venture with a focus on turning bold ideas into scalable, well-engineered products.",
-    photo: "/Ashish%20Kapadia.png",
-    linkedin: "#",
+    photo: "/sibtain_nadolia.png",
+    linkedin: "https://www.linkedin.com/in/sibtainnandoliya",
   },
 ];
 
@@ -251,8 +251,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ─── TECH STACK MARQUEE ─── */}
-        <TechStack />
+        {/* ─── LET'S COLLABORATE ─── */}
+        <ContactSection />
 
         {/* ─── MINI CTA STRIP ─── */}
         <CTA />
