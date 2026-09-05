@@ -68,7 +68,7 @@ const founders = [
     name: "Sibtain Nadolia",
     title: "Co-Founder",
     bio: "Co-founded Vibe Venture with a focus on turning bold ideas into scalable, well-engineered products.",
-    photo: null,
+    photo: "/Ashish%20Kapadia.png",
     linkedin: "#",
   },
 ];
@@ -227,7 +227,7 @@ export default function AboutPage() {
 
                     {/* Overlaid content */}
                     <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                      <div className="flex items-start justify-between gap-3 mb-4">
+                      <div className="flex items-center justify-between gap-3 mb-4">
                         <div>
                           <h3 className="text-xl font-heading font-bold text-white">{founder.name}</h3>
                           <p className="text-sm text-white/70">{founder.title}</p>
@@ -237,9 +237,9 @@ export default function AboutPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`${founder.name} on LinkedIn`}
-                          className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
+                          className="shrink-0 flex items-center justify-center text-white hover:text-primary transition-colors"
                         >
-                          <TbBrandLinkedin size={16} />
+                          <TbBrandLinkedin size={24} />
                         </Link>
                       </div>
                       <p className="text-sm text-white/80 leading-relaxed">{founder.bio}</p>
