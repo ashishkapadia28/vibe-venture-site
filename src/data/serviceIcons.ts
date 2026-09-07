@@ -8,6 +8,7 @@ import {
   TbTerminal2, TbUsers, TbBuilding, TbTool,
   TbBrandWordpress, TbBuildingStore, TbCreditCard,
   TbFingerprint, TbPencil, TbBook2, TbSpeakerphone,
+  TbTrendingUp, TbFlask, TbChartBar,
 } from "react-icons/tb";
 
 /**
@@ -24,4 +25,5 @@ export const serviceIcons: Record<string, IconType> = {
   TbTerminal2, TbUsers, TbBuilding, TbTool,
   TbBrandWordpress, TbBuildingStore, TbCreditCard,
   TbFingerprint, TbPencil, TbBook2, TbSpeakerphone,
+  TbTrendingUp, TbFlask, TbChartBar,
 };

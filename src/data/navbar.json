@@ -1,0 +1,68 @@
+{
+  "navItems": [
+    { "key": "about", "label": "About us", "href": "/about", "enabled": true },
+    {
+      "key": "services",
+      "label": "Services",
+      "href": "/services",
+      "enabled": true,
+      "megaMenu": {
+        "type": "categories",
+        "categories": [
+          {
+            "label": "Design & Experience",
+            "icon": "Palette",
+            "items": [
+              { "serviceSlug": "ui-ux-design" },
+              { "serviceSlug": "branding-creative" }
+            ]
+          },
+          {
+            "label": "Software & Technology",
+            "icon": "Code2",
+            "items": [
+              { "serviceSlug": "web-development", "labelOverride": "Custom Web Development" },
+              { "serviceSlug": "software-development", "labelOverride": "SaaS Development" },
+              { "serviceSlug": "app-development", "labelOverride": "Mobile App Development" },
+              { "serviceSlug": "ai-solutions", "labelOverride": "AI Automation" },
+              { "serviceSlug": "ecommerce-solutions", "labelOverride": "Ecommerce Development" },
+              { "serviceSlug": "web-development", "subServiceSlug": "api", "labelOverride": "API & Integrations Development" }
+            ]
+          },
+          {
+            "label": "Growth & Optimization",
+            "icon": "TrendingUp",
+            "items": [
+              { "serviceSlug": "conversion-rate-optimization" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "products",
+      "label": "Products",
+      "href": "/products",
+      "enabled": false,
+      "megaMenu": {
+        "type": "imageList",
+        "menuLabel": "Products",
+        "items": [
+          { "name": "VediqCare", "href": "/products/vediqcare", "icon": "TbStethoscope", "image": null }
+        ]
+      }
+    },
+    { "key": "caseStudies", "label": "Case Studies", "href": "/case-studies", "enabled": true },
+    {
+      "key": "tools",
+      "label": "Tools",
+      "href": "/tools",
+      "enabled": true,
+      "dropdown": [
+        { "name": "Website Checker", "href": "/tools/website-checker", "icon": "Gauge" }
+      ]
+    },
+    { "key": "career", "label": "Career", "href": "/career", "enabled": true },
+    { "key": "blogs", "label": "Blogs", "href": "/blogs", "enabled": true }
+  ]
+}

@@ -1068,6 +1068,144 @@
         }
       ],
       "relatedBlogs": []
+    },
+    {
+      "slug": "conversion-rate-optimization",
+      "name": "Conversion Rate Optimization",
+      "icon": "TbTrendingUp",
+      "description": "We turn existing traffic into more customers — auditing your funnel, testing what actually moves the needle, and fixing the friction that's costing you conversions.",
+      "aboutContent": [
+        "More traffic doesn't fix a leaky funnel — if visitors are landing on your site and leaving without converting, the problem usually isn't visibility, it's experience. We start by finding exactly where and why people drop off, using real behavioral data instead of guesswork.",
+        "From there, we run structured experiments — landing page changes, checkout flow fixes, messaging tweaks — and measure what actually moves the numbers, so every change is backed by evidence, not opinion."
+      ],
+      "aboutImage": null,
+      "whyPoints": [
+        {
+          "title": "Data before design",
+          "description": "Every recommendation is backed by analytics, heatmaps, and session recordings — not a hunch about what looks better.",
+          "icon": "Target"
+        },
+        {
+          "title": "Structured experimentation",
+          "description": "We run proper A/B tests with statistical significance, so you know a change actually worked before rolling it out fully.",
+          "icon": "Zap"
+        },
+        {
+          "title": "Full-funnel view",
+          "description": "We look at the whole journey — landing page, checkout, forms — not just one isolated page in a vacuum.",
+          "icon": "Award"
+        },
+        {
+          "title": "Built to compound",
+          "description": "Each test result feeds the next one, so your conversion rate keeps improving instead of plateauing after one redesign.",
+          "icon": "Sparkles"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How is this different from just redesigning our website?",
+          "answer": "A redesign changes how things look based on opinion. CRO starts with data — analytics, recordings, and testing — to find out what's actually causing visitors to leave, then fixes that specifically."
+        },
+        {
+          "question": "How long until we see results?",
+          "answer": "Initial audits and quick wins typically surface within 2-3 weeks. Meaningful, tested improvements to conversion rate usually take 6-8 weeks, since proper A/B tests need enough traffic to reach statistical significance."
+        },
+        {
+          "question": "Do we need a lot of traffic for this to work?",
+          "answer": "Structured A/B testing works best with meaningful traffic volume. For lower-traffic sites, we focus more on qualitative research — session recordings, heatmaps, and UX audits — to find high-confidence fixes without needing a huge sample size."
+        },
+        {
+          "question": "Can you work with our existing website and team?",
+          "answer": "Yes — we typically plug into your existing site and analytics setup rather than requiring a rebuild, and can collaborate directly with your in-house team or agency."
+        }
+      ],
+      "process": [
+        {
+          "title": "Audit",
+          "description": "We analyze your analytics, heatmaps, and session recordings to find exactly where visitors are dropping off."
+        },
+        {
+          "title": "Hypothesis",
+          "description": "Every proposed change is framed as a testable hypothesis — what we expect to happen and why, before we build anything."
+        },
+        {
+          "title": "Test",
+          "description": "We run structured A/B or multivariate tests, letting real visitor behavior decide what works instead of opinion."
+        },
+        {
+          "title": "Analyze & Roll Out",
+          "description": "Winning variations get rolled out fully; inconclusive or losing tests get documented so we don't repeat them."
+        },
+        {
+          "title": "Iterate",
+          "description": "Each result informs the next test, building a compounding conversion improvement process over time."
+        }
+      ],
+      "relatedBlogs": [],
+      "seo": {
+        "title": "Conversion Rate Optimization Services | Vibe Venture",
+        "description": "Conversion rate optimization services from Vibe Venture — funnel audits, A/B testing, and UX fixes that turn your existing traffic into more customers.",
+        "keywords": [
+          "conversion rate optimization agency",
+          "CRO services",
+          "A/B testing company",
+          "landing page optimization"
+        ]
+      },
+      "subServices": [
+        {
+          "slug": "landing-page-optimization",
+          "name": "Landing Page Optimization",
+          "icon": "TbLayoutGrid",
+          "description": "Landing pages rebuilt around clarity and intent — cutting friction between a visitor's arrival and the action you want them to take.",
+          "features": [
+            "Above-the-fold messaging audit",
+            "Layout & visual hierarchy fixes",
+            "Mobile conversion optimization",
+            "Load speed improvements"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ab-testing",
+          "name": "A/B Testing",
+          "icon": "TbFlask",
+          "description": "Structured, statistically sound experiments that tell you which version actually performs better — not which one people like more in a meeting.",
+          "features": [
+            "Hypothesis-driven test design",
+            "Statistical significance tracking",
+            "Multivariate testing",
+            "Clear before/after reporting"
+          ],
+          "image": null
+        },
+        {
+          "slug": "funnel-analytics-audits",
+          "name": "Funnel & Analytics Audits",
+          "icon": "TbChartBar",
+          "description": "A full audit of your funnel and analytics setup to find exactly where visitors drop off, and whether your tracking is even measuring the right things.",
+          "features": [
+            "Funnel drop-off analysis",
+            "Heatmaps & session recordings",
+            "Analytics & tracking audit",
+            "Prioritized fix roadmap"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ux-copy-optimization",
+          "name": "UX & Copy Optimization",
+          "icon": "TbPencil",
+          "description": "Refining the words and flows on your highest-traffic pages — messaging, forms, and calls to action rewritten to reduce hesitation and drive action.",
+          "features": [
+            "Conversion-focused copywriting",
+            "Form & checkout flow fixes",
+            "CTA placement & messaging tests",
+            "Trust signal optimization"
+          ],
+          "image": null
+        }
+      ]
     }
   ]
 }
