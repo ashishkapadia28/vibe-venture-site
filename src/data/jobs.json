@@ -1,0 +1,36 @@
+{
+  "jobs": [
+    {
+      "id": "senior-frontend-engineer",
+      "title": "Senior Frontend Engineer",
+      "department": "Engineering",
+      "location": "Mehsana, Gujarat (On-site)",
+      "type": "Full-Time",
+      "experience": "Experienced"
+    },
+    {
+      "id": "ui-ux-designer",
+      "title": "UI/UX Designer",
+      "department": "Design",
+      "location": "Mehsana, Gujarat (On-site)",
+      "type": "Full-Time",
+      "experience": "Mid-Level"
+    },
+    {
+      "id": "growth-marketing-specialist",
+      "title": "Growth Marketing Specialist",
+      "department": "Marketing",
+      "location": "Remote",
+      "type": "Full-Time",
+      "experience": "Mid-Level"
+    },
+    {
+      "id": "web-development-intern",
+      "title": "Web Development Intern",
+      "department": "Engineering",
+      "location": "Mehsana, Gujarat (On-site)",
+      "type": "Internship",
+      "experience": "Fresher"
+    }
+  ]
+}

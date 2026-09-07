@@ -2,8 +2,11 @@ import { Navbar } from "@/components/Navbar";
 import { SecondaryHero } from "@/components/SecondaryHero";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CTA } from "@/components/CTA";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { caseStudies } from "@/data/caseStudies";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -13,193 +16,91 @@ export const metadata: Metadata = {
   description: "Explore our success stories and see how we help businesses solve complex problems and drive measurable growth through digital innovation.",
 };
 
-const allCaseStudies = [
-  {
-    id: 1,
-    client: "Fintech Nexus",
-    category: "Financial Services",
-    title: "Engineering a 50,000 TPS Payment Engine",
-    description: "Dismantled a failing legacy monolith and engineered a hyper-resilient, event-driven payment fabric capable of processing enterprise transaction volumes with zero dropped packets.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    metrics: [{ label: "Transactions", value: "50k/s" }, { label: "Uptime", value: "99.999%" }],
-    slug: "/case-studies/fintech-nexus"
-  },
-  {
-    id: 2,
-    client: "CloudScale AI",
-    category: "Enterprise Cloud",
-    title: "Revolutionizing Global Content Delivery",
-    description: "Engineered a fully decoupled, edge-rendered headless CMS leveraging Next.js App Router. Plunged global publishing cycles from 3 days to under 4 minutes.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    metrics: [{ label: "Velocity", value: "100x" }, { label: "Performance", value: "100/100" }],
-    slug: "/case-studies/cloudscale-ai"
-  },
-  {
-    id: 3,
-    client: "Apex Logistics",
-    category: "Logistics & Supply Chain",
-    title: "AI-Powered Real-time Fleet Optimization",
-    description: "Built a high-frequency WebSocket tracking engine that processes live telemetry for over 100,000 active fleet vehicles, integrating deep ML route prediction.",
-    image: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=800&q=80",
-    metrics: [{ label: "Fuel Savings", value: "22%" }, { label: "Active Nodes", value: "100k+" }],
-    slug: "/case-studies/apex-logistics"
-  },
-  {
-    id: 4,
-    client: "HealthSync",
-    category: "Healthcare",
-    title: "Military-Grade Telemedicine Infrastructure",
-    description: "Architected a zero-trust, HIPAA-compliant video consultation matrix connecting patients with specialists through end-to-end encrypted WebRTC streams.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
-    metrics: [{ label: "Adoption", value: "+300%" }, { label: "Compliance", value: "HIPAA" }],
-    slug: "/case-studies/healthsync"
-  },
-  {
-    id: 5,
-    client: "RetailEdge",
-    category: "E-Commerce",
-    title: "Decoupled MACH Architecture Migration",
-    description: "Executed a surgical modernization of an aging monolithic e-commerce stack into a unified MACH ecosystem, igniting mobile conversions by eliminating render blocking.",
-    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&w=800&q=80",
-    metrics: [{ label: "Conversion", value: "+45%" }, { label: "Mobile Rev", value: "2.5x" }],
-    slug: "/case-studies/retailedge"
-  },
-  {
-    id: 6,
-    client: "EduTech Global",
-    category: "Education",
-    title: "Massively Scalable Interactive LMS",
-    description: "Forged a horizontally scalable learning environment capable of streaming to tens of thousands of concurrent users with real-time gamification and analytics.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-    metrics: [{ label: "Engagement", value: "+60%" }, { label: "Concurrency", value: "10k+" }],
-    slug: "/case-studies/edutech-global"
-  }
-];
-
 export default function CaseStudiesPage() {
   return (
     <>
       <Navbar />
       <main className="flex-1" id="case-studies">
-        {/* ─── HERO SECTION ─── */}
         <SecondaryHero
-          eyebrow="Our Portfolio"
+          eyebrow="Case Studies"
           title={
             <>
-              Real Challenges.<br />
+              Real Projects.<br />
               <span className="text-primary">Real Results.</span>
             </>
           }
           subtitle="We don't just build software. We engineer solutions that transform operations, accelerate growth, and drive massive ROI for our partners."
           ctas={[
             { text: "Start Your Project", href: "/contact" },
-            { text: "Explore Work", href: "#portfolio-grid", variant: "secondary" },
+            { text: "Explore Work", href: "#portfolio", variant: "secondary" },
           ]}
         />
 
-        {/* ─── BENTO GRID CASE STUDIES (THEME MATCHED) ─── */}
-        <section id="portfolio-grid" className="pb-32 bg-background relative z-10 pt-16 -mt-16">
-          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-            
-            {/* The Zero-Gap Blueprint Grid */}
-            <div className="relative mt-8">
-              {/* Outer grid borders (Top and Left) */}
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 relative z-10">
-                {allCaseStudies.map((study, index) => {
-                  // Determine grid spanning based on index for a bento box look
-                  let spanClass = "col-span-1";
-                  if (index === 0) spanClass = "md:col-span-2 lg:col-span-2"; // First item large
-                  if (index === 5) spanClass = "md:col-span-2 lg:col-span-3"; // Last item full width
-
-                  return (
-                    <AnimatedSection 
-                      key={study.id} 
-                      delay={index * 0.1}
-                      className={`${spanClass} group bg-background relative overflow-hidden flex flex-col`}
-                    >
-                      {/* Grid Item Outer Borders (Bottom and Right) */}
-
-                      <Link href={study.slug} className="flex flex-col h-full relative z-10">
-                        
-                        {/* Hover Gradient Overlay */}
-                        <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
-
-                        {/* Header / Meta */}
-                        <div className="p-6 md:p-8 flex items-center justify-between relative z-10">
-                          {/* Inner border bottom */}
-                          
-                          <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-sm bg-secondary/50 text-foreground border border-border/50 group-hover:border-primary/30 group-hover:text-primary transition-colors">
-                            {study.category}
-                          </span>
-                          <div className="flex items-center justify-center text-muted-foreground group-hover:text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                            <ArrowUpRight size={20} strokeWidth={2} />
-                          </div>
-                        </div>
-
-                        {/* Flex Container for Image + Content based on Span */}
-                        <div className={`flex flex-1 ${index === 0 || index === 5 ? 'flex-col md:flex-row' : 'flex-col'} relative z-10`}>
-                          
-                          {/* Image Section */}
-                          <div className={`relative overflow-hidden ${index === 0 || index === 5 ? 'w-full md:w-1/2' : 'w-full h-48 md:h-56'}`}>
-                            {/* Inner borders for image section */}
-                            <div className={`absolute bottom-0 left-0 right-0 h-[1.5px]  z-20 opacity-40 pointer-events-none ${index === 0 || index === 5 ? 'md:hidden' : ''}`} />
-                            
-                            <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                            <Image 
-                              src={study.image} 
-                              alt={study.title}
-                              fill
-                              className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                              sizes="(max-width: 768px) 100vw, 50vw"
-                            />
-                          </div>
-
-                          {/* Content Section */}
-                          <div className={`p-6 md:p-8 flex flex-col flex-1 justify-between relative ${index === 0 || index === 5 ? 'w-full md:w-1/2' : 'w-full'}`}>
-                            <div>
-                              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">
-                                {study.client}
-                              </p>
-                              <h2 className={`${index === 0 || index === 5 ? 'text-2xl md:text-3xl lg:text-4xl' : 'text-xl md:text-2xl'} font-heading font-bold mb-4 leading-[1.15] group-hover:text-primary transition-colors duration-300`}>
-                                {study.title}
-                              </h2>
-                              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-                                {study.description}
-                              </p>
-                            </div>
-
-                            {/* Metrics */}
-                            <div className="relative pt-6 mt-auto">
-                              {/* Inner border top for metrics */}
-                              
-                              <div className="flex items-center gap-6">
-                                {study.metrics.map((metric, i) => (
-                                  <div key={i} className="flex flex-col gap-1">
-                                    <span className={`${index === 0 || index === 5 ? 'text-2xl' : 'text-xl'} font-heading font-black tracking-tight text-foreground`}>
-                                      {metric.value}
-                                    </span>
-                                    <span className="text-[9px] text-muted-foreground font-bold tracking-widest uppercase">
-                                      {metric.label}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </Link>
-                    </AnimatedSection>
-                  );
-                })}
-              </div>
+        <section id="portfolio" className="py-24 bg-background relative overflow-hidden">
+          <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
+            <div className="relative mb-20">
+              <AnimatedSection>
+                <SectionHeader
+                  alignment="center"
+                  badge="OUR WORK"
+                  title="Projects We're Proud Of"
+                  subtitle="A look at real projects we've designed and built for real businesses."
+                  className="mx-auto text-center items-center"
+                />
+              </AnimatedSection>
             </div>
 
+            <div className="flex flex-col gap-8">
+              {caseStudies.map((study, index) => {
+                const isReversed = index % 2 === 1;
+                return (
+                  <AnimatedSection key={study.slug} delay={0.05}>
+                    <Link
+                      href={`/case-studies/${study.slug}`}
+                      className="card-hover group grid grid-cols-1 lg:grid-cols-12 items-stretch rounded-4xl overflow-hidden border border-border/50 shadow-sm bg-linear-to-br from-primary/8 via-white to-primary/5 lg:min-h-105"
+                    >
+                      <div className={cn("lg:col-span-6 flex flex-col justify-center p-8 lg:pt-9 lg:pb-10 lg:pl-9.5", isReversed && "lg:order-2")}>
+                        <span className="w-fit inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20 mb-4">
+                          {study.tag}
+                        </span>
+                        <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4 tracking-tight">
+                          {study.title}
+                        </h2>
+                        <div className="space-y-4 mb-8">
+                          {study.description.map((p, i) => (
+                            <p key={i} className="text-muted-foreground leading-relaxed">
+                              {p}
+                            </p>
+                          ))}
+                        </div>
+                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                          More Details
+                          <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
+                      </div>
+
+                      <div
+                        className={cn(
+                          "relative lg:col-span-6 min-h-70 lg:my-5 rounded-3xl overflow-hidden",
+                          isReversed ? "lg:order-1 lg:ml-5" : "lg:mr-5"
+                        )}
+                      >
+                        <Image
+                          src={study.image}
+                          alt={study.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                      </div>
+                    </Link>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
           </div>
         </section>
 
-        {/* ─── CTA SECTION ─── */}
         <CTA />
       </main>
       <Footer />

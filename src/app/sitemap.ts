@@ -1,25 +1,8 @@
 import type { MetadataRoute } from "next";
+import { services } from "@/data/services";
+import { caseStudies } from "@/data/caseStudies";
 
 const BASE_URL = "https://vibeventure.com";
-
-interface CaseStudyRecord {
-  id: number | string;
-  slug?: string;
-  updated_at?: string;
-}
-
-async function getCaseStudySlugs(): Promise<CaseStudyRecord[]> {
-  try {
-    const adminApiUrl = process.env.ADMIN_API_URL || "http://localhost:3001";
-    const res = await fetch(`${adminApiUrl}/api/case-studies?is_published=true`, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return [];
-    return res.json();
-  } catch {
-    return [];
-  }
-}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -35,13 +18,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/cookies`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const caseStudies = await getCaseStudySlugs();
   const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((study) => ({
-    url: `${BASE_URL}/case-studies/${study.slug || study.id}`,
-    lastModified: study.updated_at,
+    url: `${BASE_URL}/case-studies/${study.slug}`,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...caseStudyRoutes];
+  const serviceRoutes: MetadataRoute.Sitemap = services.flatMap((service) => [
+    { url: `${BASE_URL}/${service.slug}`, changeFrequency: "monthly", priority: 0.8 },
+    ...service.subServices.map((sub) => ({
+      url: `${BASE_URL}/${service.slug}/${sub.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ]);
+
+  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes];
 }

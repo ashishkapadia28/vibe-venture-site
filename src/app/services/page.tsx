@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServicesHero } from "@/components/ServicesHero";
-import { Features } from "@/components/Features";
+import { ServicesList } from "@/components/ServicesList";
 import { ServicesProcess } from "@/components/ServicesProcess";
 import { ServicesWhy } from "@/components/ServicesWhy";
 import { Testimonials } from "@/components/Testimonials";
@@ -20,7 +20,7 @@ export default function ServicesPage() {
       <Navbar />
       <main className="flex-1" id="services">
         <ServicesHero />
-        <Features />
+        <ServicesList />
         <ServicesProcess />
         <ServicesWhy />
         <Testimonials />

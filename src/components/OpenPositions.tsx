@@ -1,19 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { createPortal } from "react-dom";
+import Link from "next/link";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { ArrowUpRight, ArrowRight, ChevronDown, X, Loader2, CheckCircle } from "lucide-react";
-import { useIsClient } from "@/hooks/useIsClient";
-
-interface Role {
-  id: number | string;
-  title: string;
-  department: string;
-  location: string;
-  type: string;
-  experience: string;
-}
+import { ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
+import type { Job as Role } from "@/data/jobs";
 
 // Custom Dropdown Component
 function CustomDropdown({
@@ -88,19 +79,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
   const [typeFilter, setTypeFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Application Modal States
-  const [selectedJob, setSelectedJob] = useState<Role | null>(null);
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', linkedin: '', experience: '', cover_letter: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const mounted = useIsClient();
-  const [experienceType, setExperienceType] = useState<'Fresher' | 'Experienced'>('Fresher');
-  const [expYears, setExpYears] = useState('');
-  const [expMonths, setExpMonths] = useState('');
-  const [countryCode, setCountryCode] = useState('+91');
-
-  const ITEMS_PER_PAGE = 10;
+  const ITEMS_PER_PAGE = 5;
 
   // Reset pagination when filters change (adjusted during render, per React's
   // guidance for state that depends on other state — avoids an extra effect pass)
@@ -127,43 +106,6 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
     currentPage * ITEMS_PER_PAGE
   );
 
-  const handleApplySubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selectedJob) return;
-    setIsSubmitting(true);
-    setError('');
-
-    try {
-      const res = await fetch(`/api/applications`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          job_id: selectedJob.id,
-          ...formData,
-          phone: `${countryCode} ${formData.phone}`,
-          experience: experienceType === 'Fresher' ? 'Fresher' : `${expYears || '0'} Years, ${expMonths || '0'} Months`
-        })
-      });
-
-      if (!res.ok) throw new Error("Failed to submit application");
-
-      setIsSuccess(true);
-      setTimeout(() => {
-        setSelectedJob(null);
-        setIsSuccess(false);
-        setFormData({ name: '', email: '', phone: '', linkedin: '', experience: '', cover_letter: '' });
-        setExperienceType('Fresher');
-        setExpYears('');
-        setExpMonths('');
-        setCountryCode('+91');
-      }, 3000);
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="open-roles" className="pb-24 pt-4 relative z-10 bg-background">
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
@@ -178,9 +120,9 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 border border-border p-2 rounded-xl relative bg-secondary/20 h-auto">
-              <div className="absolute top-2 bottom-2 left-1/3 w-[1px] bg-border/50 hidden md:block" />
-              <div className="absolute top-2 bottom-2 left-2/3 w-[1px] bg-border/50 hidden md:block" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-1 p-2 rounded-2xl relative bg-white border border-border/50 shadow-sm h-auto">
+              <div className="absolute top-2 bottom-2 left-1/3 w-px bg-border/50 hidden md:block" />
+              <div className="absolute top-2 bottom-2 left-2/3 w-px bg-border/50 hidden md:block" />
 
               <CustomDropdown
                 label="Department"
@@ -207,34 +149,25 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
         </AnimatedSection>
 
         <div className="relative">
-          {/* Top border of the list */}
-
-          <div className="flex flex-col relative z-10 min-h-[300px]">
+          <div className="flex flex-col gap-4 relative z-10 min-h-75">
             {paginatedRoles.length > 0 ? (
               paginatedRoles.map((role, index) => (
                 <AnimatedSection
                   key={role.id}
-                  delay={index * 0.1}
-                  className="p-8 group bg-background relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6"
+                  delay={index * 0.08}
+                  className="card-hover group p-6 md:p-8 bg-white rounded-2xl border border-border/50 shadow-sm relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6"
                 >
-                  {/* Bottom dashed border for each row */}
-
-                  {/* Left and Right boundaries for the whole container */}
-
-                  {/* Subtle Hover Gradient */}
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
-
                   <div className="relative z-10 flex flex-col md:flex-row md:items-center w-full gap-6 md:gap-12">
                     <div className="flex-1 flex flex-col gap-2">
                       <div className="flex flex-wrap gap-2">
                         <span className="text-[10px] font-bold tracking-widest uppercase text-primary mb-1">
                           {role.department}
                         </span>
-                        <span className="text-[10px] font-bold tracking-widest uppercase text-muted-foreground border border-border/50 px-2 py-[2px] rounded-sm mb-1 bg-secondary/50">
+                        <span className="w-fit inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold tracking-widest uppercase text-primary ring-1 ring-inset ring-primary/20 mb-1">
                           {role.experience}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl font-heading font-bold text-foreground">
                         {role.title}
                       </h3>
                     </div>
@@ -249,21 +182,21 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                         </span>
                       </div>
 
-                      <div className="hidden md:block w-[1px] h-10 bg-border/50 mx-4" />
+                      <div className="hidden md:block w-px h-10 bg-border/50 mx-4" />
 
-                      <button
-                        onClick={() => setSelectedJob(role)}
+                      <Link
+                        href={`/career/${role.id}`}
                         className="px-6 py-3 rounded-full border border-primary bg-transparent text-primary font-bold text-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground flex items-center justify-center gap-2 group/btn shrink-0 w-full md:w-auto"
                       >
                         Apply Now
                         <ArrowUpRight size={16} className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </AnimatedSection>
               ))
             ) : openRoles.length === 0 ? (
-              <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-[300px]">
+              <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-75">
 
                 <p className="text-xl font-heading font-bold mb-2">No Open Roles</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
@@ -271,7 +204,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                 </p>
               </div>
             ) : (
-              <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-[300px]">
+              <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-75">
 
                 <p className="text-xl font-heading font-bold mb-2">No Matches Found</p>
                 <p className="text-muted-foreground font-medium max-w-sm">
@@ -324,240 +257,6 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
         </AnimatedSection>
 
       </div>
-
-      {mounted && selectedJob && createPortal(
-        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 bg-foreground/20 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-background border border-border/60 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl relative animate-in zoom-in-95 duration-300 flex flex-col">
-            {/* Header Area */}
-            <div className="bg-secondary/40 border-b border-border/50 p-6 md:p-8 relative">
-              <button
-                onClick={() => setSelectedJob(null)}
-                className="absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-all p-2 bg-background/80 hover:bg-background rounded-full shadow-sm border border-border/50 z-10"
-              >
-                <X size={20} />
-              </button>
-
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                  {selectedJob.department}
-                </span>
-                <span className="text-[10px] font-bold tracking-widest uppercase text-muted-foreground border border-border/50 px-2.5 py-1 rounded-full bg-background">
-                  {selectedJob.location}
-                </span>
-              </div>
-
-              <h3 className="text-2xl md:text-3xl font-bold font-heading text-foreground pr-8">
-                Apply for {selectedJob.title}
-              </h3>
-              <p className="text-sm text-muted-foreground mt-2">
-                We&apos;re excited to see what you can bring to the team. Let&apos;s get started.
-              </p>
-            </div>
-
-            <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar flex-1">
-              {isSuccess ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center animate-in fade-in zoom-in duration-500">
-                  <div className="flex items-center justify-center mb-6">
-                    <CheckCircle size={56} className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary),0.3)]" />
-                  </div>
-                  <h3 className="text-3xl font-bold font-heading mb-3">Application Received!</h3>
-                  <p className="text-muted-foreground max-w-sm">
-                    Thank you for applying to {selectedJob.title}. Our team will review your application and get back to you shortly.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleApplySubmit} className="flex flex-col gap-6">
-                  {error && (
-                    <div className="p-4 bg-red-50 text-red-600 border border-red-100 rounded-xl text-sm font-medium animate-in fade-in slide-in-from-top-2">
-                      {error}
-                    </div>
-                  )}
-
-                  {/* Two-Column Row for Name and Email */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="group">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
-                        Full Name <span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        required
-                        minLength={2}
-                        pattern="^[a-zA-Z\s]+$"
-                        title="Only letters and spaces are allowed"
-                        type="text"
-                        value={formData.name}
-                        onChange={e => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
-                        placeholder="Jane Doe"
-                      />
-                    </div>
-                    <div className="group">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
-                        Email Address <span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        required
-                        type="email"
-                        pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
-                        title="Please enter a valid email address"
-                        value={formData.email}
-                        onChange={e => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
-                        placeholder="jane@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Two-Column Row for LinkedIn and Phone */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="group">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
-                        LinkedIn Profile <span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        required
-                        type="url"
-                        pattern="https?://.*"
-                        value={formData.linkedin}
-                        onChange={e => setFormData({ ...formData, linkedin: e.target.value })}
-                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
-                        placeholder="https://linkedin.com/in/janedoe"
-                      />
-                    </div>
-                    <div className="group">
-                      <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
-                        Phone Number <span className="text-red-400">*</span>
-                      </label>
-                      <div className="flex gap-2">
-                        <select
-                          className="bg-secondary/30 border border-border/50 rounded-xl px-3 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all shrink-0 cursor-pointer"
-                          value={countryCode}
-                          onChange={(e) => setCountryCode(e.target.value)}
-                        >
-                          <option value="+1">🇺🇸 +1</option>
-                          <option value="+44">🇬🇧 +44</option>
-                          <option value="+91">🇮🇳 +91</option>
-                          <option value="+61">🇦🇺 +61</option>
-                          <option value="+49">🇩🇪 +49</option>
-                          <option value="+33">🇫🇷 +33</option>
-                          <option value="+81">🇯🇵 +81</option>
-                          <option value="+86">🇨🇳 +86</option>
-                          <option value="+971">🇦🇪 +971</option>
-                        </select>
-                        <input
-                          required
-                          type="tel"
-                          minLength={8}
-                          maxLength={15}
-                          pattern="^[0-9\s\-()]{8,15}$"
-                          title="Please enter a valid phone number (e.g. 234-567-8900)"
-                          value={formData.phone}
-                          onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                          className="flex-1 min-w-0 bg-secondary/30 border border-border/50 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
-                          placeholder="(234) 567-8900"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="group">
-                    <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3 block group-focus-within:text-primary transition-colors">
-                      Experience Level <span className="text-red-400">*</span>
-                    </label>
-                    <div className="flex gap-4 mb-3">
-                      <button
-                        type="button"
-                        onClick={() => setExperienceType('Fresher')}
-                        className={`flex-1 py-3 text-sm font-bold rounded-xl border transition-all ${experienceType === 'Fresher' ? 'bg-primary/10 border-primary text-primary' : 'bg-secondary/30 border-border/50 text-muted-foreground hover:bg-secondary/50'}`}
-                      >
-                        Fresher
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setExperienceType('Experienced')}
-                        className={`flex-1 py-3 text-sm font-bold rounded-xl border transition-all ${experienceType === 'Experienced' ? 'bg-primary/10 border-primary text-primary' : 'bg-secondary/30 border-border/50 text-muted-foreground hover:bg-secondary/50'}`}
-                      >
-                        Experienced
-                      </button>
-                    </div>
-                    {experienceType === 'Experienced' && (
-                      <div className="flex gap-4 animate-in fade-in slide-in-from-top-2">
-                        <div className="flex-1 relative">
-                          <input
-                            required
-                            type="number"
-                            min="0"
-                            max="50"
-                            value={expYears}
-                            onChange={e => setExpYears(e.target.value)}
-                            className="w-full bg-secondary/30 border border-border/50 rounded-xl pl-4 pr-16 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
-                            placeholder="0"
-                          />
-                          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest pointer-events-none">
-                            Years
-                          </span>
-                        </div>
-                        <div className="flex-1 relative">
-                          <input
-                            required
-                            type="number"
-                            min="0"
-                            max="11"
-                            value={expMonths}
-                            onChange={e => setExpMonths(e.target.value)}
-                            className="w-full bg-secondary/30 border border-border/50 rounded-xl pl-4 pr-20 py-3.5 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all placeholder:text-muted-foreground/50"
-                            placeholder="0"
-                          />
-                          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest pointer-events-none">
-                            Months
-                          </span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="group">
-                    <label className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block group-focus-within:text-primary transition-colors">
-                      Cover Letter <span className="text-red-400">*</span>
-                    </label>
-                    <textarea
-                      required
-                      value={formData.cover_letter}
-                      onChange={e => setFormData({ ...formData, cover_letter: e.target.value })}
-                      className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-4 text-sm outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-background transition-all h-32 resize-none custom-scrollbar placeholder:text-muted-foreground/50"
-                      placeholder="Tell us why you'd be a great fit for this role..."
-                    />
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      disabled={isSubmitting}
-                      type="submit"
-                      className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-xl hover:bg-primary/90 hover:shadow-[0_4px_20px_rgba(var(--primary),0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-50 disabled:hover:shadow-none disabled:hover:translate-y-0 flex justify-center items-center gap-2 group/btn"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 size={18} className="animate-spin" />
-                          <span>Submitting...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Submit Application</span>
-                          <ArrowUpRight size={18} className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 opacity-70 group-hover/btn:opacity-100" />
-                        </>
-                      )}
-                    </button>
-                    <p className="text-center text-[11px] text-muted-foreground mt-4">
-                      By submitting this application, you agree to our privacy policy.
-                    </p>
-                  </div>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>,
-        document.body
-      )}
     </section>
   );
 }

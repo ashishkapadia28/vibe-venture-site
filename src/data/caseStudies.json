@@ -1,0 +1,185 @@
+{
+  "caseStudies": [
+    {
+      "slug": "arpanex",
+      "client": "Arpanex",
+      "tag": "End-to-End Website & Brand",
+      "title": "Arpanex: Brand Identity and Website, Built From Scratch",
+      "description": [
+        "Arpanex came to us as a fresh business with no existing brand or website. We built both from the ground up — a complete visual identity paired with a fully custom, responsive marketing site.",
+        "Every page was designed and engineered in-house, giving Arpanex a professional presence ready to support its launch."
+      ],
+      "image": "/client/Arpanex/arpanex_home_img.png",
+      "gallery": [
+        "/client/Arpanex/arpanex_home_img.png",
+        "/client/Arpanex/arpanex_home_img.png",
+        "/client/Arpanex/arpanex_home_img.png",
+        "/client/Arpanex/arpanex_home_img.png",
+        "/client/Arpanex/arpanex_home_img.png",
+        "/client/Arpanex/arpanex_home_img.png"
+      ],
+      "role": "Brand Identity, UI/UX Design & Web Development",
+      "location": "India",
+      "industry": "Professional Services",
+      "overview": {
+        "title": "About the Arpanex Project",
+        "text": "Arpanex came to us as a brand new business — no name recognition, no visual identity, no website. We handled the full build end-to-end, from the first logo sketch to the final deployed site.",
+        "points": [
+          { "lead": "Complete brand identity", "text": "logo, color system, and typography built from scratch." },
+          { "lead": "Fully custom website", "text": "designed and coded in-house, not templated." },
+          { "lead": "Responsive on every device", "text": "built mobile-first from day one." },
+          { "lead": "Launch-ready from day one", "text": "brand and site shipped together as one cohesive package." }
+        ]
+      },
+      "challenge": {
+        "title": "Where It Got Difficult",
+        "text": "Starting a brand from absolute zero means there's no existing foundation to build on — every choice carries more weight because nothing exists yet to fall back on.",
+        "points": [
+          { "lead": "No existing identity to reference", "text": "every visual decision had to be made from a blank page." },
+          { "lead": "No site structure or content", "text": "information architecture had to be defined before any design work could start." },
+          { "lead": "Brand and website had to launch together", "text": "leaving no room for the two to drift apart or feel disconnected." }
+        ]
+      },
+      "solution": {
+        "title": "How We Solved It",
+        "text": "We treated brand and website as one connected project instead of two separate handoffs, so every decision on one side informed the other.",
+        "points": [
+          { "lead": "Brand strategy first", "text": "before any screen was designed, to keep the visual identity intentional." },
+          { "lead": "Design system built early", "text": "so the website could scale beyond the first set of pages." },
+          { "lead": "Close collaboration throughout", "text": "identity and UI evolved together instead of in isolation." }
+        ]
+      },
+      "impact": "Arpanex launched with a cohesive brand and a fast, fully responsive website built to grow alongside the business.",
+      "metrics": []
+    },
+    {
+      "slug": "echovyn",
+      "client": "Echovyn",
+      "tag": "Brand Design",
+      "title": "Echovyn: A Distinct Visual Identity",
+      "description": [
+        "Echovyn needed a visual identity that stood apart in a crowded market. We designed a complete brand system — logo, color language, and design guidelines — built to carry across every touchpoint.",
+        "The result is an identity Echovyn can apply consistently, from their website to future marketing materials."
+      ],
+      "image": "/client/echovyn/home_page_img.png",
+      "role": "Brand Strategy & Visual Identity Design",
+      "location": "India",
+      "industry": "Creative & Branding",
+      "overview": {
+        "title": "About the Echovyn Project",
+        "text": "Echovyn needed a visual identity that could stand on its own in a market full of similar-looking competitors — this was a brand design engagement from the ground up.",
+        "points": [
+          { "lead": "Full identity system", "text": "logo, color palette, and typography designed as one cohesive set." },
+          { "lead": "Usage guidelines included", "text": "so the brand stays consistent as it's applied elsewhere." },
+          { "lead": "Built for multiple touchpoints", "text": "not just a logo, but a system ready for web and marketing." }
+        ]
+      },
+      "challenge": {
+        "title": "Where It Got Difficult",
+        "text": "Standing out visually is easy to say and hard to do — especially without straying from what the business actually is.",
+        "points": [
+          { "lead": "A crowded visual space", "text": "many competitors already use similar colors and styles." },
+          { "lead": "No existing brand equity", "text": "nothing to build on, so direction had to be established from scratch." },
+          { "lead": "Balancing distinct with authentic", "text": "standing out without becoming something the business isn't." }
+        ]
+      },
+      "solution": {
+        "title": "How We Solved It",
+        "text": "We explored multiple directions before committing, testing each against what actually represents the business rather than picking the most visually loud option.",
+        "points": [
+          { "lead": "Multiple concept rounds", "text": "explored before narrowing to one direction." },
+          { "lead": "Identity grounded in the business", "text": "not just aesthetics for their own sake." },
+          { "lead": "Documented guidelines", "text": "for consistent use across every future touchpoint." }
+        ]
+      },
+      "impact": "Echovyn now has a cohesive, distinct visual identity ready to apply across their website and future brand touchpoints.",
+      "metrics": []
+    },
+    {
+      "slug": "nyrly",
+      "client": "Nyrly",
+      "tag": "Retail POS",
+      "title": "Nyrly: Point-of-Sale Software for Retail",
+      "description": [
+        "Nyrly is a point-of-sale platform for retail businesses. We designed and built the product experience — from checkout flow to inventory management — focused on speed and ease of use for busy store staff.",
+        "The result is a POS system that feels simple at the counter while handling the operational complexity behind the scenes."
+      ],
+      "image": "/client/nyrly/nyrly_home_img.png",
+      "role": "Product Design & Web App Development",
+      "location": "India",
+      "industry": "Retail Technology",
+      "overview": {
+        "title": "About the Nyrly Project",
+        "text": "Nyrly set out to build a modern point-of-sale platform for retail businesses — we partnered on both product design and development.",
+        "points": [
+          { "lead": "Full POS workflow", "text": "checkout, inventory, and reporting in one connected system." },
+          { "lead": "Designed for daily use", "text": "built around real store-floor conditions, not a demo environment." },
+          { "lead": "Built to scale", "text": "architecture designed to support growing stores, not just a single location." }
+        ]
+      },
+      "challenge": {
+        "title": "Where It Got Difficult",
+        "text": "Retail checkout software has almost no margin for friction — staff need it to be fast, and it still has to manage real inventory and sales data underneath.",
+        "points": [
+          { "lead": "Speed was non-negotiable", "text": "any extra click at checkout costs time during busy hours." },
+          { "lead": "Low tolerance for a learning curve", "text": "staff needed to use it correctly with minimal training." },
+          { "lead": "Inventory accuracy had to hold up", "text": "under real-world usage, not just controlled testing." }
+        ]
+      },
+      "solution": {
+        "title": "How We Solved It",
+        "text": "We designed the interface around speed first, then built the systems underneath to support it without slowing anything down.",
+        "points": [
+          { "lead": "Minimal-click checkout flow", "text": "designed around the most common actions first." },
+          { "lead": "Connected inventory and sales data", "text": "so nothing has to be reconciled manually." },
+          { "lead": "Built for training in minutes", "text": "not hours, so new staff can use it immediately." }
+        ]
+      },
+      "impact": "Nyrly now has a POS product built for real-world retail use, ready to support stores as they grow.",
+      "metrics": []
+    },
+    {
+      "slug": "vediq-care",
+      "client": "Vediq Care",
+      "tag": "Clinic Management Software",
+      "title": "Vediq Care: Clinic Management, Simplified",
+      "description": [
+        "Vediq Care is a clinic management platform built to help healthcare practices run day-to-day operations — appointments, patient records, and scheduling — from one place.",
+        "We designed and built the product to feel straightforward for clinic staff, without sacrificing the depth a healthcare workflow needs."
+      ],
+      "image": "/client/VediqCare/VediqCare_home_img.png",
+      "role": "Product Design & Web App Development",
+      "location": "India",
+      "industry": "Healthcare Technology",
+      "overview": {
+        "title": "About the Vediq Care Project",
+        "text": "Vediq Care needed a clinic management platform that clinic staff could actually use day-to-day, not just a feature checklist.",
+        "points": [
+          { "lead": "Appointments and records in one place", "text": "no switching between separate tools." },
+          { "lead": "Designed for non-technical staff", "text": "built for clinic teams, not IT departments." },
+          { "lead": "Covers daily clinic operations", "text": "scheduling, records, and coordination in one system." }
+        ]
+      },
+      "challenge": {
+        "title": "Where It Got Difficult",
+        "text": "Clinic operations involve a lot of moving parts, and healthcare software has to organize all of it without becoming overwhelming to use.",
+        "points": [
+          { "lead": "Many moving parts", "text": "scheduling, records, and staff coordination all had to work together." },
+          { "lead": "Zero room for confusing UX", "text": "clinic staff needed clarity, not a learning curve, during patient care." },
+          { "lead": "Sensitive patient data", "text": "had to be organized carefully and handled with care." }
+        ]
+      },
+      "solution": {
+        "title": "How We Solved It",
+        "text": "We designed the platform around the clinic's actual daily workflow instead of a generic feature list, keeping the most common actions simple.",
+        "points": [
+          { "lead": "Workflow-first design", "text": "built around how a clinic actually operates day to day." },
+          { "lead": "One connected system", "text": "appointments, records, and operations under one roof." },
+          { "lead": "Clear, simple interface", "text": "so staff can focus on patients, not the software." }
+        ]
+      },
+      "impact": "Vediq Care now has a clinic management platform built around how clinics actually work day-to-day.",
+      "metrics": []
+    }
+  ]
+}

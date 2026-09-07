@@ -3,106 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, ChevronRight, ArrowRight, Gauge, ImageOff } from "lucide-react";
-import {
-  TbCode, TbDeviceMobile, TbVectorBezier2, TbRobot, TbSourceCode, TbShoppingCart, TbPalette,
-  TbWorld, TbCloud, TbShoppingBag, TbLayoutGrid, TbPlug,
-  TbBrandAndroid, TbBrandApple, TbBrandReact, TbFeather, TbBriefcase,
-  TbLayoutDashboard, TbSearch, TbStack2,
-  TbMessageCircle, TbSettingsAutomation, TbDatabase, TbLink,
-  TbTerminal2, TbUsers, TbBuilding, TbTool,
-  TbBrandWordpress, TbBuildingStore, TbCreditCard,
-  TbFingerprint, TbPencil, TbBook2, TbSpeakerphone,
-  TbStethoscope,
-} from "react-icons/tb";
+import { TbStethoscope } from "react-icons/tb";
+import { services } from "@/data/services";
 import { cn } from "@/lib/utils";
 
-const servicesItems = [
-  {
-    icon: TbCode,
-    name: "Web Development",
-    href: "/services",
-    subServices: [
-      { icon: TbWorld, name: "Business Websites", href: "/services" },
-      { icon: TbCloud, name: "SaaS", href: "/services" },
-      { icon: TbShoppingBag, name: "E-commerce", href: "/services" },
-      { icon: TbLayoutGrid, name: "Web Apps", href: "/services" },
-      { icon: TbPlug, name: "API", href: "/services" },
-    ],
-  },
-  {
-    icon: TbDeviceMobile,
-    name: "App Development",
-    href: "/services",
-    subServices: [
-      { icon: TbBrandAndroid, name: "Android", href: "/services" },
-      { icon: TbBrandApple, name: "iOS", href: "/services" },
-      { icon: TbBrandReact, name: "React Native", href: "/services" },
-      { icon: TbFeather, name: "Flutter", href: "/services" },
-      { icon: TbBriefcase, name: "Business Apps", href: "/services" },
-    ],
-  },
-  {
-    icon: TbVectorBezier2,
-    name: "UI/UX Design",
-    href: "/services",
-    subServices: [
-      { icon: TbWorld, name: "Web", href: "/services" },
-      { icon: TbDeviceMobile, name: "Mobile", href: "/services" },
-      { icon: TbCloud, name: "SaaS", href: "/services" },
-      { icon: TbLayoutDashboard, name: "Dashboard", href: "/services" },
-      { icon: TbSearch, name: "UX Research", href: "/services" },
-      { icon: TbStack2, name: "Design System", href: "/services" },
-    ],
-  },
-  {
-    icon: TbRobot,
-    name: "AI Solutions",
-    href: "/services",
-    subServices: [
-      { icon: TbRobot, name: "AI Agents", href: "/services" },
-      { icon: TbMessageCircle, name: "AI Chatbots", href: "/services" },
-      { icon: TbSettingsAutomation, name: "AI Automation", href: "/services" },
-      { icon: TbDatabase, name: "RAG", href: "/services" },
-      { icon: TbLink, name: "AI Integrations", href: "/services" },
-    ],
-  },
-  {
-    icon: TbSourceCode,
-    name: "Software Development",
-    href: "/services",
-    subServices: [
-      { icon: TbTerminal2, name: "Custom Software", href: "/services" },
-      { icon: TbUsers, name: "CRM", href: "/services" },
-      { icon: TbBuilding, name: "ERP", href: "/services" },
-      { icon: TbLayoutDashboard, name: "Admin Panels", href: "/services" },
-      { icon: TbTool, name: "Internal Tools", href: "/services" },
-    ],
-  },
-  {
-    icon: TbShoppingCart,
-    name: "E-commerce Solutions",
-    href: "/services",
-    subServices: [
-      { icon: TbShoppingBag, name: "Shopify", href: "/services" },
-      { icon: TbBrandWordpress, name: "WooCommerce", href: "/services" },
-      { icon: TbBuildingStore, name: "Custom E-commerce", href: "/services" },
-      { icon: TbCreditCard, name: "Payment & Shipping", href: "/services" },
-    ],
-  },
-  {
-    icon: TbPalette,
-    name: "Branding & Creative",
-    href: "/services",
-    subServices: [
-      { icon: TbFingerprint, name: "Brand Identity", href: "/services" },
-      { icon: TbPencil, name: "Logo", href: "/services" },
-      { icon: TbBook2, name: "Guidelines", href: "/services" },
-      { icon: TbSpeakerphone, name: "Marketing Creatives", href: "/services" },
-    ],
-  },
-];
+const servicesItems = services.map((service) => ({
+  icon: service.icon,
+  name: service.name,
+  href: `/${service.slug}`,
+  subServices: service.subServices.map((sub) => ({
+    icon: sub.icon,
+    name: sub.name,
+    href: `/${service.slug}/${sub.slug}`,
+  })),
+}));
 
 const productsItems = [
   {
@@ -150,7 +66,27 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeMenuItem, setActiveMenuItem] = useState(servicesItems[0].name);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  const openMenuNow = (name: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setOpenMenu(name);
+  };
+
+  const scheduleCloseMenu = () => {
+    closeTimerRef.current = setTimeout(() => setOpenMenu(null), 200);
+  };
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -177,20 +113,26 @@ export function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden xl:flex items-center gap-8">
           {navItems.map((item) => (
-            <div key={item.name} className="relative group">
+            <div
+              key={item.name}
+              className="relative group"
+              onMouseEnter={() => (item.megaMenu || item.dropdown) && openMenuNow(item.name)}
+              onMouseLeave={() => (item.megaMenu || item.dropdown) && scheduleCloseMenu()}
+            >
               {item.megaMenu ? (
                 <div className={cn("flex items-center gap-1 cursor-pointer text-[15px] font-semibold transition-colors py-2", isActive(item.href) ? "text-primary" : "text-foreground hover:text-primary")}>
                   <Link href={item.href}>{item.name}</Link>
-                  <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200 opacity-50" />
-                  
-                  {/* Desktop Dropdown Wrapper to bridge hover gap */}
-                  <div className="absolute top-[calc(100%-16px)] pt-6 -left-50 w-190 pointer-events-none group-hover:pointer-events-auto z-50">
-                    <div className={cn(
-                      "w-full bg-background rounded-3xl border border-border/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-200 transform origin-top-left translate-y-2 group-hover:translate-y-0 flex overflow-hidden relative"
+                  <ChevronDown size={16} className={cn("transition-transform duration-200 opacity-50", openMenu === item.name ? "rotate-180" : "")} />
 
-                    )}
-                    onMouseLeave={() => setActiveMenuItem(item.megaMenu.items[0].name)}
-                    >
+                  {/* Desktop Dropdown Wrapper to bridge hover gap */}
+                  <div className={cn(
+                    "absolute top-[calc(100%-16px)] pt-6 -left-50 w-190 z-50",
+                    openMenu === item.name ? "pointer-events-auto" : "pointer-events-none"
+                  )}>
+                    <div className={cn(
+                      "w-full bg-background rounded-3xl border border-border/50 shadow-2xl transition-opacity duration-200 flex overflow-hidden relative",
+                      openMenu === item.name ? "opacity-100" : "opacity-0"
+                    )}>
                       <div className="flex w-full relative z-10">
                         {/* Left: main list */}
                         <div className="w-70 shrink-0 bg-linear-to-br from-primary/5 via-background to-background p-4 border-r border-border/50">
@@ -201,11 +143,10 @@ export function Navbar() {
                             {item.megaMenu.items.map((menuItem) => {
                               const isActiveMenuItem = activeMenuItem === menuItem.name;
                               return (
-                                <button
+                                <Link
                                   key={menuItem.name}
-                                  type="button"
+                                  href={menuItem.href}
                                   onMouseEnter={() => setActiveMenuItem(menuItem.name)}
-                                  onClick={() => setActiveMenuItem(menuItem.name)}
                                   className={cn(
                                     "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-colors",
                                     isActiveMenuItem ? "bg-primary/10 text-primary" : "text-foreground/80 hover:bg-secondary/50 hover:text-foreground"
@@ -214,7 +155,7 @@ export function Navbar() {
                                   <menuItem.icon size={20} className={cn("shrink-0", isActiveMenuItem ? "text-primary" : "text-muted-foreground")} />
                                   <span className="flex-1 text-[14px] font-semibold">{menuItem.name}</span>
                                   <ChevronRight size={16} className={cn("shrink-0 transition-all", isActiveMenuItem ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-1")} />
-                                </button>
+                                </Link>
                               );
                             })}
                           </div>
@@ -273,10 +214,16 @@ export function Navbar() {
               ) : item.dropdown ? (
                 <div className={cn("flex items-center gap-1 cursor-pointer text-[15px] font-medium transition-colors py-2", isActive(item.href) ? "text-primary" : "text-foreground hover:text-primary")}>
                   <Link href={item.href}>{item.name}</Link>
-                  <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-200 opacity-50" />
+                  <ChevronDown size={16} className={cn("transition-transform duration-200 opacity-50", openMenu === item.name ? "rotate-180" : "")} />
 
-                  <div className="absolute top-[calc(100%-16px)] pt-6 left-0 w-64 pointer-events-none group-hover:pointer-events-auto z-50">
-                    <div className="w-full bg-background rounded-2xl border border-border/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-200 transform origin-top-left translate-y-2 group-hover:translate-y-0 overflow-hidden p-2">
+                  <div className={cn(
+                    "absolute top-[calc(100%-16px)] pt-6 left-0 w-64 z-50",
+                    openMenu === item.name ? "pointer-events-auto" : "pointer-events-none"
+                  )}>
+                    <div className={cn(
+                      "w-full bg-background rounded-2xl border border-border/50 shadow-2xl transition-opacity duration-200 overflow-hidden p-2",
+                      openMenu === item.name ? "opacity-100" : "opacity-0"
+                    )}>
                       {item.dropdown.map((toolItem) => (
                         <Link
                           key={toolItem.name}

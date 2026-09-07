@@ -1,19 +1,29 @@
 import { NextResponse } from 'next/server';
+import { randomUUID } from 'crypto';
+
+function generateTrackingId(): string {
+  return `VV-${randomUUID().split('-')[0].toUpperCase()}`;
+}
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    
+    const incomingForm = await request.formData();
+    const trackingId = generateTrackingId();
+
     // Define the URL of your admin backend API (server-only — never exposed to the client)
     const adminApiUrl = process.env.ADMIN_API_URL || "http://localhost:3001";
-    
-    // Securely forward the request to the admin backend
+
+    // Rebuild the multipart payload (including the resume file) to forward to the admin backend,
+    // tagging it with our own tracking ID so status lookups don't depend on the backend's internal id
+    const outgoingForm = new FormData();
+    for (const [key, value] of incomingForm.entries()) {
+      outgoingForm.append(key, value);
+    }
+    outgoingForm.append('tracking_id', trackingId);
+
     const response = await fetch(`${adminApiUrl}/api/applications`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
+      body: outgoingForm,
     });
 
     if (!response.ok) {
@@ -25,9 +35,9 @@ export async function POST(request: Request) {
     }
 
     const data = await response.json();
-    
+
     return NextResponse.json(
-      { message: 'Application submitted successfully', data, success: true },
+      { message: 'Application submitted successfully', data, trackingId, success: true },
       { status: 201 }
     );
   } catch (error) {

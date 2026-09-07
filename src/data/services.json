@@ -1,0 +1,1073 @@
+{
+  "services": [
+    {
+      "slug": "web-development",
+      "name": "Web Development",
+      "icon": "TbCode",
+      "description": "From marketing sites to complex web applications, we build fast, SEO-ready websites and web apps using Next.js and React — engineered for conversions, scalability, and long-term maintainability.",
+      "aboutContent": [
+        "Your website is often the first — and sometimes only — impression a prospective customer forms of your business. We treat it that way: every project starts with a clear picture of who you're trying to reach and what you want them to do once they land on the page, then we build backward from there.",
+        "Whether you need a lean marketing site to launch fast, a content-managed platform your team can update without touching code, or a full web application with logins, dashboards, and complex logic, we use the same engineering discipline — Next.js and React under the hood, clean architecture, and performance baked in from the first commit."
+      ],
+      "whyPoints": [
+        {
+          "title": "Built for speed",
+          "description": "Every site we ship is tuned for Core Web Vitals — because a slow website loses customers before they even see your pitch.",
+          "icon": "Zap"
+        },
+        {
+          "title": "SEO from day one",
+          "description": "Clean semantic markup, proper metadata, and fast load times baked into the build — not bolted on after launch.",
+          "icon": "Target"
+        },
+        {
+          "title": "Scales with you",
+          "description": "Architecture that handles today's traffic and tomorrow's growth, without a costly rebuild in 18 months.",
+          "icon": "Sparkles"
+        },
+        {
+          "title": "You own the code",
+          "description": "No vendor lock-in, no proprietary black boxes — you get clean, documented code you fully own.",
+          "icon": "ShieldCheck"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long does a website project take?",
+          "answer": "A marketing website typically takes 3-5 weeks. Complex web apps with custom features can take 8-12 weeks depending on scope."
+        },
+        {
+          "question": "Do you build on WordPress or custom code?",
+          "answer": "We build custom with Next.js and React for most projects — faster, more secure, and easier to scale than WordPress. We'll recommend the right approach for your specific needs."
+        },
+        {
+          "question": "Will my website be mobile-friendly?",
+          "answer": "Every project is fully responsive by default, tested across real devices — not just browser dev tools."
+        },
+        {
+          "question": "What happens after the site launches?",
+          "answer": "You get a 30-day warranty period for bug fixes, plus optional ongoing maintenance and feature development retainers."
+        }
+      ],
+      "subServices": [
+        {
+          "slug": "business-websites",
+          "name": "Business Websites",
+          "icon": "TbWorld",
+          "description": "Fast, professional websites that establish credibility and convert visitors into leads — built with clean code, strong SEO foundations, and a design that reflects your brand.",
+          "features": [
+            "Custom responsive design",
+            "SEO-optimized structure",
+            "CMS-powered content management",
+            "Fast load times & Core Web Vitals tuning"
+          ],
+          "image": null
+        },
+        {
+          "slug": "saas",
+          "name": "SaaS",
+          "icon": "TbCloud",
+          "description": "Multi-tenant, subscription-ready SaaS platforms built to scale from your first user to thousands — covering auth, billing, dashboards, and everything in between.",
+          "features": [
+            "Multi-tenant architecture",
+            "Subscription & billing integration",
+            "Role-based access control",
+            "Scalable cloud infrastructure"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ecommerce",
+          "name": "E-commerce",
+          "icon": "TbShoppingBag",
+          "description": "Custom online storefronts built for conversion — from product catalogs to checkout flows, engineered to turn browsers into buyers.",
+          "features": [
+            "Custom storefront design",
+            "Secure checkout & payments",
+            "Inventory & catalog management",
+            "Performance-optimized product pages"
+          ],
+          "image": null
+        },
+        {
+          "slug": "web-apps",
+          "name": "Web Apps",
+          "icon": "TbLayoutGrid",
+          "description": "Complex, data-driven web applications — dashboards, internal tools, and customer portals — built with modern frameworks for speed and reliability.",
+          "features": [
+            "Real-time data & dashboards",
+            "Complex workflow automation",
+            "Third-party API integrations",
+            "Robust, scalable architecture"
+          ],
+          "image": null
+        },
+        {
+          "slug": "api",
+          "name": "API",
+          "icon": "TbPlug",
+          "description": "Custom REST and GraphQL APIs that connect your systems, power your apps, and keep data flowing securely between every part of your stack.",
+          "features": [
+            "RESTful & GraphQL API design",
+            "Secure authentication (OAuth/JWT)",
+            "Third-party integrations",
+            "Comprehensive API documentation"
+          ],
+          "image": null
+        }
+      ],
+      "seo": {
+        "title": "Web Development Services | Vibe Venture",
+        "description": "Custom web development services from Vibe Venture — fast, SEO-ready websites and web applications built with Next.js and React for conversions and long-term scale.",
+        "keywords": [
+          "custom web development",
+          "Next.js development agency",
+          "business website development",
+          "web application development company"
+        ]
+      },
+      "aboutImage": "/Illustration/Services/Custom Web Development.png",
+      "process": [
+        {
+          "title": "Discovery",
+          "description": "We map your business goals, target audience, and competitors to define what the site actually needs to do."
+        },
+        {
+          "title": "Architecture & Design",
+          "description": "Wireframes and UI design tailored to your brand, validated against real user flows before a line of code is written."
+        },
+        {
+          "title": "Development",
+          "description": "Built in Next.js and React with clean, modular code — engineered for speed, SEO, and long-term maintainability."
+        },
+        {
+          "title": "QA & Launch",
+          "description": "Cross-browser, cross-device testing and a staged rollout, so launch day has no surprises."
+        },
+        {
+          "title": "Grow",
+          "description": "Post-launch monitoring, performance tuning, and ongoing feature development as your traffic grows."
+        }
+      ],
+      "relatedBlogs": [
+        {
+          "title": "10 Signs Your Website Needs a Rebuild in 2026",
+          "slug": "10-signs-your-website-needs-a-rebuild",
+          "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80",
+          "author": "Ashish Kapadia",
+          "date": "Jan 15, 2026",
+          "description": "Slow load times, outdated design, and rising bounce rates are all warning signs. Here is how to tell your website has hit its limit."
+        },
+        {
+          "title": "Next.js vs WordPress: Which Is Right for Your Business?",
+          "slug": "nextjs-vs-wordpress-which-is-right-for-your-business",
+          "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+          "author": "Sibtain Nadolia",
+          "date": "Feb 3, 2026",
+          "description": "A practical comparison of performance, flexibility, and long-term cost — so you can pick the right foundation for your next project."
+        },
+        {
+          "title": "How We Cut Page Load Times by 60% for a SaaS Client",
+          "slug": "how-we-cut-page-load-times-by-60-percent",
+          "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+          "author": "Ashish Kapadia",
+          "date": "Feb 20, 2026",
+          "description": "A behind-the-scenes look at the exact optimizations — from image pipelines to code splitting — that made the biggest difference."
+        }
+      ]
+    },
+    {
+      "slug": "app-development",
+      "name": "App Development",
+      "icon": "TbDeviceMobile",
+      "description": "Native and cross-platform mobile apps for iOS and Android, built with Flutter and React Native — designed for smooth performance, high retention, and App Store-ready polish.",
+      "aboutContent": [
+        "A mobile app lives or dies by its first five minutes — if onboarding is confusing or the app feels slow, users delete it and move on. We design and build with that reality in mind, prioritizing a fast, intuitive first-run experience alongside the features that keep people coming back.",
+        "We work across the full spectrum of mobile development: fully native apps in Swift and Kotlin when performance and platform-specific features matter most, and cross-platform builds in Flutter or React Native when speed to market and shared codebases make more sense. Either way, you get a single team accountable for both your iOS and Android experience."
+      ],
+      "whyPoints": [
+        {
+          "title": "Native performance",
+          "description": "We build with native tools (Swift, Kotlin) or high-performance cross-platform frameworks — never a wrapped webview that feels sluggish.",
+          "icon": "Zap"
+        },
+        {
+          "title": "App Store-ready",
+          "description": "We handle the submission process, guidelines compliance, and review back-and-forth so your launch isn't held up by rejections.",
+          "icon": "Award"
+        },
+        {
+          "title": "Built for retention",
+          "description": "Onboarding flows, push notifications, and performance tuning designed around keeping users coming back.",
+          "icon": "Target"
+        },
+        {
+          "title": "One team, both platforms",
+          "description": "Whether native or cross-platform, one team owns both your iOS and Android experience — no coordination gaps.",
+          "icon": "Users"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Should I build native or cross-platform?",
+          "answer": "It depends on your budget, timeline, and feature needs. We'll walk you through the tradeoffs on a discovery call and recommend the right fit — not just what's easiest for us to sell."
+        },
+        {
+          "question": "How long does app development take?",
+          "answer": "A focused MVP typically takes 8-12 weeks. Feature-rich apps with backend integrations can take 3-6 months."
+        },
+        {
+          "question": "Do you handle App Store and Play Store submission?",
+          "answer": "Yes — we manage the entire submission process, including compliance review and any required resubmissions."
+        },
+        {
+          "question": "Can you maintain my app after launch?",
+          "answer": "Yes, we offer monthly retainers for updates, OS compatibility, and new features as your app grows."
+        }
+      ],
+      "subServices": [
+        {
+          "slug": "android",
+          "name": "Android",
+          "icon": "TbBrandAndroid",
+          "description": "Native Android applications built with Kotlin and modern Android architecture — optimized for performance across the full range of devices.",
+          "features": [
+            "Native Kotlin development",
+            "Material Design UI",
+            "Play Store deployment & compliance",
+            "Performance & battery optimization"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ios",
+          "name": "iOS",
+          "icon": "TbBrandApple",
+          "description": "Native iOS applications built with Swift, designed to feel right at home on iPhone and iPad while meeting Apple's strict App Store standards.",
+          "features": [
+            "Native Swift development",
+            "Human Interface Guidelines compliance",
+            "App Store submission & compliance",
+            "Push notifications & in-app purchases"
+          ],
+          "image": null
+        },
+        {
+          "slug": "react-native",
+          "name": "React Native",
+          "icon": "TbBrandReact",
+          "description": "Cross-platform apps built once in React Native and deployed to both iOS and Android — cutting development time without cutting quality.",
+          "features": [
+            "Single codebase, dual platform",
+            "Native-feel performance",
+            "Shared logic with your web app",
+            "Faster time-to-market"
+          ],
+          "image": null
+        },
+        {
+          "slug": "flutter",
+          "name": "Flutter",
+          "icon": "TbFeather",
+          "description": "High-performance cross-platform apps built with Flutter — pixel-perfect UI, smooth animations, and native speed on both iOS and Android.",
+          "features": [
+            "Pixel-perfect custom UI",
+            "Single codebase efficiency",
+            "Smooth 60fps animations",
+            "Native plugin integrations"
+          ],
+          "image": null
+        },
+        {
+          "slug": "business-apps",
+          "name": "Business Apps",
+          "icon": "TbBriefcase",
+          "description": "Internal and customer-facing business apps that streamline operations — from field-service tools to employee portals, built around your workflow.",
+          "features": [
+            "Custom workflow design",
+            "Offline-first capability",
+            "Enterprise-grade security",
+            "Integration with existing business systems"
+          ],
+          "image": null
+        }
+      ],
+      "seo": {
+        "title": "App Development Services | Vibe Venture",
+        "description": "Native and cross-platform mobile app development services from Vibe Venture — iOS, Android, Flutter, and React Native apps built for performance and retention.",
+        "keywords": [
+          "mobile app development company",
+          "iOS and Android app development",
+          "Flutter app development agency",
+          "custom mobile app development"
+        ]
+      },
+      "aboutImage": null,
+      "process": [
+        {
+          "title": "Discovery",
+          "description": "We define your app's core user journey and the platform strategy (native vs. cross-platform) that fits your goals and budget."
+        },
+        {
+          "title": "UI/UX Design",
+          "description": "Wireframes and prototypes tuned for mobile interaction patterns, tested before development starts."
+        },
+        {
+          "title": "Development",
+          "description": "Built in Swift, Kotlin, Flutter, or React Native — with a shared backend and clean architecture across platforms."
+        },
+        {
+          "title": "QA & Store Submission",
+          "description": "Device testing across real hardware, then we manage App Store and Play Store submission end to end."
+        },
+        {
+          "title": "Post-Launch",
+          "description": "Crash monitoring, OS update compatibility, and iterative feature releases based on real user data."
+        }
+      ],
+      "relatedBlogs": []
+    },
+    {
+      "slug": "ui-ux-design",
+      "name": "UI/UX Design",
+      "icon": "TbVectorBezier2",
+      "description": "User-centered design across web, mobile, and SaaS products — wireframes, design systems, and pixel-perfect interfaces backed by real UX research, not guesswork.",
+      "aboutContent": [
+        "Good design isn't about making something look nice — it's about making the right thing easy to do. Before we open Figma, we spend time understanding your users: what they're trying to accomplish, where they get stuck today, and what success looks like for your business.",
+        "From there, we move through wireframes, prototypes, and testing before committing to final visuals — building a design system along the way so your product stays consistent as it grows, and handing off files your engineering team can actually build from without guesswork."
+      ],
+      "whyPoints": [
+        {
+          "title": "Research before pixels",
+          "description": "We don't design based on opinions. Every major decision is backed by user research, not guesswork.",
+          "icon": "Target"
+        },
+        {
+          "title": "Systems, not one-offs",
+          "description": "We build reusable design systems so your product stays consistent as new features and screens get added.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "title": "Designed to convert",
+          "description": "Every layout is built with a clear goal: get users to the action that matters for your business.",
+          "icon": "Zap"
+        },
+        {
+          "title": "Dev-ready handoff",
+          "description": "Figma files, specs, and design tokens delivered in a format your engineering team can actually build from.",
+          "icon": "Users"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do you do user research, or just visual design?",
+          "answer": "Both. Every project starts with research — interviews, competitive analysis, or usability testing — before we touch a single pixel."
+        },
+        {
+          "question": "What tools do you design in?",
+          "answer": "Figma, for both design and dev handoff. We can also work within your existing design system if you have one."
+        },
+        {
+          "question": "Can you redesign an existing product?",
+          "answer": "Yes — we regularly audit and redesign existing products, prioritizing quick wins alongside longer-term improvements."
+        },
+        {
+          "question": "Do you also build what you design?",
+          "answer": "Yes. As a full-service agency, our design and engineering teams work together, so nothing gets lost in handoff."
+        }
+      ],
+      "subServices": [
+        {
+          "slug": "web",
+          "name": "Web",
+          "icon": "TbWorld",
+          "description": "Website and web-app interfaces designed for clarity and conversion — wireframed, tested, and refined until every screen earns its place.",
+          "features": [
+            "User flow mapping",
+            "Wireframing & prototyping",
+            "Conversion-focused layouts",
+            "Responsive design across breakpoints"
+          ],
+          "image": null
+        },
+        {
+          "slug": "mobile",
+          "name": "Mobile",
+          "icon": "TbDeviceMobile",
+          "description": "Mobile app interfaces designed around real usage patterns — intuitive navigation, thumb-friendly layouts, and platform-native conventions.",
+          "features": [
+            "iOS & Android design guidelines",
+            "Touch-optimized interactions",
+            "Prototyping & user testing",
+            "Accessibility-first design"
+          ],
+          "image": null
+        },
+        {
+          "slug": "saas",
+          "name": "SaaS",
+          "icon": "TbCloud",
+          "description": "Dashboard-heavy SaaS interfaces designed to make complex data feel simple — clear hierarchies, fast workflows, and zero learning curve.",
+          "features": [
+            "Information architecture",
+            "Complex data visualization",
+            "Onboarding flow design",
+            "Design system integration"
+          ],
+          "image": null
+        },
+        {
+          "slug": "dashboard",
+          "name": "Dashboard",
+          "icon": "TbLayoutDashboard",
+          "description": "Data-dense admin and analytics dashboards designed for at-a-glance clarity — so your team can act on information, not hunt for it.",
+          "features": [
+            "Data visualization & charts",
+            "Customizable widget layouts",
+            "Real-time data states",
+            "Role-based view design"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ux-research",
+          "name": "UX Research",
+          "icon": "TbSearch",
+          "description": "User interviews, usability testing, and behavioral analysis that replace assumptions with evidence — so every design decision is backed by real data.",
+          "features": [
+            "User interviews & surveys",
+            "Usability testing",
+            "Competitive analysis",
+            "Data-backed design recommendations"
+          ],
+          "image": null
+        },
+        {
+          "slug": "design-system",
+          "name": "Design System",
+          "icon": "TbStack2",
+          "description": "Reusable component libraries and design tokens that keep your product visually consistent as it scales across teams and features.",
+          "features": [
+            "Component libraries",
+            "Design tokens & theming",
+            "Documentation for developers",
+            "Figma-to-code handoff"
+          ],
+          "image": null
+        }
+      ],
+      "seo": {
+        "title": "UI/UX Design Services | Vibe Venture",
+        "description": "UI/UX design services from Vibe Venture — research-driven, conversion-focused interface design and design systems for web, mobile, and SaaS products.",
+        "keywords": [
+          "UI UX design agency",
+          "product design company",
+          "user experience design services",
+          "design system development"
+        ]
+      },
+      "aboutImage": null,
+      "process": [
+        {
+          "title": "Research",
+          "description": "User interviews, competitive analysis, and stakeholder workshops to understand the real problem before designing anything."
+        },
+        {
+          "title": "Wireframing",
+          "description": "Low-fidelity flows mapped out and validated, so structure is right before visual design begins."
+        },
+        {
+          "title": "Visual Design",
+          "description": "High-fidelity screens built in your brand system, with attention to typography, spacing, and micro-interactions."
+        },
+        {
+          "title": "Prototyping & Testing",
+          "description": "Interactive prototypes tested with real users to catch usability issues before development starts."
+        },
+        {
+          "title": "Handoff",
+          "description": "Developer-ready files, specs, and a documented design system delivered for a clean build."
+        }
+      ],
+      "relatedBlogs": []
+    },
+    {
+      "slug": "ai-solutions",
+      "name": "AI Solutions",
+      "icon": "TbRobot",
+      "description": "AI agents, chatbots, and automation pipelines that eliminate repetitive work and unlock new revenue — powered by RAG, LLM integrations, and custom AI workflows built for your business.",
+      "aboutContent": [
+        "Most \"AI projects\" fail not because the technology doesn't work, but because they're built around a demo instead of a real business problem. We start every engagement by identifying where AI can measurably reduce cost, save time, or unlock revenue for your specific business — then we build for that outcome.",
+        "That might mean an AI agent that handles a multi-step internal process end to end, a chatbot trained on your actual support documentation, or a retrieval-augmented system that lets your team query your own data in plain language. We build with leading models from OpenAI and Anthropic, with human oversight designed in wherever the stakes call for it."
+      ],
+      "whyPoints": [
+        {
+          "title": "Real ROI, not hype",
+          "description": "We build AI systems that solve concrete business problems — reduced support costs, faster turnaround, more qualified leads — not a chatbot for its own sake.",
+          "icon": "Target"
+        },
+        {
+          "title": "Grounded in your data",
+          "description": "Using RAG and custom integrations, our AI systems work with your actual business data, not generic public information.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "title": "Human oversight built in",
+          "description": "We design human-in-the-loop checkpoints so AI augments your team's judgment instead of replacing it blindly.",
+          "icon": "Users"
+        },
+        {
+          "title": "Model-agnostic",
+          "description": "We work with OpenAI, Anthropic, and open-source models, choosing what's right for your use case and budget — not locked to one vendor.",
+          "icon": "Sparkles"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Will AI actually save us money?",
+          "answer": "When scoped correctly, yes — most clients see automation pay for itself within a few months through reduced manual work. We'll help you identify the highest-ROI use cases first."
+        },
+        {
+          "question": "Is our data safe with AI integrations?",
+          "answer": "Yes — we architect around your existing security and compliance requirements, and can use private/on-premise models where needed."
+        },
+        {
+          "question": "Do we need a large dataset to get started?",
+          "answer": "No. Many of our AI automation and chatbot projects start with your existing documents and workflows — no massive dataset required."
+        },
+        {
+          "question": "How do you handle AI mistakes or hallucinations?",
+          "answer": "We test extensively for accuracy, use RAG to ground responses in real data, and build in human review for high-stakes decisions."
+        }
+      ],
+      "subServices": [
+        {
+          "slug": "ai-agents",
+          "name": "AI Agents",
+          "icon": "TbRobot",
+          "description": "Autonomous AI agents that handle multi-step tasks on your behalf — from research and data entry to customer follow-ups — freeing your team for higher-value work.",
+          "features": [
+            "Multi-step task automation",
+            "Tool & API integrations",
+            "Custom agent workflows",
+            "Human-in-the-loop oversight"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ai-chatbots",
+          "name": "AI Chatbots",
+          "icon": "TbMessageCircle",
+          "description": "Conversational AI chatbots trained on your business data — handling support, sales, and onboarding conversations around the clock.",
+          "features": [
+            "Trained on your knowledge base",
+            "Multi-channel deployment",
+            "Seamless human handoff",
+            "Continuous learning & tuning"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ai-automation",
+          "name": "AI Automation",
+          "icon": "TbSettingsAutomation",
+          "description": "End-to-end automation pipelines that connect your tools and eliminate manual, repetitive processes across your business.",
+          "features": [
+            "Workflow & pipeline design",
+            "Cross-tool integrations",
+            "Error handling & monitoring",
+            "Scalable automation infrastructure"
+          ],
+          "image": null
+        },
+        {
+          "slug": "rag",
+          "name": "RAG",
+          "icon": "TbDatabase",
+          "description": "Retrieval-augmented generation systems that ground AI responses in your own documents and data — accurate, up-to-date, and hallucination-resistant.",
+          "features": [
+            "Vector database setup",
+            "Document ingestion pipelines",
+            "Context-aware retrieval",
+            "Accuracy & hallucination testing"
+          ],
+          "image": null
+        },
+        {
+          "slug": "ai-integrations",
+          "name": "AI Integrations",
+          "icon": "TbLink",
+          "description": "Seamless integrations between leading AI models (OpenAI, Anthropic, and more) and your existing software stack.",
+          "features": [
+            "LLM provider integrations",
+            "Custom prompt engineering",
+            "API & webhook connections",
+            "Cost & usage monitoring"
+          ],
+          "image": null
+        }
+      ],
+      "seo": {
+        "title": "AI Solutions & Automation Services | Vibe Venture",
+        "description": "AI agents, chatbots, and automation services from Vibe Venture — custom AI solutions built on RAG and leading LLMs to solve real business problems.",
+        "keywords": [
+          "AI automation agency",
+          "AI chatbot development",
+          "AI agent development company",
+          "RAG implementation services"
+        ]
+      },
+      "aboutImage": null,
+      "process": [
+        {
+          "title": "Discovery",
+          "description": "We identify the highest-ROI use case for AI in your business — not just where AI sounds impressive."
+        },
+        {
+          "title": "Data & Architecture",
+          "description": "We assess your data sources and design the right architecture: RAG, fine-tuning, or straightforward API integration."
+        },
+        {
+          "title": "Build & Train",
+          "description": "Development of the agent, chatbot, or automation pipeline, with prompt engineering and testing built in."
+        },
+        {
+          "title": "Evaluation",
+          "description": "Rigorous testing for accuracy, edge cases, and failure modes before anything touches production."
+        },
+        {
+          "title": "Deploy & Monitor",
+          "description": "Production rollout with usage monitoring, cost tracking, and ongoing tuning as real usage comes in."
+        }
+      ],
+      "relatedBlogs": []
+    },
+    {
+      "slug": "software-development",
+      "name": "Software Development",
+      "icon": "TbSourceCode",
+      "description": "Custom software, CRMs, ERPs, and internal tools built to fit how your team actually works — no bloated off-the-shelf platforms, just software engineered for your exact workflow.",
+      "aboutContent": [
+        "Every business eventually hits a wall where spreadsheets, generic SaaS tools, and manual workarounds stop being \"good enough.\" That's usually the moment custom software starts paying for itself — when the cost of working around a limitation exceeds the cost of removing it.",
+        "We build CRMs, ERPs, admin panels, and internal tools engineered around how your team actually operates, not how a generic platform assumes you should. You get software that fits your business today and can evolve as your business changes, with full ownership of the code and no ongoing licensing fees."
+      ],
+      "whyPoints": [
+        {
+          "title": "Built for how you actually work",
+          "description": "No forcing your team into a generic platform's workflow — we build around your existing processes.",
+          "icon": "Users"
+        },
+        {
+          "title": "No feature bloat",
+          "description": "You get exactly what your team needs, not a bloated enterprise platform charging you for modules you'll never use.",
+          "icon": "Target"
+        },
+        {
+          "title": "Integrates with your stack",
+          "description": "Custom software that talks to the tools you already use — no isolated systems creating extra manual work.",
+          "icon": "Zap"
+        },
+        {
+          "title": "Built to last",
+          "description": "Clean, documented, maintainable code — so the software you invest in today doesn't become tech debt in two years.",
+          "icon": "ShieldCheck"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why build custom instead of buying an off-the-shelf tool?",
+          "answer": "Off-the-shelf tools work until your business outgrows their assumptions. Custom software is worth it when your workflow doesn't fit a generic mold, or when you're paying for a dozen features you don't need."
+        },
+        {
+          "question": "How do you scope a custom software project?",
+          "answer": "We start with a discovery phase mapping your actual workflows, then design the system architecture before writing a line of code."
+        },
+        {
+          "question": "Can you integrate with our existing tools?",
+          "answer": "Yes — API integrations with your CRM, ERP, or other business systems are a core part of most custom software builds."
+        },
+        {
+          "question": "Who owns the software once it's built?",
+          "answer": "You do — full source code ownership, no licensing fees, no vendor lock-in."
+        }
+      ],
+      "subServices": [
+        {
+          "slug": "custom-software",
+          "name": "Custom Software",
+          "icon": "TbTerminal2",
+          "description": "Bespoke software built around your exact business logic — no compromises to fit a generic template, no paying for features you'll never use.",
+          "features": [
+            "Requirements-driven architecture",
+            "Scalable, maintainable codebases",
+            "Third-party system integrations",
+            "Ongoing support & iteration"
+          ],
+          "image": null
+        },
+        {
+          "slug": "crm",
+          "name": "CRM",
+          "icon": "TbUsers",
+          "description": "Custom CRM systems that track leads, deals, and customer relationships exactly the way your sales team actually works.",
+          "features": [
+            "Custom pipeline & deal stages",
+            "Contact & account management",
+            "Automated follow-ups & reminders",
+            "Reporting & sales analytics"
+          ],
+          "image": null
+        },
+        {
+          "slug": "erp",
+          "name": "ERP",
+          "icon": "TbBuilding",
+          "description": "Custom ERP systems that unify inventory, finance, operations, and reporting into a single source of truth for your business.",
+          "features": [
+            "Inventory & operations management",
+            "Financial reporting modules",
+            "Multi-department workflows",
+            "Role-based access control"
+          ],
+          "image": null
+        },
+        {
+          "slug": "admin-panels",
+          "name": "Admin Panels",
+          "icon": "TbLayoutDashboard",
+          "description": "Internal admin dashboards that give your team full control over content, users, and data — without touching the database directly.",
+          "features": [
+            "Role-based admin access",
+            "Content & user management",
+            "Custom reporting views",
+            "Audit logs & activity tracking"
+          ],
+          "image": null
+        },
+        {
+          "slug": "internal-tools",
+          "name": "Internal Tools",
+          "icon": "TbTool",
+          "description": "Purpose-built internal tools that automate the manual spreadsheets and workarounds slowing your team down.",
+          "features": [
+            "Workflow-specific tooling",
+            "Integration with existing systems",
+            "Rapid iteration & deployment",
+            "Built around your team's process"
+          ],
+          "image": null
+        }
+      ],
+      "seo": {
+        "title": "Custom Software Development Services | Vibe Venture",
+        "description": "Custom software development services from Vibe Venture — CRMs, ERPs, admin panels, and internal tools engineered around how your team actually works.",
+        "keywords": [
+          "custom software development company",
+          "CRM development services",
+          "ERP software development",
+          "internal tools development"
+        ]
+      },
+      "aboutImage": null,
+      "process": [
+        {
+          "title": "Discovery",
+          "description": "We map your actual workflows — not a generic template — to define exactly what the software needs to do."
+        },
+        {
+          "title": "Architecture",
+          "description": "System design and database architecture planned for your current scale and where you're headed."
+        },
+        {
+          "title": "Development",
+          "description": "Iterative sprints with regular demos, so you see progress and can redirect early if needed."
+        },
+        {
+          "title": "QA & Deployment",
+          "description": "Thorough testing across real scenarios, then a controlled rollout to your team."
+        },
+        {
+          "title": "Support & Iteration",
+          "description": "Ongoing maintenance, bug fixes, and new features as your business processes evolve."
+        }
+      ],
+      "relatedBlogs": []
+    },
+    {
+      "slug": "ecommerce-solutions",
+      "name": "E-commerce Solutions",
+      "icon": "TbShoppingCart",
+      "description": "End-to-end online stores on Shopify, WooCommerce, or fully custom stacks — with seamless payment and shipping integrations built to convert browsers into buyers.",
+      "aboutContent": [
+        "An online store has one job: turn browsers into buyers. That means fast page loads, a checkout flow with zero unnecessary friction, and a backend that doesn't fall over the moment you run a sale. We design and build with all three in mind from the very first wireframe.",
+        "Whether your catalog fits neatly into Shopify, needs the flexibility of WooCommerce, or has outgrown both and requires a fully custom build, we bring the same standard: seamless payment and shipping integrations, mobile-first design, and performance that holds up under real traffic — not just a demo environment."
+      ],
+      "whyPoints": [
+        {
+          "title": "Built to convert",
+          "description": "Every product page, checkout flow, and CTA is designed around one goal: turning visitors into paying customers.",
+          "icon": "Zap"
+        },
+        {
+          "title": "Platform-agnostic expertise",
+          "description": "Shopify, WooCommerce, or fully custom — we recommend what's right for your catalog, not what's easiest for us.",
+          "icon": "Sparkles"
+        },
+        {
+          "title": "Performance under load",
+          "description": "Built to handle traffic spikes during sales and launches without crashing or slowing down.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "title": "Payments & shipping, solved",
+          "description": "Seamless integrations with the payment gateways and shipping carriers your customers already expect.",
+          "icon": "Award"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Should I use Shopify or a custom platform?",
+          "answer": "Shopify is great for most catalogs and fast time-to-market. Custom platforms make sense when you have complex pricing, inventory, or checkout logic Shopify can't handle. We'll help you decide."
+        },
+        {
+          "question": "Can you migrate my existing store?",
+          "answer": "Yes — we handle migrations from other platforms with minimal downtime and no lost data."
+        },
+        {
+          "question": "Do you handle payment gateway setup?",
+          "answer": "Yes, including multi-gateway setups, tax handling, and fraud prevention."
+        },
+        {
+          "question": "Can the store handle a big traffic spike, like a sale?",
+          "answer": "Yes — we architect and load-test for peak traffic, not just average-day performance."
+        }
+      ],
+      "subServices": [
+        {
+          "slug": "shopify",
+          "name": "Shopify",
+          "icon": "TbShoppingBag",
+          "description": "Custom Shopify storefronts and app integrations — built to convert, easy for your team to manage, and ready to scale with your catalog.",
+          "features": [
+            "Custom theme development",
+            "Shopify app integrations",
+            "Conversion-focused product pages",
+            "Migration from existing platforms"
+          ],
+          "image": null
+        },
+        {
+          "slug": "woocommerce",
+          "name": "WooCommerce",
+          "icon": "TbBrandWordpress",
+          "description": "WooCommerce stores built on WordPress — flexible, cost-effective, and fully customized to your product catalog and workflow.",
+          "features": [
+            "Custom WooCommerce theming",
+            "Plugin selection & integration",
+            "Payment gateway setup",
+            "Performance & security hardening"
+          ],
+          "image": null
+        },
+        {
+          "slug": "custom-ecommerce",
+          "name": "Custom E-commerce",
+          "icon": "TbBuildingStore",
+          "description": "Fully custom e-commerce platforms for businesses that have outgrown off-the-shelf solutions — built for unique catalogs, pricing, and checkout flows.",
+          "features": [
+            "Custom catalog & pricing logic",
+            "Headless commerce architecture",
+            "Custom checkout experiences",
+            "Scalable for high traffic"
+          ],
+          "image": null
+        },
+        {
+          "slug": "payment-shipping",
+          "name": "Payment & Shipping",
+          "icon": "TbCreditCard",
+          "description": "Seamless payment gateway and shipping carrier integrations that keep checkout friction-free and fulfillment running smoothly.",
+          "features": [
+            "Multi-gateway payment integration",
+            "Real-time shipping rate calculation",
+            "Tax & currency handling",
+            "Fraud detection & prevention"
+          ],
+          "image": null
+        }
+      ],
+      "seo": {
+        "title": "E-commerce Development Services | Vibe Venture",
+        "description": "E-commerce development services from Vibe Venture — Shopify, WooCommerce, and custom online stores built to convert and scale under real traffic.",
+        "keywords": [
+          "e-commerce development agency",
+          "Shopify development company",
+          "WooCommerce development services",
+          "custom online store development"
+        ]
+      },
+      "aboutImage": null,
+      "process": [
+        {
+          "title": "Discovery",
+          "description": "We assess your catalog, pricing complexity, and growth plans to recommend the right platform — Shopify, WooCommerce, or custom."
+        },
+        {
+          "title": "Design",
+          "description": "Product pages, category structure, and checkout flow designed around conversion, not just aesthetics."
+        },
+        {
+          "title": "Development & Integrations",
+          "description": "Store build with payment gateways, shipping carriers, and inventory systems integrated and tested."
+        },
+        {
+          "title": "QA & Launch",
+          "description": "Load testing for traffic spikes, full checkout testing, then a smooth go-live."
+        },
+        {
+          "title": "Growth",
+          "description": "Ongoing conversion rate optimization, catalog updates, and seasonal campaign support."
+        }
+      ],
+      "relatedBlogs": []
+    },
+    {
+      "slug": "branding-creative",
+      "name": "Branding & Creative",
+      "icon": "TbPalette",
+      "description": "Brand identity, logo design, and marketing creatives that make your business memorable — a cohesive visual system built to scale across every channel.",
+      "aboutContent": [
+        "Your brand is the sum of every impression someone forms of your business — your logo, yes, but also your website's tone, your social posts, your pitch deck, and the way your product feels to use. Treat any one of those inconsistently and the whole thing feels less trustworthy.",
+        "We start with strategy and positioning — who you're for, and why you're different — before a single visual gets designed. What comes out the other end is a complete system: logo, color, typography, voice, and guidelines your team can apply consistently across every channel, long after our engagement ends."
+      ],
+      "whyPoints": [
+        {
+          "title": "Strategy before design",
+          "description": "We start with your positioning and audience, not a mood board — so your brand actually differentiates you.",
+          "icon": "Target"
+        },
+        {
+          "title": "Consistent everywhere",
+          "description": "A complete brand system means your business looks cohesive across your website, app, social media, and print.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "title": "Built to scale",
+          "description": "Guidelines and templates that let your team create on-brand assets long after the initial project wraps.",
+          "icon": "Sparkles"
+        },
+        {
+          "title": "Design that performs",
+          "description": "Marketing creatives built with conversion in mind, not just aesthetics.",
+          "icon": "Zap"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What's included in a brand identity project?",
+          "answer": "Strategy and positioning, logo design, color and typography system, brand guidelines, and core templates — everything your team needs to apply the brand consistently."
+        },
+        {
+          "question": "Can you just design a logo, not a full brand?",
+          "answer": "Yes — we offer logo-only engagements, though we'll flag if a fuller brand system would serve you better long-term."
+        },
+        {
+          "question": "How many logo concepts do we get to choose from?",
+          "answer": "Typically 3 distinct concepts, refined based on your feedback into the final direction."
+        },
+        {
+          "question": "Do you handle ongoing marketing creative, not just the initial brand?",
+          "answer": "Yes — we offer retainers for ongoing social media, ad, and marketing asset creation once your brand system is in place."
+        }
+      ],
+      "subServices": [
+        {
+          "slug": "brand-identity",
+          "name": "Brand Identity",
+          "icon": "TbFingerprint",
+          "description": "Complete brand identity systems — color, typography, tone, and visual language — that give your business a consistent, memorable presence everywhere.",
+          "features": [
+            "Brand strategy & positioning",
+            "Visual identity system",
+            "Typography & color palette",
+            "Brand voice & messaging"
+          ],
+          "image": null
+        },
+        {
+          "slug": "logo",
+          "name": "Logo",
+          "icon": "TbPencil",
+          "description": "Distinctive logo design that captures your brand's personality and works everywhere — from app icons to billboards.",
+          "features": [
+            "Multiple concept exploration",
+            "Vector-based, scalable files",
+            "Favicon & app icon variants",
+            "Usage guidelines included"
+          ],
+          "image": null
+        },
+        {
+          "slug": "guidelines",
+          "name": "Guidelines",
+          "icon": "TbBook2",
+          "description": "Comprehensive brand guideline documents that keep your visual identity consistent across every team, agency, and touchpoint.",
+          "features": [
+            "Logo usage rules",
+            "Color & typography specs",
+            "Do's and don'ts documentation",
+            "Templates for common assets"
+          ],
+          "image": null
+        },
+        {
+          "slug": "marketing-creatives",
+          "name": "Marketing Creatives",
+          "icon": "TbSpeakerphone",
+          "description": "Social media graphics, ad creatives, and marketing collateral designed to convert — on-brand, on-time, every time.",
+          "features": [
+            "Social media asset design",
+            "Paid ad creative sets",
+            "Print & digital collateral",
+            "Ongoing creative support"
+          ],
+          "image": null
+        }
+      ],
+      "seo": {
+        "title": "Branding & Creative Design Services | Vibe Venture",
+        "description": "Branding and creative design services from Vibe Venture — brand identity, logo design, and marketing creatives built on real strategy and positioning.",
+        "keywords": [
+          "brand identity design agency",
+          "logo design company",
+          "brand strategy services",
+          "marketing creative design"
+        ]
+      },
+      "aboutImage": null,
+      "process": [
+        {
+          "title": "Discovery & Strategy",
+          "description": "We dig into your positioning, audience, and competitors before any visual work begins."
+        },
+        {
+          "title": "Concept Exploration",
+          "description": "Multiple distinct creative directions presented, so you're choosing a strategy, not just a color palette."
+        },
+        {
+          "title": "Refinement",
+          "description": "The chosen direction refined into a complete identity — logo, color, typography, and voice."
+        },
+        {
+          "title": "Guidelines",
+          "description": "Documentation and templates that let your team apply the brand consistently, long after launch."
+        },
+        {
+          "title": "Ongoing Creative",
+          "description": "Ongoing marketing asset design as your brand shows up across new channels and campaigns."
+        }
+      ],
+      "relatedBlogs": []
+    }
+  ]
+}

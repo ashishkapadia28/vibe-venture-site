@@ -19,15 +19,15 @@ interface SecondaryHeroProps {
 
 export function SecondaryHero({ eyebrow, title, subtitle, ctas = [] }: SecondaryHeroProps) {
   return (
-    <section className="relative pt-32 pb-16 overflow-hidden bg-background flex flex-col justify-center">
-      {/* Background gradient blobs */}
+    <section className="relative pt-32 pb-16 overflow-hidden bg-background flex flex-col justify-center border-b border-border/60">
+      {/* Diagonal glow — asymmetric, distinct from the primary hero's centered dome */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-125 h-125 bg-primary/5 rounded-full blur-[120px] -translate-x-1/2" />
-        <div className="absolute top-0 right-0 w-100 h-100 bg-primary/5 rounded-full blur-[100px] translate-x-1/3" />
+        <div className="absolute -top-24 -left-24 w-100 h-100 bg-primary/15 rounded-full blur-[110px]" />
+        <div className="absolute -bottom-32 -right-16 w-125 h-125 bg-primary/10 rounded-full blur-[130px]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
-        <div className="max-w-4xl pt-8 pb-4">
+        <div className="max-w-4xl mx-auto pt-8 pb-4 flex flex-col items-center text-center">
           <AnimatedSection delay={0.1}>
             <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm ring-1 ring-border mb-8">
               <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
@@ -42,13 +42,13 @@ export function SecondaryHero({ eyebrow, title, subtitle, ctas = [] }: Secondary
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <p className="text-base md:text-lg text-foreground/70 mb-10 max-w-2xl font-medium leading-relaxed">
+            <p className="text-base md:text-lg text-foreground/70 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
               {subtitle}
             </p>
           </AnimatedSection>
 
           {ctas.length > 0 && (
-            <AnimatedSection delay={0.4} className="flex flex-col sm:flex-row gap-4">
+            <AnimatedSection delay={0.4} className="flex flex-col sm:flex-row gap-4 justify-center">
               {ctas.map((cta, i) => (
                 <Link
                   key={i}

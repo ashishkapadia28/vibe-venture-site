@@ -27,21 +27,21 @@ export function SectionHeader({
       className
     )}>
       {badge && (
-        <span className="w-fit inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">
+        <span className="w-fit inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
           {badge}
         </span>
       )}
-      
+
       <h2 className={cn(
-        "text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.1] tracking-tight",
+        "text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-[1.15] tracking-tight",
         isDark ? "text-secondary-foreground" : "text-foreground"
       )}>
         {title}
       </h2>
-      
+
       {subtitle && (
         <p className={cn(
-          "text-base leading-relaxed max-w-xl font-normal",
+          "text-sm md:text-base leading-relaxed max-w-xl font-normal",
           isDark ? "text-secondary-foreground/70" : "text-foreground/70"
         )}>
           {subtitle}
