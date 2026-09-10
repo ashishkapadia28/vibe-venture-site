@@ -1,0 +1,21 @@
+{
+  "brandDescription": "We build premium, high-performance digital products — websites, apps, and platforms engineered for speed, scale, and results.",
+  "contact": {
+    "addressLines": ["2, Somnath Complex,", "Somnath Road,", "Mehsana 1, Gujarat, India 384001"],
+    "phone": "+91 927 494 0383",
+    "phoneHref": "tel:+919274940383",
+    "email": "hello@vibeventure.in",
+    "emailHref": "mailto:hello@vibeventure.in"
+  },
+  "socials": [
+    { "name": "LinkedIn", "icon": "Linkedin", "href": "#", "enabled": true },
+    { "name": "Instagram", "icon": "Instagram", "href": "#", "enabled": true },
+    { "name": "X (Twitter)", "icon": "X", "href": "#", "enabled": true },
+    { "name": "YouTube", "icon": "Youtube", "href": "#", "enabled": true }
+  ],
+  "legalLinks": [
+    { "label": "Privacy policy", "href": "/privacy" },
+    { "label": "Terms of service", "href": "/terms" },
+    { "label": "Cookie policy", "href": "/cookies" }
+  ]
+}

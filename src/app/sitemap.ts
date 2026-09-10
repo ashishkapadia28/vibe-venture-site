@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { caseStudies } from "@/data/caseStudies";
+import { blogs } from "@/data/blogs";
 
 const BASE_URL = "https://vibeventure.com";
 
@@ -11,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/services`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/industry`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/case-studies`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/blogs`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/career`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${BASE_URL}/contact`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
@@ -24,6 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  const blogRoutes: MetadataRoute.Sitemap = blogs.map((blog) => ({
+    url: `${BASE_URL}/blogs/${blog.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
   const serviceRoutes: MetadataRoute.Sitemap = services.flatMap((service) => [
     { url: `${BASE_URL}/${service.slug}`, changeFrequency: "monthly", priority: 0.8 },
     ...service.subServices.map((sub) => ({
@@ -33,5 +41,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ]);
 
-  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes, ...blogRoutes];
 }

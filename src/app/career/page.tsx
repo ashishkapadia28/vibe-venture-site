@@ -24,10 +24,8 @@ export default function CareersPage() {
           subtitle="We are a syndicate of elite engineers, designers, and strategists. We don't hire employees; we partner with relentless problem solvers."
         />
 
-        {/* ─── OPEN ROLES ─── */}
         <OpenPositions openRoles={jobs} />
 
-        {/* ─── TRACK APPLICATION ─── */}
         <TrackApplication />
 
         <CTA />

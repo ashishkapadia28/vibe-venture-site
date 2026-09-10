@@ -113,7 +113,7 @@
             "Third-party integrations",
             "Comprehensive API documentation"
           ],
-          "image": null
+          "image": "/Illustration/Services/API & Integrations Development.png"
         }
       ],
       "seo": {
@@ -302,7 +302,7 @@
           "custom mobile app development"
         ]
       },
-      "aboutImage": null,
+      "aboutImage": "/Illustration/Services/Mobile App Development.png",
       "process": [
         {
           "title": "Discovery",
@@ -466,7 +466,7 @@
           "design system development"
         ]
       },
-      "aboutImage": null,
+      "aboutImage": "/Illustration/Services/UI-UX Design.png",
       "process": [
         {
           "title": "Research",
@@ -617,7 +617,7 @@
           "RAG implementation services"
         ]
       },
-      "aboutImage": null,
+      "aboutImage": "/Illustration/Services/AI Automation.png",
       "process": [
         {
           "title": "Discovery",
@@ -768,7 +768,7 @@
           "internal tools development"
         ]
       },
-      "aboutImage": null,
+      "aboutImage": "/Illustration/Services/SaaS Development.png",
       "process": [
         {
           "title": "Discovery",
@@ -906,7 +906,7 @@
           "custom online store development"
         ]
       },
-      "aboutImage": null,
+      "aboutImage": "/Illustration/Services/Ecommerce Development.png",
       "process": [
         {
           "title": "Discovery",
@@ -1044,7 +1044,7 @@
           "marketing creative design"
         ]
       },
-      "aboutImage": null,
+      "aboutImage": "/Illustration/Services/Branding & Creative.png",
       "process": [
         {
           "title": "Discovery & Strategy",
@@ -1078,7 +1078,7 @@
         "More traffic doesn't fix a leaky funnel — if visitors are landing on your site and leaving without converting, the problem usually isn't visibility, it's experience. We start by finding exactly where and why people drop off, using real behavioral data instead of guesswork.",
         "From there, we run structured experiments — landing page changes, checkout flow fixes, messaging tweaks — and measure what actually moves the numbers, so every change is backed by evidence, not opinion."
       ],
-      "aboutImage": null,
+      "aboutImage": "/Illustration/Services/Conversion Rate Optimization.png",
       "whyPoints": [
         {
           "title": "Data before design",

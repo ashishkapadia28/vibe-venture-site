@@ -1,0 +1,300 @@
+{
+  "settings": {
+    "articleFeedbackEnabled": true
+  },
+  "blogs": [
+    {
+      "slug": "10-signs-your-website-needs-a-rebuild",
+      "title": "10 Signs Your Website Needs a Rebuild in 2026",
+      "excerpt": "Slow load times, outdated design, and rising bounce rates are all warning signs. Here is how to tell your website has hit its limit.",
+      "category": "Web Development",
+      "tags": ["Website", "Performance", "Redesign"],
+      "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
+      "author": "Ashish Kapadia",
+      "authorRole": "CEO & Co-Founder",
+      "authorPhoto": "/ashish_kapadia.png",
+      "authorBio": "Co-founded Vibe Venture to help ambitious brands build digital products that actually move the needle — not just look good.",
+      "authorHighlights": [
+        { "icon": "Code2", "text": "Focuses on web & AI engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "Jan 15, 2026",
+      "readTime": "6 min read",
+      "content": [
+        { "type": "paragraph", "text": "Most businesses don't wake up one day and decide their website needs a rebuild. It happens gradually — a slow page here, a broken layout on mobile there — until one day the site is quietly costing more customers than it's winning." },
+        { "type": "heading", "text": "1. Your load time is creeping past 3 seconds" },
+        { "type": "paragraph", "text": "Every extra second of load time measurably increases bounce rate. If your homepage takes more than 3 seconds to become interactive on mobile, you're losing visitors before they've even seen your pitch." },
+        { "type": "callout", "icon": "Lightbulb", "text": "Quick check: run your homepage through our free Website Checker tool — it flags slow response times and other issues in under a minute." },
+        { "type": "heading", "text": "2. It wasn't built mobile-first" },
+        { "type": "paragraph", "text": "If your site was designed for desktop and mobile was an afterthought, it shows — cramped tap targets, text that requires zooming, layouts that break at certain widths. Most traffic today is mobile; the experience should be built for it first." },
+        { "type": "heading", "text": "3. Every content change needs a developer" },
+        { "type": "paragraph", "text": "If updating a price, adding a blog post, or swapping a hero image means filing a ticket and waiting days, the site is working against your team instead of for it." },
+        { "type": "heading", "text": "4. Your analytics show high traffic, low conversion" },
+        { "type": "paragraph", "text": "Traffic without conversion usually points to friction somewhere in the experience — a confusing navigation, a slow checkout, or a page that doesn't answer the visitor's actual question fast enough." },
+        { "type": "paragraph", "text": "None of these problems require starting from zero. In most cases, a well-scoped rebuild — keeping what works and re-engineering what doesn't — gets a business back to a site that actually earns its keep." }
+      ]
+    },
+    {
+      "slug": "nextjs-vs-wordpress-which-is-right-for-your-business",
+      "title": "Next.js vs WordPress: Which Is Right for Your Business?",
+      "excerpt": "A practical comparison of performance, flexibility, and long-term cost — so you can pick the right foundation for your next project.",
+      "category": "Web Development",
+      "tags": ["Next.js", "WordPress", "Tech Stack"],
+      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      "author": "Sibtain Nadolia",
+      "authorRole": "Co-Founder",
+      "authorPhoto": "/sibtain_nadolia.png",
+      "authorBio": "Co-founded Vibe Venture with a focus on turning bold ideas into scalable, well-engineered products.",
+      "authorHighlights": [
+        { "icon": "Layers", "text": "Focuses on scalable product engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "Feb 3, 2026",
+      "readTime": "7 min read",
+      "content": [
+        { "type": "paragraph", "text": "\"Should we build on WordPress or something custom like Next.js?\" is one of the first questions almost every client asks us. The honest answer is: it depends on what the site actually needs to do. See our full breakdown of [Web Development services](/web-development) for how we scope that conversation." },
+        { "type": "heading", "text": "When WordPress makes sense" },
+        { "type": "paragraph", "text": "If the site is primarily content — a blog, a brochure site, a small business page that a non-technical team member needs to update constantly — WordPress's ecosystem of themes and plugins can get you there fast and affordably." },
+        { "type": "heading", "text": "When Next.js makes sense" },
+        { "type": "paragraph", "text": "Once a site needs real performance (fast Core Web Vitals for SEO), custom interactions, integration with other systems, or has to scale to real traffic without falling over, a custom Next.js build starts winning on every dimension that matters: speed, security, and long-term flexibility." },
+        {
+          "type": "table",
+          "headers": ["", "WordPress", "Next.js"],
+          "rows": [
+            ["Setup speed", "Fast", "Moderate"],
+            ["Performance ceiling", "Limited by plugins", "Very high"],
+            ["Ongoing maintenance", "Regular patching needed", "Minimal"],
+            ["Content editing", "Very easy", "Needs a CMS integration"],
+            ["Custom features", "Plugin-dependent", "Fully flexible"]
+          ]
+        },
+        { "type": "heading", "text": "The cost conversation nobody has upfront" },
+        { "type": "paragraph", "text": "WordPress often looks cheaper at launch, but plugin conflicts, security patching, and hosting overhead add up over years. Custom builds cost more upfront but tend to need far less ongoing maintenance." },
+        { "type": "image", "src": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80", "alt": "Developer comparing code on a laptop", "caption": "Choosing a stack is a long-term decision, not just a launch-day one." },
+        { "type": "paragraph", "text": "There's no universally right answer — only the right answer for what you're building and where you expect it to be in three years." }
+      ]
+    },
+    {
+      "slug": "how-we-cut-page-load-times-by-60-percent",
+      "title": "How We Cut Page Load Times by 60% for a SaaS Client",
+      "excerpt": "A behind-the-scenes look at the exact optimizations — from image pipelines to code splitting — that made the biggest difference.",
+      "category": "Web Development",
+      "tags": ["Performance", "Case Study", "Optimization"],
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+      "author": "Ashish Kapadia",
+      "authorRole": "CEO & Co-Founder",
+      "authorPhoto": "/ashish_kapadia.png",
+      "authorBio": "Co-founded Vibe Venture to help ambitious brands build digital products that actually move the needle — not just look good.",
+      "authorHighlights": [
+        { "icon": "Code2", "text": "Focuses on web & AI engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "Feb 20, 2026",
+      "readTime": "5 min read",
+      "content": [
+        { "type": "paragraph", "text": "A client came to us with a marketing site that was technically working, but felt slow — and their own analytics confirmed it: a 4.2 second average load time on mobile, with bounce rates climbing month over month." },
+        { "type": "heading", "text": "Auditing before touching anything" },
+        { "type": "paragraph", "text": "Before changing a line of code, we ran a full performance audit — bundle size, image weights, third-party scripts, and server response time. The biggest single offender turned out to be unoptimized images served at full resolution regardless of viewport size." },
+        { "type": "heading", "text": "The fixes that actually moved the number" },
+        { "type": "paragraph", "text": "We rebuilt the image pipeline to serve properly sized, modern-format images, split the JavaScript bundle so pages only load what they need, and removed three third-party scripts that weren't earning their weight." },
+        {
+          "type": "table",
+          "headers": ["Fix", "Impact"],
+          "rows": [
+            ["Modern image formats + sizing", "Largest single improvement"],
+            ["JavaScript code splitting", "Faster interactivity"],
+            ["Removed unused third-party scripts", "Smaller main-thread load"]
+          ]
+        },
+        {
+          "type": "chart",
+          "title": "Mobile Load Time: Before vs. After",
+          "data": [
+            { "label": "Before", "value": 4.2 },
+            { "label": "After", "value": 1.6 }
+          ]
+        },
+        { "type": "paragraph", "text": "The result: load time dropped from 4.2s to 1.6s — a 60% improvement — with no visual changes to the site at all. Bounce rate dropped noticeably within the first month." },
+        { "type": "paragraph", "text": "The lesson that generalizes: performance work is rarely one big fix. It's usually five or six smaller ones, found by actually measuring instead of guessing." }
+      ]
+    },
+    {
+      "slug": "ui-ux-trends-that-actually-improve-conversions",
+      "title": "UI/UX Design Trends That Actually Improve Conversions",
+      "excerpt": "Not every design trend is worth chasing. Here's what's actually moving the needle on real conversion rates in 2026.",
+      "category": "Design",
+      "tags": ["UI/UX", "Conversion", "Design Trends"],
+      "image": "https://images.unsplash.com/photo-1559028006-448665bd7c7f?auto=format&fit=crop&w=1200&q=80",
+      "author": "Ashish Kapadia",
+      "authorRole": "CEO & Co-Founder",
+      "authorPhoto": "/ashish_kapadia.png",
+      "authorBio": "Co-founded Vibe Venture to help ambitious brands build digital products that actually move the needle — not just look good.",
+      "authorHighlights": [
+        { "icon": "Code2", "text": "Focuses on web & AI engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "Mar 10, 2026",
+      "readTime": "6 min read",
+      "content": [
+        { "type": "paragraph", "text": "Design trends come and go fast, and chasing all of them is a good way to end up with a site that looks trendy but converts worse than a plain one. A few trends, though, are backed by real behavioral data — not just aesthetics." },
+        { "type": "heading", "text": "Clarity over cleverness" },
+        { "type": "paragraph", "text": "The single biggest shift we've seen work is designers pulling back from overly clever layouts in favor of obvious, predictable ones. Visitors convert when they instantly understand what to do next — not when they're impressed by a novel interaction." },
+        { "type": "heading", "text": "Fewer choices, clearer paths" },
+        { "type": "paragraph", "text": "Pages with a single, obvious primary action consistently outperform pages offering five competing CTAs. Reducing choice reduces hesitation." },
+        { "type": "callout", "icon": "Info", "text": "This is exactly the philosophy behind our own UI/UX Design engagements — clarity first, decoration second." },
+        { "type": "heading", "text": "Real content over placeholder polish" },
+        { "type": "paragraph", "text": "Designs tested with real copy and real photos — not lorem ipsum and stock mockups — catch problems early that a beautiful mockup hides until launch." },
+        { "type": "paragraph", "text": "None of this is flashy. But conversion-focused design rarely is — it's mostly about removing friction, not adding polish." }
+      ]
+    },
+    {
+      "slug": "when-does-ai-automation-make-sense-for-your-business",
+      "title": "When Does It Make Sense to Add AI Automation to Your Business?",
+      "excerpt": "AI automation isn't right for every workflow. Here's how to tell when it's actually worth the investment — and when it isn't.",
+      "category": "AI",
+      "tags": ["AI", "Automation", "Strategy"],
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "author": "Sibtain Nadolia",
+      "authorRole": "Co-Founder",
+      "authorPhoto": "/sibtain_nadolia.png",
+      "authorBio": "Co-founded Vibe Venture with a focus on turning bold ideas into scalable, well-engineered products.",
+      "authorHighlights": [
+        { "icon": "Layers", "text": "Focuses on scalable product engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "Mar 24, 2026",
+      "readTime": "6 min read",
+      "content": [
+        { "type": "paragraph", "text": "\"We should add AI to this\" is a sentence we hear a lot right now, often before anyone has defined what problem it's actually meant to solve. AI automation is powerful — but only when it's pointed at the right kind of work." },
+        { "type": "heading", "text": "Good candidates for automation" },
+        { "type": "paragraph", "text": "Repetitive, well-defined tasks with a clear input and output — sorting support tickets, drafting first-pass responses, extracting data from documents — are where AI automation pays off fastest, because the value is immediate and measurable." },
+        { "type": "heading", "text": "Where it usually backfires" },
+        { "type": "paragraph", "text": "Tasks that require real judgment, nuance, or accountability — final decisions on customer disputes, anything legally sensitive — are poor first candidates. Automating the wrong step just moves the bottleneck instead of removing it." },
+        { "type": "heading", "text": "Start narrow, expand from evidence" },
+        { "type": "paragraph", "text": "The automations that stick are the ones scoped tightly at first — one workflow, clearly measured — then expanded once the team trusts the results. Trying to automate everything at once is how most AI projects stall." },
+        { "type": "paragraph", "text": "The question isn't whether to use AI — it's which specific, repetitive bottleneck in your business is worth solving first." }
+      ]
+    },
+    {
+      "slug": "how-to-choose-the-right-tech-stack-for-your-startup",
+      "title": "How to Choose the Right Tech Stack for Your Startup",
+      "excerpt": "The framework you pick early shapes how fast you can move for years. Here's how to think about the decision instead of just picking what's trendy.",
+      "category": "Web Development",
+      "tags": ["Startups", "Tech Stack", "Engineering"],
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
+      "author": "Ashish Kapadia",
+      "authorRole": "CEO & Co-Founder",
+      "authorPhoto": "/ashish_kapadia.png",
+      "authorBio": "Co-founded Vibe Venture to help ambitious brands build digital products that actually move the needle — not just look good.",
+      "authorHighlights": [
+        { "icon": "Code2", "text": "Focuses on web & AI engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "Apr 7, 2026",
+      "readTime": "6 min read",
+      "content": [
+        { "type": "paragraph", "text": "Founders often ask which framework or stack is \"the best\" — the honest answer is that the best stack is the one that matches your team's skills, your product's actual requirements, and how fast you expect to need to hire." },
+        { "type": "heading", "text": "Optimize for shipping speed first" },
+        { "type": "paragraph", "text": "In the earliest stage, the biggest risk usually isn't scale — it's not finding product-market fit fast enough. Pick tools your team already knows well enough to ship quickly and iterate without fighting the framework." },
+        { "type": "heading", "text": "Think about hiring, not just building" },
+        { "type": "paragraph", "text": "A stack with a smaller talent pool can slow you down later, even if it's technically elegant today. Popular, well-documented tools make it easier to bring new engineers up to speed." },
+        { "type": "heading", "text": "Leave room to scale, but don't over-engineer" },
+        { "type": "paragraph", "text": "You don't need a system built for ten million users on day one. Choose an architecture that can scale when it needs to, without paying the complexity cost before you've earned the traffic." },
+        { "type": "paragraph", "text": "The stack matters less than most founders think. Clear requirements and a team that can execute matter more." }
+      ]
+    },
+    {
+      "slug": "5-mobile-app-features-users-actually-care-about",
+      "title": "5 Mobile App Features Users Actually Care About",
+      "excerpt": "Not every feature request deserves a spot on the roadmap. Here's what actually keeps users coming back, based on what we see across real apps.",
+      "category": "Mobile Development",
+      "tags": ["Mobile Apps", "Retention", "Product"],
+      "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+      "author": "Sibtain Nadolia",
+      "authorRole": "Co-Founder",
+      "authorPhoto": "/sibtain_nadolia.png",
+      "authorBio": "Co-founded Vibe Venture with a focus on turning bold ideas into scalable, well-engineered products.",
+      "authorHighlights": [
+        { "icon": "Layers", "text": "Focuses on scalable product engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "Apr 21, 2026",
+      "readTime": "5 min read",
+      "content": [
+        { "type": "paragraph", "text": "It's tempting to fill a mobile app roadmap with every feature a competitor has. In practice, a small set of things consistently drive retention far more than the rest of the list." },
+        { "type": "heading", "text": "1. Fast, reliable offline behavior" },
+        { "type": "paragraph", "text": "Users don't tolerate an app that breaks the moment their connection drops. Graceful offline states and background sync quietly build trust." },
+        { "type": "heading", "text": "2. Notifications that respect attention" },
+        { "type": "paragraph", "text": "Push notifications that are actually relevant to the user drive engagement. Generic, frequent notifications train people to ignore — or disable — them entirely." },
+        { "type": "heading", "text": "3. A fast first launch" },
+        { "type": "paragraph", "text": "The first few seconds after opening the app set the tone for the whole session. Slow cold starts quietly push users toward the app they didn't have to wait for." },
+        { "type": "paragraph", "text": "None of these are flashy features you'd put on a pitch deck slide. They're also exactly what keeps an app on someone's home screen instead of getting deleted after a week." }
+      ]
+    },
+    {
+      "slug": "why-your-ecommerce-store-needs-more-than-a-nice-design",
+      "title": "Why Your E-commerce Store Needs More Than Just a Nice Design",
+      "excerpt": "A beautiful storefront that doesn't convert is still a problem. Here's what actually separates stores that sell from stores that just look good.",
+      "category": "Ecommerce",
+      "tags": ["Ecommerce", "Conversion", "Checkout"],
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+      "author": "Ashish Kapadia",
+      "authorRole": "CEO & Co-Founder",
+      "authorPhoto": "/ashish_kapadia.png",
+      "authorBio": "Co-founded Vibe Venture to help ambitious brands build digital products that actually move the needle — not just look good.",
+      "authorHighlights": [
+        { "icon": "Code2", "text": "Focuses on web & AI engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "May 5, 2026",
+      "readTime": "6 min read",
+      "content": [
+        { "type": "paragraph", "text": "A well-designed storefront gets compliments. A well-engineered one gets sales. The two aren't always the same thing, and confusing them is one of the most expensive mistakes we see in e-commerce projects." },
+        { "type": "heading", "text": "Checkout friction is where revenue actually leaks" },
+        { "type": "paragraph", "text": "Every extra field, every forced account creation, every unclear shipping cost shown too late in the flow pushes a percentage of buyers to abandon their cart. Checkout deserves as much attention as the homepage — usually more." },
+        { "type": "heading", "text": "Search and filtering matter more as your catalog grows" },
+        { "type": "paragraph", "text": "A gorgeous product grid stops helping once you have more than a page of products. Fast, accurate search and filtering become the real interface for most returning customers." },
+        { "type": "heading", "text": "Page speed is a conversion feature, not a nice-to-have" },
+        { "type": "paragraph", "text": "On mobile especially, a slow product page loses buyers before they've even seen the price. Performance work often has a bigger impact on revenue than another round of visual polish." },
+        { "type": "paragraph", "text": "Design earns the click. Everything else on this list earns the sale." }
+      ]
+    },
+    {
+      "slug": "branding-101-building-a-visual-identity-that-lasts",
+      "title": "Branding 101: Building a Visual Identity That Lasts",
+      "excerpt": "A logo isn't a brand. Here's what actually goes into a visual identity built to hold up for years, not just look good on day one.",
+      "category": "Design",
+      "tags": ["Branding", "Visual Identity", "Design"],
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+      "author": "Sibtain Nadolia",
+      "authorRole": "Co-Founder",
+      "authorPhoto": "/sibtain_nadolia.png",
+      "authorBio": "Co-founded Vibe Venture with a focus on turning bold ideas into scalable, well-engineered products.",
+      "authorHighlights": [
+        { "icon": "Layers", "text": "Focuses on scalable product engineering" },
+        { "icon": "PenTool", "text": "Writes about building real products" },
+        { "icon": "Users", "text": "Works directly with founders and teams" }
+      ],
+      "date": "May 19, 2026",
+      "readTime": "5 min read",
+      "content": [
+        { "type": "paragraph", "text": "A lot of businesses treat branding as \"get a logo made.\" A logo is one piece of a visual identity — on its own, it can't carry the weight of how a business is perceived everywhere it shows up." },
+        { "type": "heading", "text": "Start with what the business actually stands for" },
+        { "type": "paragraph", "text": "Visual choices that aren't grounded in a clear sense of positioning tend to drift or feel generic. The strongest identities start with a point of view, not a mood board." },
+        { "type": "heading", "text": "Build a system, not just assets" },
+        { "type": "paragraph", "text": "Color palette, typography, spacing rules, and tone of voice need to work together as a system so the brand feels consistent whether it's on a website, a business card, or a social post." },
+        { "type": "heading", "text": "Design for five years, not five months" },
+        { "type": "paragraph", "text": "Trend-chasing identities age quickly and are expensive to redo. A distinctive but restrained identity tends to hold up far longer than one built around whatever's popular right now." },
+        { "type": "paragraph", "text": "Done right, a visual identity is one of the few marketing investments that keeps paying off for years without needing to be rebuilt." }
+      ]
+    }
+  ]
+}
