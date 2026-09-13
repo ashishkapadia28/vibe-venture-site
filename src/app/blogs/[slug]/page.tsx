@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <div className="bg-white rounded-2xl border border-border/50 shadow-sm p-6">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 bg-secondary/40">
-                          <Image src={blog.authorPhoto} alt={blog.author} fill className="object-cover" />
+                          <Image src={blog.authorPhoto} alt={blog.author} fill className="object-cover" sizes="64px" />
                         </div>
                         <div>
                           <p className="font-semibold text-foreground text-sm">{blog.author}</p>

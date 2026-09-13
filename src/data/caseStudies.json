@@ -49,8 +49,7 @@
           { "lead": "Close collaboration throughout", "text": "identity and UI evolved together instead of in isolation." }
         ]
       },
-      "impact": "Arpanex launched with a cohesive brand and a fast, fully responsive website built to grow alongside the business.",
-      "metrics": []
+      "impact": "Arpanex launched with a cohesive brand and a fast, fully responsive website built to grow alongside the business."
     },
     {
       "slug": "echovyn",
@@ -92,8 +91,7 @@
           { "lead": "Documented guidelines", "text": "for consistent use across every future touchpoint." }
         ]
       },
-      "impact": "Echovyn now has a cohesive, distinct visual identity ready to apply across their website and future brand touchpoints.",
-      "metrics": []
+      "impact": "Echovyn now has a cohesive, distinct visual identity ready to apply across their website and future brand touchpoints."
     },
     {
       "slug": "nyrly",
@@ -135,8 +133,7 @@
           { "lead": "Built for training in minutes", "text": "not hours, so new staff can use it immediately." }
         ]
       },
-      "impact": "Nyrly now has a POS product built for real-world retail use, ready to support stores as they grow.",
-      "metrics": []
+      "impact": "Nyrly now has a POS product built for real-world retail use, ready to support stores as they grow."
     },
     {
       "slug": "vediq-care",
@@ -178,8 +175,7 @@
           { "lead": "Clear, simple interface", "text": "so staff can focus on patients, not the software." }
         ]
       },
-      "impact": "Vediq Care now has a clinic management platform built around how clinics actually work day-to-day.",
-      "metrics": []
+      "impact": "Vediq Care now has a clinic management platform built around how clinics actually work day-to-day."
     }
   ]
 }

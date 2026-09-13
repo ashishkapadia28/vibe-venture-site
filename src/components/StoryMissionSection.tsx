@@ -32,6 +32,7 @@ export function StoryMissionSection() {
                 alt="Abstract representation of Vibe Venture's engineering craft"
                 fill
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/10 transition-opacity duration-500 group-hover:from-black/95" />
 
@@ -77,6 +78,7 @@ export function StoryMissionSection() {
                 alt=""
                 fill
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div
                 className={`absolute inset-0 bg-linear-to-t transition-all duration-500 ${

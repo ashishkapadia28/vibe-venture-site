@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 
 type Decision = "accept_all" | "reject_all" | "custom";
 
@@ -20,6 +20,12 @@ export async function POST(request: Request) {
 
     if (!body.decision || typeof body.preferences !== "object") {
       return NextResponse.json({ error: "Invalid consent payload" }, { status: 400 });
+    }
+
+    const supabase = getSupabase();
+    if (!supabase) {
+      console.error("Supabase env vars are not set — cannot store cookie consent.");
+      return NextResponse.json({ error: "Consent logging is not configured" }, { status: 503 });
     }
 
     // IP and timestamp are captured server-side (never trusted from the

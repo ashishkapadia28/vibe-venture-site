@@ -140,7 +140,7 @@ export function Navbar() {
                               <Link href={active.href} key={active.name} className="group/product block h-full">
                                 {active.image ? (
                                   <div className="relative w-full h-full min-h-56 rounded-2xl overflow-hidden border border-border/50">
-                                    <Image src={active.image} alt={active.name} fill className="object-cover" />
+                                    <Image src={active.image} alt={active.name} fill className="object-cover" sizes="320px" />
                                   </div>
                                 ) : (
                                   <div className="w-full h-full min-h-56 rounded-2xl border border-dashed border-border flex flex-col items-center justify-center gap-3 text-muted-foreground group-hover/product:border-primary/40 group-hover/product:text-primary transition-colors">

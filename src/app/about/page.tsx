@@ -100,7 +100,7 @@ export default function AboutPage() {
         <section className="relative pt-20 pb-4 md:pt-24 overflow-hidden bg-background">
           {/* Giant faint background icon */}
           <div className="absolute -bottom-20 -right-20 w-125 h-125 opacity-[0.05] rotate-12 pointer-events-none">
-            <Image src="/vibe_venture_Icon.svg" alt="" fill className="object-contain" />
+            <Image src="/vibe_venture_Icon.svg" alt="" fill className="object-contain" sizes="500px" />
           </div>
 
           <div className="container mx-auto px-4 md:px-8 max-w-7xl relative">
@@ -213,6 +213,7 @@ export default function AboutPage() {
                         alt={founder.name}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 50vw"
                       />
                     ) : (
                       <div className="w-full h-full flex flex-col items-center justify-center gap-2">

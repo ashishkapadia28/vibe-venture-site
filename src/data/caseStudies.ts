@@ -1,10 +1,5 @@
 import rawData from "./caseStudies.json";
 
-export interface CaseStudyMetric {
-  label: string;
-  value: string;
-}
-
 export interface StoryPoint {
   lead: string;
   text: string;
@@ -26,14 +21,11 @@ export interface CaseStudy {
   role: string;
   location: string;
   industry: string;
-  timeline?: string;
-  tech?: string[];
   gallery?: string[];
   overview: StorySection;
   challenge: StorySection;
   solution: StorySection;
   impact: string;
-  metrics: CaseStudyMetric[];
 }
 
 /**

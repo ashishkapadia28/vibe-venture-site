@@ -28,11 +28,12 @@ export function Testimonials() {
           {/* Left: Video Player */}
           <AnimatedSection delay={0.2} className="lg:col-span-7 relative group cursor-pointer">
             <div className="relative w-full aspect-video rounded-4xl overflow-hidden bg-secondary-foreground/5 border border-white/10 shadow-2xl">
-              <Image 
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80" 
-                alt="Client Video Testimonial" 
-                fill 
+              <Image
+                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80"
+                alt="Client Video Testimonial"
+                fill
                 className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 58vw"
               />
               <div className="absolute inset-0 bg-linear-to-t from-secondary via-transparent to-transparent opacity-80" />
               

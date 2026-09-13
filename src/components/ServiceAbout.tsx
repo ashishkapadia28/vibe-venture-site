@@ -50,6 +50,7 @@ export function ServiceAbout({
                     alt={title}
                     fill
                     className="object-contain p-10"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
               )}

@@ -1,11 +1,21 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!;
+let client: SupabaseClient | null = null;
 
 /**
- * Server-side client used by API routes. Uses the publishable (anon) key —
- * safe to hold server-side too since writes are gated by RLS insert-only
- * policies, not by key secrecy.
+ * Built lazily, on first call, instead of at module import time — Next.js
+ * imports every API route to collect its metadata during the build step,
+ * and a top-level createClient() call would throw the whole build if the
+ * env vars aren't set for that deployment, not just fail the one route.
  */
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export function getSupabase(): SupabaseClient | null {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+  if (!supabaseUrl || !supabaseKey) return null;
+
+  if (!client) {
+    client = createClient(supabaseUrl, supabaseKey);
+  }
+  return client;
+}

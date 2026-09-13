@@ -33,6 +33,7 @@ export function BlogSection({ name, relatedBlogs = [] }: { name: string; related
                         alt={blog.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, 33vw"
                       />
                     )}
                   </div>
