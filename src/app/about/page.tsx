@@ -92,7 +92,7 @@ export default function AboutPage() {
           subtitle="Vibe Venture is a next-generation digital agency — fusing precision engineering with bold design to help ambitious businesses dominate their digital landscape."
           ctas={[
             { text: "Start a Project", href: "/contact" },
-            { text: "Our Services", href: "/services", variant: "secondary" },
+            { text: "Our Services", href: "/#services", variant: "secondary" },
           ]}
         />
 

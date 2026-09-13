@@ -38,7 +38,7 @@ export default function TermsOfServicePage() {
                 <div>
                   <h2 className="text-2xl font-heading font-bold mb-3">1. Agreement to Terms</h2>
                   <p className="text-foreground/70 leading-relaxed">
-                    By accessing vibeventure.com or engaging Vibe Venture for services, you agree to be bound by these Terms of Service. If you do not agree, please do not use the site or our services.
+                    By accessing vibeventure.in or engaging Vibe Venture for services, you agree to be bound by these Terms of Service. If you do not agree, please do not use the site or our services.
                   </p>
                 </div>
 

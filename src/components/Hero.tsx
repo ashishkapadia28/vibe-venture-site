@@ -44,7 +44,7 @@ export function Hero({
   title = "Custom Web, App & AI Solutions That Grow Your Business",
   subtitle = "Vibe Venture partners with ambitious brands to design, build, and scale digital products — from your first launch to long-term growth.",
   primaryCta = { text: "Get a Free Consultation", href: "/contact" },
-  secondaryCta = { text: "Explore Our Services", href: "/services" },
+  secondaryCta = { text: "View our Case Studies", href: "/case-studies" },
   showTrustWidget = true,
 }: HeroProps) {
   return (

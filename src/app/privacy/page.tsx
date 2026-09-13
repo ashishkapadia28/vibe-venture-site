@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
                 <div>
                   <h2 className="text-2xl font-heading font-bold mb-3">1. Introduction</h2>
                   <p className="text-foreground/70 leading-relaxed">
-                    Vibe Venture (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) respects your privacy. This policy explains what information we collect when you visit vibeventure.com, why we collect it, and how you can control it.
+                    Vibe Venture (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) respects your privacy. This policy explains what information we collect when you visit vibeventure.in, why we collect it, and how you can control it.
                   </p>
                 </div>
 

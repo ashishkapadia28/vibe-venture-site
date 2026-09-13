@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/maintenance"],
     },
-    sitemap: "https://vibeventure.com/sitemap.xml",
+    sitemap: "https://vibeventure.in/sitemap.xml",
   };
 }

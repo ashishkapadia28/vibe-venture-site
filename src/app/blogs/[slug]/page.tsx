@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 // Skipped entirely (not even fetched) on any blog whose feedback flag is off.
 const ArticleFeedback = dynamic(() => import("@/components/ArticleFeedback").then((m) => m.ArticleFeedback));
 
-const BASE_URL = "https://vibeventure.com";
+const BASE_URL = "https://vibeventure.in";
 
 const highlightIcons: Record<string, typeof Code2> = { Code2, PenTool, Users, Layers };
 

@@ -4,7 +4,7 @@
     {
       "key": "services",
       "label": "Services",
-      "href": "/services",
+      "href": "/#services",
       "enabled": true,
       "megaMenu": {
         "type": "categories",

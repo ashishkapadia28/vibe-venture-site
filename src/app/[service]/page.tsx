@@ -54,7 +54,7 @@ export default async function ServiceCategoryPage({
           subtitle={service.description}
           ctas={[
             { text: "Get A Free Consultation", href: "/contact" },
-            { text: "Explore All Services", href: "/services", variant: "secondary" },
+            { text: "Explore All Services", href: "/#services", variant: "secondary" },
           ]}
         />
 

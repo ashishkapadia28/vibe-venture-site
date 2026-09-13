@@ -22,7 +22,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vibeventure.com"),
+  metadataBase: new URL("https://vibeventure.in"),
   title: "Vibe Venture | Digital Excellence",
   description: "Elevate your digital presence with Vibe Venture. We build premium, animated, and fast websites.",
   keywords: ["Vibe Venture", "Web Development", "Digital Agency", "Next.js", "Animations"],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vibe Venture | Digital Excellence",
     description: "Elevate your digital presence with Vibe Venture. We build premium, animated, and fast websites.",
-    url: "https://vibeventure.com",
+    url: "https://vibeventure.in",
     siteName: "Vibe Venture",
     images: [
       {
