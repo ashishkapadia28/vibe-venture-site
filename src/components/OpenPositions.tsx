@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
@@ -82,23 +82,31 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
   const ITEMS_PER_PAGE = 5;
 
   // Reset pagination when filters change (adjusted during render, per React's
-  // guidance for state that depends on other state — avoids an extra effect pass)
+  // guidance for state that depends on other state — avoids an extra effect
+  // pass, and this project's lint rules flag setState-in-effect here anyway).
   const [appliedFilters, setAppliedFilters] = useState([departmentFilter, experienceFilter, typeFilter]);
   if (appliedFilters[0] !== departmentFilter || appliedFilters[1] !== experienceFilter || appliedFilters[2] !== typeFilter) {
     setAppliedFilters([departmentFilter, experienceFilter, typeFilter]);
     setCurrentPage(1);
   }
 
-  const departments = ["All", ...Array.from(new Set(openRoles.map((role) => role.department)))];
+  const departments = useMemo(
+    () => ["All", ...Array.from(new Set(openRoles.map((role) => role.department)))],
+    [openRoles]
+  );
   const experiences = ["All", "Fresher", "Mid-Level", "Experienced"];
   const types = ["All", "Full-Time", "Contract", "Internship"];
 
-  const filteredRoles = openRoles.filter((role) => {
-    const matchDept = departmentFilter === "All" || role.department === departmentFilter;
-    const matchExp = experienceFilter === "All" || role.experience === experienceFilter;
-    const matchType = typeFilter === "All" || role.type === typeFilter;
-    return matchDept && matchExp && matchType;
-  });
+  const filteredRoles = useMemo(
+    () =>
+      openRoles.filter((role) => {
+        const matchDept = departmentFilter === "All" || role.department === departmentFilter;
+        const matchExp = experienceFilter === "All" || role.experience === experienceFilter;
+        const matchType = typeFilter === "All" || role.type === typeFilter;
+        return matchDept && matchExp && matchType;
+      }),
+    [openRoles, departmentFilter, experienceFilter, typeFilter]
+  );
 
   const totalPages = Math.ceil(filteredRoles.length / ITEMS_PER_PAGE);
   const paginatedRoles = filteredRoles.slice(
@@ -195,31 +203,28 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
                   </div>
                 </AnimatedSection>
               ))
-            ) : openRoles.length === 0 ? (
-              <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-75">
-
-                <p className="text-xl font-heading font-bold mb-2">No Open Roles</p>
-                <p className="text-muted-foreground font-medium max-w-sm">
-                  We don&apos;t have any open roles available at the moment. Please check back later.
-                </p>
-              </div>
             ) : (
               <div className="p-12 text-center relative flex flex-col items-center justify-center min-h-75">
-
-                <p className="text-xl font-heading font-bold mb-2">No Matches Found</p>
-                <p className="text-muted-foreground font-medium max-w-sm">
-                  We don&apos;t have any open roles matching these exact filters right now.
+                <p className="text-xl font-heading font-bold mb-2">
+                  {openRoles.length === 0 ? "No Open Roles" : "No Matches Found"}
                 </p>
-                <button
-                  onClick={() => {
-                    setDepartmentFilter("All");
-                    setExperienceFilter("All");
-                    setTypeFilter("All");
-                  }}
-                  className="mt-6 text-xs font-bold uppercase tracking-widest text-primary border border-primary px-4 py-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer relative z-20"
-                >
-                  Clear Filters
-                </button>
+                <p className="text-muted-foreground font-medium max-w-sm">
+                  {openRoles.length === 0
+                    ? "We don't have any open roles available at the moment. Please check back later."
+                    : "We don't have any open roles matching these exact filters right now."}
+                </p>
+                {openRoles.length > 0 && (
+                  <button
+                    onClick={() => {
+                      setDepartmentFilter("All");
+                      setExperienceFilter("All");
+                      setTypeFilter("All");
+                    }}
+                    className="mt-6 text-xs font-bold uppercase tracking-widest text-primary border border-primary px-4 py-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer relative z-20"
+                  >
+                    Clear Filters
+                  </button>
+                )}
               </div>
             )}
           </div>
@@ -229,6 +234,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
               <button
                 onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
+                aria-label="Previous page"
                 className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <ArrowRight size={16} className="rotate-180" />
@@ -241,6 +247,7 @@ export function OpenPositions({ openRoles }: { openRoles: Role[] }) {
               <button
                 onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
+                aria-label="Next page"
                 className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <ArrowRight size={16} />

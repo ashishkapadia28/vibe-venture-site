@@ -8,7 +8,6 @@ export function ShopifyPartnerSection() {
       {/* Abstract Background Glows */}
       <div className="absolute top-0 right-1/4 w-200 h-200 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-150 h-150 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-[0.03] pointer-events-none" />
 
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 relative z-10">
         

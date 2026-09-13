@@ -3,6 +3,7 @@ import rawData from "./footer.json";
 import { navItems } from "./navbar";
 import { services } from "./services";
 import { footerIcons } from "./footerIcons";
+import { resolveIcon } from "./resolveIcon";
 
 type IconComponent = ComponentType;
 
@@ -32,14 +33,6 @@ interface RawSocial {
   enabled: boolean;
 }
 
-function resolveFooterIcon(name: string): IconComponent {
-  const icon = footerIcons[name];
-  if (!icon) {
-    throw new Error(`Unknown footer icon "${name}" in footer.json — add it to footerIcons.tsx`);
-  }
-  return icon;
-}
-
 /**
  * footer.json holds the footer's own copy (brand blurb, contact details,
  * socials, legal links) — plain, serializable content with no code in it,
@@ -56,7 +49,7 @@ export const socials: FooterSocial[] = (rawData.socials as RawSocial[])
   .map((social) => ({
     name: social.name,
     href: social.href,
-    Icon: resolveFooterIcon(social.icon),
+    Icon: resolveIcon(footerIcons, social.icon, "footer.json", "footerIcons.tsx"),
   }));
 
 /**

@@ -64,6 +64,7 @@ export function TrackApplication() {
               value={trackingId}
               onChange={(e) => setTrackingId(e.target.value)}
               placeholder="e.g. VV-8F3K2A"
+              aria-label="Application tracking ID"
               className="flex-1 bg-white border border-border/60 shadow-sm rounded-xl px-4 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-foreground/50"
             />
             <button

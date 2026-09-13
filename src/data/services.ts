@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import rawData from "./services.json";
 import { serviceIcons } from "./serviceIcons";
 import { whyIcons } from "./whyIcons";
+import { resolveIcon } from "./resolveIcon";
 
 export interface SubService {
   slug: string;
@@ -89,22 +90,6 @@ interface RawService {
   subServices: RawSubService[];
 }
 
-function resolveIcon(name: string): IconType {
-  const icon = serviceIcons[name];
-  if (!icon) {
-    throw new Error(`Unknown service icon "${name}" in services.json — add it to serviceIcons.ts`);
-  }
-  return icon;
-}
-
-function resolveWhyIcon(name: string): LucideIcon {
-  const icon = whyIcons[name];
-  if (!icon) {
-    throw new Error(`Unknown "why" icon "${name}" in services.json — add it to whyIcons.ts`);
-  }
-  return icon;
-}
-
 /**
  * services.json is the actual data source (names, descriptions, features,
  * SEO metadata, etc.) — plain, serializable content with no code in it, so
@@ -115,14 +100,14 @@ function resolveWhyIcon(name: string): LucideIcon {
  */
 export const services: Service[] = (rawData.services as RawService[]).map((service) => ({
   ...service,
-  icon: resolveIcon(service.icon),
+  icon: resolveIcon(serviceIcons, service.icon, "services.json", "serviceIcons.ts"),
   whyPoints: service.whyPoints.map((point) => ({
     ...point,
-    icon: resolveWhyIcon(point.icon),
+    icon: resolveIcon(whyIcons, point.icon, "services.json", "whyIcons.ts"),
   })),
   subServices: service.subServices.map((sub) => ({
     ...sub,
-    icon: resolveIcon(sub.icon),
+    icon: resolveIcon(serviceIcons, sub.icon, "services.json", "serviceIcons.ts"),
   })),
 }));
 

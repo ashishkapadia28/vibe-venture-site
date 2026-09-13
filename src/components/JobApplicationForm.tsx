@@ -12,24 +12,31 @@ function FileUploadField({
   label,
   file,
   onChange,
+  requiredError,
 }: {
   label: string;
   file: File | null;
   onChange: (file: File | null) => void;
+  requiredError?: string;
 }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [fileError, setFileError] = useState('');
+  const [sizeError, setSizeError] = useState('');
 
+  // Validated in JS, not via the `required` attribute — this input stays
+  // `hidden` behind a styled button, and a hidden control can never receive
+  // focus, so the browser can't show its native validation bubble on it.
   const handleFileChange = (selected: File | null) => {
     if (selected && selected.size > MAX_FILE_SIZE_BYTES) {
-      setFileError('File is too large — 5MB max.');
+      setSizeError('File is too large — 5MB max.');
       onChange(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
       return;
     }
-    setFileError('');
+    setSizeError('');
     onChange(selected);
   };
+
+  const errorMessage = sizeError || requiredError;
 
   return (
     <div className="space-y-2">
@@ -39,7 +46,6 @@ function FileUploadField({
       <input
         ref={fileInputRef}
         type="file"
-        required
         accept="application/pdf"
         className="hidden"
         onChange={e => handleFileChange(e.target.files?.[0] ?? null)}
@@ -53,7 +59,7 @@ function FileUploadField({
           <button
             type="button"
             onClick={() => {
-              setFileError('');
+              setSizeError('');
               onChange(null);
               if (fileInputRef.current) fileInputRef.current.value = '';
             }}
@@ -66,14 +72,16 @@ function FileUploadField({
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="w-full flex flex-col items-center justify-center gap-2 border border-dashed border-border/60 rounded-xl px-4 py-6 text-center hover:border-primary/50 hover:bg-primary/5 transition-all"
+          className={`w-full flex flex-col items-center justify-center gap-2 border border-dashed rounded-xl px-4 py-6 text-center transition-all ${
+            errorMessage ? "border-red-300 bg-red-50/50" : "border-border/60 hover:border-primary/50 hover:bg-primary/5"
+          }`}
         >
           <UploadCloud size={22} className="text-muted-foreground" />
           <span className="text-sm font-medium text-foreground/80">Click to upload {label.toLowerCase()}</span>
           <span className="text-xs text-muted-foreground">PDF only, max 5MB</span>
         </button>
       )}
-      {fileError && <p className="text-xs text-red-600">{fileError}</p>}
+      {errorMessage && <p className="text-xs text-red-600">{errorMessage}</p>}
     </div>
   );
 }
@@ -82,6 +90,8 @@ export function JobApplicationForm({ job }: { job: Job }) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', linkedin: '' });
   const [resume, setResume] = useState<File | null>(null);
   const [coverLetter, setCoverLetter] = useState<File | null>(null);
+  const [resumeError, setResumeError] = useState('');
+  const [coverLetterError, setCoverLetterError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [trackingId, setTrackingId] = useState('');
@@ -92,8 +102,15 @@ export function JobApplicationForm({ job }: { job: Job }) {
 
   const handleApplySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setError('');
+
+    const missingResume = !resume;
+    const missingCoverLetter = !coverLetter;
+    setResumeError(missingResume ? 'Resume is required.' : '');
+    setCoverLetterError(missingCoverLetter ? 'Cover letter is required.' : '');
+    if (missingResume || missingCoverLetter) return;
+
+    setIsSubmitting(true);
 
     try {
       const payload = new FormData();
@@ -203,7 +220,7 @@ export function JobApplicationForm({ job }: { job: Job }) {
             type="tel"
             minLength={8}
             maxLength={15}
-            pattern="^[0-9\s\-()]{8,15}$"
+            pattern="^[0-9\s\-\(\)]{8,15}$"
             title="Please enter a valid phone number (e.g. 234-567-8900)"
             value={formData.phone}
             onChange={e => setFormData({ ...formData, phone: e.target.value })}
@@ -270,8 +287,18 @@ export function JobApplicationForm({ job }: { job: Job }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <FileUploadField label="Resume" file={resume} onChange={setResume} />
-        <FileUploadField label="Cover Letter" file={coverLetter} onChange={setCoverLetter} />
+        <FileUploadField
+          label="Resume"
+          file={resume}
+          onChange={(file) => { setResume(file); if (file) setResumeError(''); }}
+          requiredError={resumeError}
+        />
+        <FileUploadField
+          label="Cover Letter"
+          file={coverLetter}
+          onChange={(file) => { setCoverLetter(file); if (file) setCoverLetterError(''); }}
+          requiredError={coverLetterError}
+        />
       </div>
 
       {error && (

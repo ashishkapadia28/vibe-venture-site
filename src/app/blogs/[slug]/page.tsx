@@ -3,14 +3,17 @@ import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { CTA } from "@/components/CTA";
 import { BlogContentRenderer } from "@/components/BlogContentRenderer";
-import { ArticleFeedback } from "@/components/ArticleFeedback";
 import { ShareButtons } from "@/components/ShareButtons";
 import { blogs, blogSettings, getBlogBySlug } from "@/data/blogs";
 import { ArrowLeft, CalendarDays, ArrowRight, Tag, Code2, PenTool, Users, Layers } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+
+// Skipped entirely (not even fetched) on any blog whose feedback flag is off.
+const ArticleFeedback = dynamic(() => import("@/components/ArticleFeedback").then((m) => m.ArticleFeedback));
 
 const BASE_URL = "https://vibeventure.com";
 

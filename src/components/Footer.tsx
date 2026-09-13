@@ -15,7 +15,7 @@ export function Footer() {
           <div className="w-full lg:w-[35%] flex flex-col gap-6">
             <div className="flex flex-col gap-1">
               <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
-                <Image src="/vibe_venture_logo.svg" alt="Vibe Venture" width={224} height={68} className="object-contain brightness-0 invert w-56 h-16" />
+                <Image src="/vibe_venture_logo.svg" alt="Vibe Venture" width={224} height={64} className="object-contain brightness-0 invert w-56 h-16" />
               </Link>
 
               <p className="text-[13px] text-[#768493] leading-relaxed max-w-xs">

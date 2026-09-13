@@ -77,6 +77,21 @@ function CategoryBar({ name, score }: { name: string; score: number }) {
 const severityIcon = { high: AlertTriangle, medium: AlertCircle, low: Info };
 const severityColor = { high: "text-red-500", medium: "text-amber-500", low: "text-muted-foreground" };
 
+async function postJSON<T>(url: string, body: unknown): Promise<{ ok: true; data: T } | { ok: false; error: string }> {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (!res.ok) return { ok: false, error: data.error || "Something went wrong. Please try again." };
+    return { ok: true, data };
+  } catch {
+    return { ok: false, error: "Something went wrong. Please try again." };
+  }
+}
+
 function SkeletonRow({ wide = "85%" }: { wide?: string }) {
   return (
     <div className="flex items-start gap-3">
@@ -108,26 +123,14 @@ export function WebsiteChecker() {
     setErrorMsg("");
     setResult(null);
 
-    try {
-      const res = await fetch("/api/tools/analyze-website", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim() }),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setErrorMsg(data.error || "Something went wrong. Please try again.");
-        setStatus("error");
-        return;
-      }
-
-      setResult(data);
-      setStatus("success");
-    } catch {
-      setErrorMsg("Something went wrong. Please try again.");
+    const res = await postJSON<AnalysisResult>("/api/tools/analyze-website", { url: url.trim() });
+    if (!res.ok) {
+      setErrorMsg(res.error);
       setStatus("error");
+      return;
     }
+    setResult(res.data);
+    setStatus("success");
   };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -136,25 +139,13 @@ export function WebsiteChecker() {
     setEmailStatus("submitting");
     setEmailError("");
 
-    try {
-      const res = await fetch("/api/tools/website-report", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, url: result.url, report: result }),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setEmailError(data.error || "Something went wrong. Please try again.");
-        setEmailStatus("error");
-        return;
-      }
-
-      setEmailStatus("success");
-    } catch {
-      setEmailError("Something went wrong. Please try again.");
+    const res = await postJSON("/api/tools/website-report", { email, url: result.url, report: result });
+    if (!res.ok) {
+      setEmailError(res.error);
       setEmailStatus("error");
+      return;
     }
+    setEmailStatus("success");
   };
 
   return (
@@ -193,6 +184,7 @@ export function WebsiteChecker() {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="yourwebsite.com"
+                  aria-label="Website URL to analyze"
                   className="flex-1 bg-white border border-border/60 shadow-sm rounded-xl px-5 py-4 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-foreground/50"
                 />
                 <button
@@ -346,6 +338,7 @@ export function WebsiteChecker() {
           <div className="bg-background border border-border/60 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl relative animate-in zoom-in-95 duration-300">
             <button
               onClick={() => { setShowEmailModal(false); setEmailStatus("idle"); setEmail(""); }}
+              aria-label="Close"
               className="absolute top-5 right-5 text-muted-foreground hover:text-foreground transition-all p-2 bg-secondary/50 hover:bg-secondary rounded-full z-10"
             >
               <X size={18} />
@@ -373,6 +366,7 @@ export function WebsiteChecker() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="jane@company.com"
+                      aria-label="Email address"
                       className="w-full bg-background border border-border/60 shadow-sm rounded-xl px-4 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-foreground/50"
                     />
                     {emailStatus === "error" && (

@@ -31,6 +31,16 @@ function saveFeedback(slug: string, data: StoredFeedback) {
   }
 }
 
+function applyVote(prev: StoredFeedback, choice: "like" | "dislike"): StoredFeedback {
+  const vote: Vote = prev.vote === choice ? null : choice;
+  let { likes, dislikes } = prev;
+  if (prev.vote === "like") likes -= 1;
+  if (prev.vote === "dislike") dislikes -= 1;
+  if (vote === "like") likes += 1;
+  if (vote === "dislike") dislikes += 1;
+  return { vote, likes: Math.max(0, likes), dislikes: Math.max(0, dislikes) };
+}
+
 function saveFeedbackDetails(slug: string, vote: "like" | "dislike", answers: Record<string, string>) {
   try {
     window.localStorage.setItem(`blog-feedback-details:${slug}`, JSON.stringify({ vote, answers, at: new Date().toISOString() }));
@@ -39,6 +49,11 @@ function saveFeedbackDetails(slug: string, vote: "like" | "dislike", answers: Re
   }
 }
 
+// Shared across both variants — only the header and first question change
+// between a "like" and a "dislike" response.
+const IMPROVE_QUESTION = { icon: Wrench, label: "What would you like to see improved?", placeholder: "e.g. more real examples, a deeper dive on a section..." };
+const HELP_QUESTION = { icon: LifeBuoy, label: "How can we help you further?", placeholder: "e.g. a free consultation, a custom guide for your project..." };
+
 const copy = {
   like: {
     icon: Heart,
@@ -46,8 +61,8 @@ const copy = {
     title: "Glad You Liked It!",
     subtitle: "Takes 30 seconds — every answer shapes what we write next. Skip anything you'd rather not answer.",
     q1: { icon: Heart, label: "What did you like about it?", placeholder: "e.g. the practical tips, the writing style, the examples..." },
-    q2: { icon: Wrench, label: "What would you like to see improved?", placeholder: "e.g. more real examples, a deeper dive on a section..." },
-    q3: { icon: LifeBuoy, label: "How can we help you further?", placeholder: "e.g. a free consultation, a custom guide for your project..." },
+    q2: IMPROVE_QUESTION,
+    q3: HELP_QUESTION,
   },
   dislike: {
     icon: Frown,
@@ -55,10 +70,22 @@ const copy = {
     title: "Thanks for Being Honest",
     subtitle: "Your feedback genuinely helps us fix it. Skip anything you'd rather not answer.",
     q1: { icon: Frown, label: "What didn't you like about it?", placeholder: "e.g. felt too basic, missing something, hard to follow..." },
-    q2: { icon: Wrench, label: "What would you like to see improved?", placeholder: "e.g. more real examples, a deeper dive on a section..." },
-    q3: { icon: LifeBuoy, label: "How can we help you further?", placeholder: "e.g. a free consultation, a custom guide for your project..." },
+    q2: IMPROVE_QUESTION,
+    q3: HELP_QUESTION,
   },
 };
+
+function CloseButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label="Close"
+      className="flex items-center justify-center w-9 h-9 rounded-full border border-border/60 bg-white text-foreground/60 hover:border-primary/40 hover:text-primary transition-colors"
+    >
+      <X size={16} />
+    </button>
+  );
+}
 
 function FeedbackModal({ type, onClose, onSubmit }: { type: "like" | "dislike"; onClose: () => void; onSubmit: (answers: Record<string, string>) => void }) {
   const [q1, setQ1] = useState("");
@@ -92,13 +119,7 @@ function FeedbackModal({ type, onClose, onSubmit }: { type: "like" | "dislike"; 
           {done ? (
             <>
               <div className="flex justify-end mb-2">
-                <button
-                  onClick={onClose}
-                  aria-label="Close"
-                  className="flex items-center justify-center w-9 h-9 rounded-full border border-border/60 bg-white text-foreground/60 hover:border-primary/40 hover:text-primary transition-colors"
-                >
-                  <X size={16} />
-                </button>
+                <CloseButton onClick={onClose} />
               </div>
               <div className="flex flex-col items-center text-center py-6 animate-in fade-in zoom-in duration-500">
                 <CheckCircle2 size={48} className="text-primary mb-4" />
@@ -112,13 +133,7 @@ function FeedbackModal({ type, onClose, onSubmit }: { type: "like" | "dislike"; 
                 <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${text.iconClass}`}>
                   <HeaderIcon size={20} />
                 </div>
-                <button
-                  onClick={onClose}
-                  aria-label="Close"
-                  className="flex items-center justify-center w-9 h-9 rounded-full border border-border/60 bg-white text-foreground/60 hover:border-primary/40 hover:text-primary transition-colors"
-                >
-                  <X size={16} />
-                </button>
+                <CloseButton onClick={onClose} />
               </div>
               <h3 className="text-xl font-heading font-bold mb-1.5">{text.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">{text.subtitle}</p>
@@ -173,27 +188,15 @@ export function ArticleFeedback({ slug }: { slug: string }) {
   }, [slug]);
 
   const handleVote = (choice: "like" | "dislike") => {
-    const wasSameVote = feedback.vote === choice;
+    const isNewVote = feedback.vote !== choice;
 
     setFeedback((prev) => {
-      let { likes, dislikes, vote } = prev;
-
-      if (vote === choice) {
-        if (choice === "like") likes -= 1; else dislikes -= 1;
-        vote = null;
-      } else {
-        if (vote === "like") likes -= 1;
-        if (vote === "dislike") dislikes -= 1;
-        if (choice === "like") likes += 1; else dislikes += 1;
-        vote = choice;
-      }
-
-      const next = { vote, likes: Math.max(0, likes), dislikes: Math.max(0, dislikes) };
+      const next = applyVote(prev, choice);
       saveFeedback(slug, next);
       return next;
     });
 
-    if (!wasSameVote) {
+    if (isNewVote) {
       setBurst(choice);
       setTimeout(() => setBurst(null), 600);
       setModalType(choice);

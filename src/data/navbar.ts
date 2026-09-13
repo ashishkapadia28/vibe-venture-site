@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import rawData from "./navbar.json";
 import { services } from "./services";
 import { navIcons } from "./navIcons";
+import { resolveIcon } from "./resolveIcon";
 
 type IconComponent = ComponentType<{ size?: number; className?: string; strokeWidth?: number }>;
 
@@ -78,14 +79,6 @@ interface RawNavItem {
   dropdown?: RawDropdownItem[];
 }
 
-function resolveNavIcon(name: string): IconComponent {
-  const icon = navIcons[name];
-  if (!icon) {
-    throw new Error(`Unknown nav icon "${name}" in navbar.json — add it to navIcons.ts`);
-  }
-  return icon;
-}
-
 function resolveCategoryItem(item: RawCategoryItem): NavCategoryItem {
   const service = services.find((s) => s.slug === item.serviceSlug);
   if (!service) {
@@ -133,7 +126,7 @@ export const navItems: NavItem[] = (rawData.navItems as RawNavItem[])
           type: "categories",
           categories: item.megaMenu.categories.map((category) => ({
             label: category.label,
-            icon: resolveNavIcon(category.icon),
+            icon: resolveIcon(navIcons, category.icon, "navbar.json", "navIcons.ts"),
             items: category.items.map(resolveCategoryItem),
           })),
         };
@@ -144,7 +137,7 @@ export const navItems: NavItem[] = (rawData.navItems as RawNavItem[])
           items: item.megaMenu.items.map((menuItem) => ({
             name: menuItem.name,
             href: menuItem.href,
-            icon: resolveNavIcon(menuItem.icon),
+            icon: resolveIcon(navIcons, menuItem.icon, "navbar.json", "navIcons.ts"),
             image: menuItem.image,
           })),
         };
@@ -155,7 +148,7 @@ export const navItems: NavItem[] = (rawData.navItems as RawNavItem[])
       resolved.dropdown = item.dropdown.map((dropItem) => ({
         name: dropItem.name,
         href: dropItem.href,
-        icon: resolveNavIcon(dropItem.icon),
+        icon: resolveIcon(navIcons, dropItem.icon, "navbar.json", "navIcons.ts"),
       }));
     }
 

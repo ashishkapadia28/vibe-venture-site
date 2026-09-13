@@ -40,6 +40,7 @@ export function BlogsListing({ blogs }: { blogs: Blog[] }) {
               value={query}
               onChange={(e) => { setQuery(e.target.value); setVisibleCount(PAGE_SIZE); }}
               placeholder="Search articles..."
+              aria-label="Search articles"
               className="w-full bg-white border border-border/60 shadow-sm rounded-xl pl-11 pr-4 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-foreground/50"
             />
           </div>

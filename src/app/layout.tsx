@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SmoothScrolling } from "@/components/SmoothScrolling";
-import { CookieConsent } from "@/components/CookieConsent";
 import { Analytics } from "@/components/Analytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+// The banner only ever appears after a delayed check for an existing
+// consent choice, so it doesn't need to be in every page's initial bundle.
+const CookieConsent = dynamic(() => import("@/components/CookieConsent").then((m) => m.CookieConsent));
 
 const inter = Inter({
   variable: "--font-inter",

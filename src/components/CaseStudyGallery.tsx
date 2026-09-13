@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import Image from "next/image";
 
 const AUTO_SCROLL_SPEED = 0.5; // px per frame — smooth, not fast
@@ -9,7 +9,7 @@ export function CaseStudyGallery({ images, title }: { images: string[]; title: s
   const scrollRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
 
-  const loopImages = images.length > 1 ? [...images, ...images] : images;
+  const loopImages = useMemo(() => (images.length > 1 ? [...images, ...images] : images), [images]);
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     const el = scrollRef.current;

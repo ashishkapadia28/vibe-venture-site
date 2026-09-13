@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -60,7 +61,7 @@ export default function PrivacyPolicyPage() {
                   <h2 className="text-2xl font-heading font-bold mb-3">4. Cookies &amp; Tracking</h2>
                   <p className="text-foreground/70 leading-relaxed">
                     We use strictly necessary cookies to run the site, and — only with your consent, managed through the cookie banner — analytics cookies (Google Analytics) and marketing cookies (Meta Pixel). See our{" "}
-                    <a href="/cookies" className="text-primary hover:underline underline-offset-4">Cookie Policy</a> for details and how to change your preferences at any time.
+                    <Link href="/cookies" className="text-primary hover:underline underline-offset-4">Cookie Policy</Link> for details and how to change your preferences at any time.
                   </p>
                 </div>
 

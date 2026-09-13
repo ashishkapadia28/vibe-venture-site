@@ -4,17 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie, ChevronDown } from "lucide-react";
-import { cookieBanner, cookieModal, cookieCategories, type CookieItem } from "@/data/cookieConsent";
+import { cookieBanner, cookieModal, cookieCategories, type CookieCategory, type CookieItem } from "@/data/cookieConsent";
 
 type Decision = "accept_all" | "reject_all" | "custom";
 type Preferences = Record<string, boolean>;
 
-function defaultPreferences(): Preferences {
-  return Object.fromEntries(cookieCategories.map((c) => [c.key, true]));
-}
+const SECONDARY_BTN = "text-sm font-semibold text-foreground/70 hover:text-foreground bg-white border border-border/60 hover:border-primary/40 transition-colors rounded-full";
+const PRIMARY_BTN = "text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all rounded-full shadow-sm";
 
-function allOffPreferences(): Preferences {
-  return Object.fromEntries(cookieCategories.map((c) => [c.key, c.alwaysActive]));
+function buildPreferences(pick: (category: CookieCategory) => boolean): Preferences {
+  return Object.fromEntries(cookieCategories.map((c) => [c.key, pick(c)]));
 }
 
 async function logConsent(decision: Decision, preferences: Preferences) {
@@ -120,7 +119,10 @@ function CookieAccordion({
 export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
   const [showManageModal, setShowManageModal] = useState(false);
-  const [preferences, setPreferences] = useState<Preferences>(defaultPreferences);
+  // Opt-out by default — only Strictly Necessary starts checked. Analytics
+  // and Marketing must be actively turned on before "Save Preferences" can
+  // count as consent for them.
+  const [preferences, setPreferences] = useState<Preferences>(() => buildPreferences((c) => c.alwaysActive));
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
@@ -140,8 +142,8 @@ export function CookieConsent() {
     logConsent(decision, prefs);
   };
 
-  const handleAcceptAll = () => saveConsent("accept_all", defaultPreferences());
-  const handleRejectAll = () => saveConsent("reject_all", allOffPreferences());
+  const handleAcceptAll = () => saveConsent("accept_all", buildPreferences(() => true));
+  const handleRejectAll = () => saveConsent("reject_all", buildPreferences((c) => c.alwaysActive));
   const handleSavePreferences = () => saveConsent("custom", preferences);
 
   useEffect(() => {
@@ -187,19 +189,19 @@ export function CookieConsent() {
               <div className="flex items-center gap-2.5 w-full md:w-auto shrink-0 flex-wrap">
                 <button
                   onClick={() => setShowManageModal(true)}
-                  className="flex-1 md:flex-none px-5 py-2.5 text-sm font-semibold text-foreground/70 hover:text-foreground bg-white border border-border/60 hover:border-primary/40 transition-colors rounded-full"
+                  className={`flex-1 md:flex-none px-5 py-2.5 ${SECONDARY_BTN}`}
                 >
                   Manage
                 </button>
                 <button
                   onClick={handleRejectAll}
-                  className="flex-1 md:flex-none px-5 py-2.5 text-sm font-semibold text-foreground/70 hover:text-foreground bg-white border border-border/60 hover:border-primary/40 transition-colors rounded-full"
+                  className={`flex-1 md:flex-none px-5 py-2.5 ${SECONDARY_BTN}`}
                 >
                   Reject All
                 </button>
                 <button
                   onClick={handleAcceptAll}
-                  className="flex-1 md:flex-none px-6 py-2.5 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all rounded-full shadow-sm"
+                  className={`flex-1 md:flex-none px-6 py-2.5 ${PRIMARY_BTN}`}
                 >
                   Accept All
                 </button>
@@ -243,19 +245,19 @@ export function CookieConsent() {
               <div className="p-4 md:p-6 bg-background border-t border-border/50 flex flex-col sm:flex-row items-center justify-end gap-3 shrink-0">
                 <button
                   onClick={handleRejectAll}
-                  className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold text-foreground/70 hover:text-foreground bg-white border border-border/60 hover:border-primary/40 transition-colors rounded-full"
+                  className={`w-full sm:w-auto px-5 py-2.5 ${SECONDARY_BTN}`}
                 >
                   Reject All
                 </button>
                 <button
                   onClick={handleAcceptAll}
-                  className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold text-foreground/70 hover:text-foreground bg-white border border-border/60 hover:border-primary/40 transition-colors rounded-full"
+                  className={`w-full sm:w-auto px-5 py-2.5 ${SECONDARY_BTN}`}
                 >
                   Accept All
                 </button>
                 <button
                   onClick={handleSavePreferences}
-                  className="w-full sm:w-auto px-6 py-2.5 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all rounded-full shadow-sm"
+                  className={`w-full sm:w-auto px-6 py-2.5 ${PRIMARY_BTN}`}
                 >
                   Save Preferences
                 </button>
