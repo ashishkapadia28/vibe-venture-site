@@ -7,6 +7,7 @@ import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, ImageOff, ArrowRight } from "lucide-react";
 import { navItems } from "@/data/navbar";
 import { cn } from "@/lib/utils";
+import { LaunchAnnouncementBar } from "./LaunchAnnouncementBar";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -45,8 +46,10 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/90 backdrop-blur-md py-6 border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     >
+      <LaunchAnnouncementBar />
+      <div className="bg-background/90 backdrop-blur-md py-6 border-b border-border/50">
       <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between">
         <div className="flex-1 flex justify-start">
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity relative z-50">
@@ -216,6 +219,7 @@ export function Navbar() {
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+      </div>
       </div>
 
       {/* Mobile Menu */}

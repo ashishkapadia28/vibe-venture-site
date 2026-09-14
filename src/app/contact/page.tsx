@@ -14,7 +14,7 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 pt-32 pb-24 bg-background relative z-10 overflow-hidden min-h-screen flex items-center">
+      <main className="flex-1 pt-42 pb-24 bg-background relative z-10 overflow-hidden min-h-screen flex items-center">
 
         {/* Subtle Background Glows */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[140px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />

@@ -14,7 +14,7 @@ export default function TermsOfServicePage() {
     <>
       <Navbar />
       <main className="flex-1 bg-background" id="terms-of-service">
-        <section className="relative pt-32 pb-24 overflow-hidden">
+        <section className="relative pt-42 pb-24 overflow-hidden">
           {/* Background gradient blobs */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2" />

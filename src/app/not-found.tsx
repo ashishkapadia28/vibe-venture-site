@@ -11,7 +11,7 @@ export default function NotFound() {
     <>
       <Navbar />
       <main className="flex-1 bg-background" id="not-found">
-        <section className="relative pt-32 pb-0 overflow-hidden min-h-screen flex flex-col justify-center">
+        <section className="relative pt-42 pb-0 overflow-hidden min-h-screen flex flex-col justify-center">
           {/* Background Gradients */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2" />

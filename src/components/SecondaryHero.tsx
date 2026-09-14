@@ -19,7 +19,7 @@ interface SecondaryHeroProps {
 
 export function SecondaryHero({ eyebrow, title, subtitle, ctas = [] }: SecondaryHeroProps) {
   return (
-    <section className="relative pt-32 pb-16 overflow-hidden bg-background flex flex-col justify-center border-b border-border/60">
+    <section className="relative pt-42 pb-16 overflow-hidden bg-background flex flex-col justify-center border-b border-border/60">
       {/* Diagonal glow — asymmetric, distinct from the primary hero's centered dome */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute -top-24 -left-24 w-100 h-100 bg-primary/15 rounded-full blur-[110px]" />

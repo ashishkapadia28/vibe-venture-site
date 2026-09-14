@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "./AnimatedSection";
+import { ConfettiBurst } from "./ConfettiBurst";
 import Link from "next/link";
 import Image from "next/image";
 import { Star } from "lucide-react";
@@ -48,7 +49,8 @@ export function Hero({
   showTrustWidget = true,
 }: HeroProps) {
   return (
-    <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-screen flex flex-col justify-center bg-linear-to-b from-primary/10 via-background to-background">
+    <section className="relative pt-42 pb-24 lg:pt-50 lg:pb-32 overflow-hidden min-h-screen flex flex-col justify-center bg-linear-to-b from-primary/10 via-background to-background">
+      <ConfettiBurst />
       {/* Abstract low-opacity background elements */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('/Images/dots_pattern.png')] bg-cover bg-center"
