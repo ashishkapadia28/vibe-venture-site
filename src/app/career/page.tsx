@@ -3,10 +3,11 @@ import { SecondaryHero } from "@/components/SecondaryHero";
 import { Footer } from "@/components/Footer";
 import { CTA } from "@/components/CTA";
 import { OpenPositions } from "@/components/OpenPositions";
-import { TrackApplication } from "@/components/TrackApplication";
-import { jobs } from "@/data/jobs";
+import { getJobs } from "@/data/jobs";
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  const jobs = await getJobs();
+
   return (
     <>
       <Navbar />
@@ -25,8 +26,6 @@ export default function CareersPage() {
         />
 
         <OpenPositions openRoles={jobs} />
-
-        <TrackApplication />
 
         <CTA />
       </main>

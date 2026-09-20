@@ -1,12 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Script from "next/script";
 import { CheckCircle2, Loader2, UploadCloud, FileText, X } from "lucide-react";
 import type { Job } from "@/data/jobs";
 
 const inputClass = "w-full bg-background border border-border/60 shadow-sm rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-sm placeholder:text-muted-foreground/50";
 const labelClass = "text-sm font-semibold text-foreground/90";
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+// Window.turnstile's type is already declared globally in ContactForm.tsx.
 
 function FileUploadField({
   label,
@@ -94,11 +97,24 @@ export function JobApplicationForm({ job }: { job: Job }) {
   const [coverLetterError, setCoverLetterError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [trackingId, setTrackingId] = useState('');
   const [error, setError] = useState('');
   const [experienceType, setExperienceType] = useState<'Fresher' | 'Experienced'>('Fresher');
   const [expYears, setExpYears] = useState('');
   const [expMonths, setExpMonths] = useState('');
+
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileReady, setTurnstileReady] = useState(false);
+
+  useEffect(() => {
+    if (!turnstileReady || !TURNSTILE_SITE_KEY || !turnstileRef.current || !window.turnstile) return;
+    window.turnstile.render(turnstileRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      theme: "light",
+      callback: (token: string) => setTurnstileToken(token),
+      "expired-callback": () => setTurnstileToken(""),
+    });
+  }, [turnstileReady]);
 
   const handleApplySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,6 +125,11 @@ export function JobApplicationForm({ job }: { job: Job }) {
     setResumeError(missingResume ? 'Resume is required.' : '');
     setCoverLetterError(missingCoverLetter ? 'Cover letter is required.' : '');
     if (missingResume || missingCoverLetter) return;
+
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setError('Please complete the verification check.');
+      return;
+    }
 
     setIsSubmitting(true);
 
@@ -122,19 +143,21 @@ export function JobApplicationForm({ job }: { job: Job }) {
       payload.append('experience', experienceType === 'Fresher' ? 'Fresher' : `${expYears || '0'} Years, ${expMonths || '0'} Months`);
       if (resume) payload.append('resume', resume);
       if (coverLetter) payload.append('cover_letter', coverLetter);
+      if (turnstileToken) payload.append('turnstileToken', turnstileToken);
 
       const res = await fetch(`/api/applications`, {
         method: "POST",
         body: payload,
       });
 
-      if (!res.ok) throw new Error("Failed to submit application");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to submit application");
+      }
 
-      const data = await res.json();
-      setTrackingId(data.trackingId || '');
       setIsSuccess(true);
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -150,19 +173,20 @@ export function JobApplicationForm({ job }: { job: Job }) {
         <p className="text-muted-foreground text-sm max-w-sm">
           Thank you for applying to {job.title}. Our team will review your application and get back to you shortly.
         </p>
-        {trackingId && (
-          <div className="flex flex-col items-center gap-1.5 bg-primary/5 border border-primary/20 rounded-xl px-6 py-4">
-            <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground">Your Application ID</span>
-            <span className="text-lg font-heading font-bold text-primary">{trackingId}</span>
-            <span className="text-xs text-muted-foreground">Save this to track your application status.</span>
-          </div>
-        )}
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleApplySubmit} className="space-y-6">
+    <>
+      {TURNSTILE_SITE_KEY && (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onLoad={() => setTurnstileReady(true)}
+        />
+      )}
+      <form onSubmit={handleApplySubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className={labelClass}>
@@ -301,6 +325,8 @@ export function JobApplicationForm({ job }: { job: Job }) {
         />
       </div>
 
+      {TURNSTILE_SITE_KEY && <div ref={turnstileRef} />}
+
       {error && (
         <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md">
           {error}
@@ -324,6 +350,7 @@ export function JobApplicationForm({ job }: { job: Job }) {
       <p className="text-center text-xs text-muted-foreground">
         By submitting this application, you agree to our privacy policy.
       </p>
-    </form>
+      </form>
+    </>
   );
 }

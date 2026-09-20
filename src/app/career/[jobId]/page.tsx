@@ -3,19 +3,19 @@ import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { JobApplicationForm } from "@/components/JobApplicationForm";
-import { jobs } from "@/data/jobs";
+import { getJobById } from "@/data/jobs";
 import { ArrowLeft, Briefcase, MapPin, Clock, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-export function generateStaticParams() {
-  return jobs.map((job) => ({ jobId: job.id }));
-}
+// Job postings are managed through the admin panel now, so the set of valid
+// jobId values isn't known at build time — this page renders per-request
+// (with the 60s fetch cache in getJobs) instead of being statically generated.
 
 export async function generateMetadata({ params }: { params: Promise<{ jobId: string }> }): Promise<Metadata> {
   const { jobId } = await params;
-  const job = jobs.find((j) => j.id === jobId);
+  const job = await getJobById(jobId);
   if (!job) return { title: "Apply | Vibe Venture" };
 
   return {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ jobId: st
 
 export default async function JobApplicationPage({ params }: { params: Promise<{ jobId: string }> }) {
   const { jobId } = await params;
-  const job = jobs.find((j) => j.id === jobId);
+  const job = await getJobById(jobId);
 
   if (!job) notFound();
 
